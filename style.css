@@ -1,0 +1,15 @@
+.bod{
+    background-color: rgb(0, 106, 255);
+    width: 100%;
+    flex-direction: row;
+    justify-content:space-between;
+    display: inline-flex;
+    padding: 6px;
+    
+}
+.navi{
+    text-decoration: none;
+    color: white;
+    border-radius: 6px;
+    border: 2px solid white;
+}
