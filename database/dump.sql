@@ -1,3 +1,5 @@
+-- Active: 1676037260035@@34.155.23.247@3306@webdata
+
 SET FOREIGN_KEY_CHECKS = 0;
 
 SET GROUP_CONCAT_MAX_LEN=32768;
@@ -26,7 +28,7 @@ SET FOREIGN_KEY_CHECKS = 1;
 
 CREATE TABLE
     person(
-        id_person INT,
+        id_person INT AUTO_INCREMENT,
         email VARCHAR(50),
         password VARCHAR(50),
         role VARCHAR(50),
@@ -35,7 +37,7 @@ CREATE TABLE
 
 CREATE TABLE
     company(
-        id_company INT,
+        id_company INT AUTO_INCREMENT,
         name VARCHAR(50),
         active BOOLEAN,
         PRIMARY KEY(id_company)
@@ -43,14 +45,14 @@ CREATE TABLE
 
 CREATE TABLE
     activity(
-        id_activity INT,
+        id_activity INT AUTO_INCREMENT,
         name VARCHAR(50),
         PRIMARY KEY(id_activity)
     );
 
 CREATE TABLE
     city(
-        id_city INT,
+        id_city INT AUTO_INCREMENT,
         name VARCHAR(50),
         code INT,
         PRIMARY KEY(id_city)
@@ -58,7 +60,7 @@ CREATE TABLE
 
 CREATE TABLE
     address(
-        id_address INT,
+        id_address INT AUTO_INCREMENT,
         name VARCHAR(50),
         id_city INT NOT NULL,
         PRIMARY KEY(id_address),
@@ -67,7 +69,7 @@ CREATE TABLE
 
 CREATE TABLE
     localities(
-        id_localities INT,
+        id_localities INT AUTO_INCREMENT,
         id_address INT NOT NULL,
         id_company INT NOT NULL,
         PRIMARY KEY(id_localities),
@@ -77,7 +79,7 @@ CREATE TABLE
 
 CREATE TABLE
     campus(
-        id_campus INT,
+        id_campus INT AUTO_INCREMENT,
         name VARCHAR(50),
         id_address INT NOT NULL,
         PRIMARY KEY(id_campus),
@@ -86,7 +88,7 @@ CREATE TABLE
 
 CREATE TABLE
     prom(
-        id_prom INT,
+        id_prom INT AUTO_INCREMENT,
         name VARCHAR(50),
         id_campus INT NOT NULL,
         PRIMARY KEY(id_prom),
@@ -95,7 +97,7 @@ CREATE TABLE
 
 CREATE TABLE
     offer(
-        id_offer INT,
+        id_offer INT AUTO_INCREMENT,
         name VARCHAR(50),
         active BOOLEAN,
         startdate DATE,
