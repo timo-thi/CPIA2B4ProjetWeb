@@ -136,7 +136,7 @@ CREATE TABLE
         id_offer INT,
         cv VARCHAR(50),
         motivation VARCHAR(50),
-        progress VARCHAR(50),
+        progress BOOLEAN,
         PRIMARY KEY(id_person, id_offer),
         FOREIGN KEY(id_person) REFERENCES person(id_person),
         FOREIGN KEY(id_offer) REFERENCES offer(id_offer)
