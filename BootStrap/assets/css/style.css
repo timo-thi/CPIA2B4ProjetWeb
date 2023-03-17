@@ -38,6 +38,13 @@
 
 }
 
+.di{
+  border: red solid 1px;
+}
+.dib{
+  border: rgb(17, 0, 255) solid 1px;
+}
+
 
 
 .layer {
