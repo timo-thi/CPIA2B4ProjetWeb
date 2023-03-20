@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    /*background-color: hsl(240deg, 10%, 90%);*/
+    background-color: #2C2C2C;
+    
+    overflow: hidden;
+  }
+  
+  .layer {
+    transform: rotate(45deg);
+    width: min(60vw, 80vh);
+    
+    aspect-ratio: 1 / 1;
+    /*background-color: hsla(0deg, 0%, 0%, 20%);*/
+    background-color: hsla(0, 6%, 84%, 0.2);
+    position: relative;
+  /* animation:
+      12s spin infinite ease-in-out alternate,
+      48s move infinite ease-out; */
+    animation:
+      5s spin infinite ease-in-out alternate;
+    overflow: hidden;
+    border-radius: 100% 0;
+  }
+  
+  .layer > .layer {
+    top: calc(50% + var(--posY));
+    left: calc(50% + var(--posX));
+    width: 90%;
+    height: 90%;
+    transform: translate(-50%, -50%) rotate(var(--rot));
+  }
+  
+  @property --rot {
+    syntax: "<angle>";
+    inherits: true;
+    initial-value: 3deg;
+  }
+  
+  @property --posX {
+    syntax: "<percentage>";
+    inherits: true;
+    initial-value: 0%;
+  }
+  
+  @property --posY {
+    syntax: "<percentage>";
+    inherits: true;
+    initial-value: 0%;
+  }
+  
+  @keyframes spin {
+    0% { --rot: -32deg; }
+    100% { --rot: 32deg; }
+  }
+  
+  @keyframes move {
+    0%, 100% {
+      --posX: 0%;
+      --posY: 0%;
+    }
+    20% {
+      --posX: -5%;
+      --posY: -5%;
+    }
+    40% {
+      --posX: 5%;
+      --posY: -5%;
+    }
+    60% {
+      --posX: 5%;
+      --posY: 5%;
+    }
+    80% {
+      --posX: -5%;
+      --posY: 5%;
+    }
+  }
