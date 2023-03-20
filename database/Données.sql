@@ -148,6 +148,13 @@ CREATE TABLE
         name VARCHAR(50) NOT NULL
     );
 
+-- Create table postulate progress steps
+CREATE TABLE postulate_progress_steps(
+   id_progress_state INT,
+   name VARCHAR(50) ,
+   PRIMARY KEY(id_progress_state),
+   UNIQUE(name)
+);
 -- Insert data into skills
 
 INSERT INTO skills (name)
@@ -205,7 +212,6 @@ INSERT INTO skills (name)
 VALUES ('Java'), ('Python'), ('SQL'), ('Marketing digital'), ('Gestion de projet'), ('Anglais');
 
 -- Insertion des données dans la table postulate_progress_steps
-
 INSERT INTO
     postulate_progress_steps (name)
 VALUES ('CV reçu'), ('Présélection'), ('Entretien téléphonique'), ('Entretien en personne'), ('Offre faite'), ('Acceptée'), ('Refusée');
