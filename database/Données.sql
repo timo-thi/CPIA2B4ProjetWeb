@@ -1,3 +1,31 @@
+drop table if exists company;
+
+drop table if exists profile;
+
+drop table if exists activity;
+
+drop table if exists city;
+
+drop table if exists address;
+
+drop table if exists localities;
+
+drop table if exists campus;
+
+drop table if exists skills;
+
+drop table if exists postulate_progress_steps;
+
+drop table if exists person;
+
+drop table if exists prom;
+
+drop table if exists offer;
+
+drop table if exists candidature;
+
+drop table if exists affiliated;
+
 -- Create table profile
 
 CREATE TABLE
@@ -149,99 +177,112 @@ CREATE TABLE
     );
 
 -- Create table postulate progress steps
-CREATE TABLE postulate_progress_steps(
-   id_progress_state INT AUTO_INCREMENT PRIMARY KEY,
-   name VARCHAR(50),
-   UNIQUE(name)
-);
+
+CREATE TABLE
+    postulate_progress_steps(
+        id_progress_state INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(50),
+        UNIQUE(name)
+    );
 
 -- Create table person
-CREATE TABLE person(
-   id_person INT AUTO_INCREMENT PRIMARY KEY,
-   email VARCHAR(100) ,
-   password VARCHAR(100) ,
-   id_profile INT,
-   FOREIGN KEY(id_profile) REFERENCES profile(id_profile)
-);
 
--- Create table prom 
-CREATE TABLE prom(
-   id_prom INT AUTO_INCREMENT PRIMARY KEY,
-   name VARCHAR(50) ,
-   id_campus INT NOT NULL,
-   FOREIGN KEY(id_campus) REFERENCES campus(id_campus)
-);
+CREATE TABLE
+    person(
+        id_person INT AUTO_INCREMENT PRIMARY KEY,
+        email VARCHAR(100),
+        password VARCHAR(100),
+        id_profile INT,
+        FOREIGN KEY(id_profile) REFERENCES profile(id_profile)
+    );
 
-CREATE TABLE offer(
-   id_offer INT AUTO_INCREMENT PRIMARY KEY,
-   name VARCHAR(50) ,
-   active BOOLEAN,
-   startdate DATE,
-   period VARCHAR(50) ,
-   amount VARCHAR(50) ,
-   wage VARCHAR(50) ,
-   comment VARCHAR(500) ,
-   contact_mail VARCHAR(100) ,
-   telphone VARCHAR(15) ,
-   id_localities INT NOT NULL,
-   id_activity INT NOT NULL,
-   FOREIGN KEY(id_localities) REFERENCES localities(id_localities),
-   FOREIGN KEY(id_activity) REFERENCES activity(id_activity)
-);
+-- Create table prom
 
-CREATE TABLE candidature(
-   id_candidature INT AUTO_INCREMENT PRIMARY KEY,
-   send_date DATETIME,
-   id_progress_state INT NOT NULL,
-   id_profile INT NOT NULL,
-   id_offer INT NOT NULL,
-   FOREIGN KEY(id_progress_state) REFERENCES postulate_progress_steps(id_progress_state),
-   FOREIGN KEY(id_profile) REFERENCES profile(id_profile),
-   FOREIGN KEY(id_offer) REFERENCES offer(id_offer)
-);
+CREATE TABLE
+    prom(
+        id_prom INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(50),
+        id_campus INT NOT NULL,
+        FOREIGN KEY(id_campus) REFERENCES campus(id_campus)
+    );
 
-CREATE TABLE affiliated(
-   id_profile INT,
-   id_prom INT,
-   PRIMARY KEY(id_profile, id_prom),
-   FOREIGN KEY(id_profile) REFERENCES profile(id_profile),
-   FOREIGN KEY(id_prom) REFERENCES prom(id_prom)
-);
+CREATE TABLE
+    offer(
+        id_offer INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(50),
+        active BOOLEAN,
+        startdate DATE,
+        period VARCHAR(50),
+        amount VARCHAR(50),
+        wage VARCHAR(50),
+        comment VARCHAR(500),
+        contact_mail VARCHAR(100),
+        telphone VARCHAR(15),
+        id_localities INT NOT NULL,
+        id_activity INT NOT NULL,
+        FOREIGN KEY(id_localities) REFERENCES localities(id_localities),
+        FOREIGN KEY(id_activity) REFERENCES activity(id_activity)
+    );
 
-CREATE TABLE sector(
-   id_company INT,
-   id_activity INT,
-   PRIMARY KEY(id_company, id_activity),
-   FOREIGN KEY(id_company) REFERENCES company(id_company),
-   FOREIGN KEY(id_activity) REFERENCES activity(id_activity)
-);
+CREATE TABLE
+    candidature(
+        id_candidature INT AUTO_INCREMENT PRIMARY KEY,
+        send_date DATETIME,
+        id_progress_state INT NOT NULL,
+        id_profile INT NOT NULL,
+        id_offer INT NOT NULL,
+        FOREIGN KEY(id_progress_state) REFERENCES postulate_progress_steps(id_progress_state),
+        FOREIGN KEY(id_profile) REFERENCES profile(id_profile),
+        FOREIGN KEY(id_offer) REFERENCES offer(id_offer)
+    );
 
-CREATE TABLE wish(
-   id_profile INT,
-   id_offer INT,
-   PRIMARY KEY(id_profile, id_offer),
-   FOREIGN KEY(id_profile) REFERENCES profile(id_profile),
-   FOREIGN KEY(id_offer) REFERENCES offer(id_offer)
-);
+CREATE TABLE
+    affiliated(
+        id_profile INT,
+        id_prom INT,
+        PRIMARY KEY(id_profile, id_prom),
+        FOREIGN KEY(id_profile) REFERENCES profile(id_profile),
+        FOREIGN KEY(id_prom) REFERENCES prom(id_prom)
+    );
 
-CREATE TABLE rate(
-   id_profile INT,
-   id_company INT,
-   rating INT,
-   comment VARCHAR(500) ,
-   PRIMARY KEY(id_profile, id_company),
-   FOREIGN KEY(id_profile) REFERENCES profile(id_profile),
-   FOREIGN KEY(id_company) REFERENCES company(id_company)
-);
+CREATE TABLE
+    sector(
+        id_company INT,
+        id_activity INT,
+        PRIMARY KEY(id_company, id_activity),
+        FOREIGN KEY(id_company) REFERENCES company(id_company),
+        FOREIGN KEY(id_activity) REFERENCES activity(id_activity)
+    );
 
-CREATE TABLE requires(
-   id_offer INT,
-   id_skill INT,
-   level INT NOT NULL,
-   PRIMARY KEY(id_offer, id_skill),
-   FOREIGN KEY(id_offer) REFERENCES offer(id_offer),
-   FOREIGN KEY(id_skill) REFERENCES skills(id_skill)
-);
+CREATE TABLE
+    wish(
+        id_profile INT,
+        id_offer INT,
+        PRIMARY KEY(id_profile, id_offer),
+        FOREIGN KEY(id_profile) REFERENCES profile(id_profile),
+        FOREIGN KEY(id_offer) REFERENCES offer(id_offer)
+    );
+
+CREATE TABLE
+    rate(
+        id_profile INT,
+        id_company INT,
+        rating INT,
+        comment VARCHAR(500),
+        PRIMARY KEY(id_profile, id_company),
+        FOREIGN KEY(id_profile) REFERENCES profile(id_profile),
+        FOREIGN KEY(id_company) REFERENCES company(id_company)
+    );
+
+CREATE TABLE
+    requires(
+        id_offer INT,
+        id_skill INT,
+        level INT NOT NULL,
+        PRIMARY KEY(id_offer, id_skill),
+        FOREIGN KEY(id_offer) REFERENCES offer(id_offer),
+        FOREIGN KEY(id_skill) REFERENCES skills(id_skill)
+    );
 
 -- Insert data into skills
 
@@ -300,6 +341,7 @@ INSERT INTO skills (name)
 VALUES ('Java'), ('Python'), ('SQL'), ('Marketing digital'), ('Gestion de projet'), ('Anglais');
 
 -- Insertion des données dans la table postulate_progress_steps
+
 INSERT INTO
     postulate_progress_steps (name)
 VALUES ('CV reçu'), ('Présélection'), ('Entretien téléphonique'), ('Entretien en personne'), ('Offre faite'), ('Acceptée'), ('Refusée');
@@ -505,7 +547,9 @@ VALUES (1, 1, 4, 'Bonne entreprise'), (
         4,
         'Entreprise exceptionnelle, je suis très satisfait(e) de mon expérience'
     );
-    -- Insertion de données dans la table `requires`
+
+-- Insertion de données dans la table `requires`
+
 INSERT INTO
     requires (id_offer, id_skill, level)
 VALUES (1, 1, 3), (1, 3, 2), (2, 2, 1), (2, 3, 3), (3, 1, 2), (3, 2, 1), (4, 4, 3), (4, 2, 2), (5, 1, 1), (5, 5, 2);
