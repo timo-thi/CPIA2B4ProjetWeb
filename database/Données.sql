@@ -150,9 +150,8 @@ CREATE TABLE
 
 -- Create table postulate progress steps
 CREATE TABLE postulate_progress_steps(
-   id_progress_state INT,
-   name VARCHAR(50) ,
-   PRIMARY KEY(id_progress_state),
+   id_progress_state INT AUTO_INCREMENT PRIMARY KEY,
+   name VARCHAR(50),
    UNIQUE(name)
 );
 -- Insert data into skills
