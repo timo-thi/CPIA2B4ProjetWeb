@@ -1,3 +1,13 @@
+-- Drop database if exists
+
+Drop database if exists web;
+
+create database web;
+
+use web;
+
+
+-- Drop tables if exists
 drop table if exists company;
 
 drop table if exists profile;
