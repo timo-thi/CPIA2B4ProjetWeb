@@ -20,6 +20,11 @@
     background:#2C2C2C;
 }
 
+.border-sombre{
+  border-color:#2C2C2C;
+  border: solid;
+}
+
 .offre{
   background-color: #fffaf0;
   border-radius: 15px;
@@ -43,4 +48,8 @@
 }
 .dib{
   border: rgb(17, 0, 255) solid 1px;
+}
+
+.barre{
+  width: 1px;
 }
