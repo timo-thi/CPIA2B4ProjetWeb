@@ -1,40 +1,55 @@
--- Drop database if exists
 
-Drop database if exists web;
-
-create database web;
 
 use web;
 
 
 -- Drop tables if exists
-drop table if exists company;
 
-drop table if exists profile;
+drop table if exists wish;
 
-drop table if exists activity;
+drop table if exists requires;
 
-drop table if exists city;
+drop table if exists rate;
 
-drop table if exists address;
-
-drop table if exists localities;
-
-drop table if exists campus;
-
-drop table if exists skills;
-
-drop table if exists postulate_progress_steps;
-
-drop table if exists person;
-
-drop table if exists prom;
-
-drop table if exists offer;
+drop table if exists sector;
 
 drop table if exists candidature;
 
+drop table if exists postulate_progress_steps;
+
+drop table if exists offer;
+
+drop table if exists skills;
+
+drop table if exists localities;
+
+drop table if exists company;
+
+drop table if exists activity;
+
 drop table if exists affiliated;
+
+drop table if exists person;
+
+drop table if exists profile;
+
+drop table if exists prom;
+
+drop table if exists campus;
+
+drop table if exists address;
+
+drop table if exists city;
+
+drop table if exists roles;
+
+-- Create table roles
+
+CREATE TABLE
+    roles(
+        id_roles INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(100)
+    );
 
 -- Create table profile
 
@@ -43,7 +58,8 @@ CREATE TABLE
         id_profile INT AUTO_INCREMENT PRIMARY KEY,
         fname VARCHAR(50),
         lname VARCHAR(50),
-        role VARCHAR(50)
+        id_roles INT NOT NULL,
+        FOREIGN KEY(id_roles) REFERENCES roles(id_roles)
     );
 
 -- Create table company
@@ -236,11 +252,18 @@ CREATE TABLE
         FOREIGN KEY(id_skill) REFERENCES skills(id_skill) ON DELETE CASCADE
     );
 
+-- Insert data into roles
+
+INSERT INTO
+	roles (name)
+VALUES ('admin'), ('pilote'), ('etudiant');
+
+
 -- Insert data into profile
 
 INSERT INTO
-    profile (fname, lname, role)
-VALUES ('John', 'Doe', 'Developer'), ('Jane', 'Doe', 'Designer'), ('Bob', 'Smith', 'Manager'), ('Alice', 'Johnson', 'Intern');
+    profile (fname, lname, id_roles)
+VALUES ('John', 'Doe', 1), ('Jane', 'Doe', 2), ('Bob', 'Smith', 3), ('Alice', 'Johnson', 3), ('Baptiste', 'Quiadelavenne', 2), ('Timothee', 'Quiestduboncote', 1), ('Damian', 'Roulant', 1), ('Elza', 'Quiestduboncote', 1), ('Miriam', 'Tienpond', 1), ('Hubert', 'Lereal', 1);
 
 -- Insert data into activity
 
@@ -369,20 +392,6 @@ VALUES ('Java'), ('Python'), ('SQL'), ('Marketing digital'), ('Gestion de projet
 INSERT INTO
     postulate_progress_steps (name)
 VALUES ('CV reçu'), ('Présélection'), ('Entretien téléphonique'), ('Entretien en personne'), ('Offre faite'), ('Acceptée'), ('Refusée');
-
--- Insertion des données dans la table profile
-
-INSERT INTO
-    profile (fname, lname, role)
-VALUES ('Alice', 'Dupont', 'Etudiante'), ('Bob', 'Martin', 'Etudiant'), (
-        'Camille',
-        'Lefebvre',
-        'Employé'
-    ), ('David', 'Garcia', 'Employé'), (
-        'Emilie',
-        'Dujardin',
-        'Employeur'
-    );
 
 -- Insertion des données dans la table person
 
