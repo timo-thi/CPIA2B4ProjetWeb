@@ -6,9 +6,9 @@
     <meta name="viewport" content="width=
     , initial-scale=1.0">
     <title>Footer</title>
-    <link rel="stylesheet" href="assets/vendors/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/vendors/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../../BootStrap/assets/vendors/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../BootStrap/assets/css/style.css">
+    <link rel="stylesheet" href="../../../BootStrap/assets/vendors/fontawesome/css/all.min.css">
 
 </head>
 

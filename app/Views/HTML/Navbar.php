@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/vendors/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/vendors/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="../../../BootStrap/assets/vendors/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../BootStrap/assets/css/style.css">
+    <link rel="stylesheet" href="../../../BootStrap/assets/vendors/fontawesome/css/all.min.css">
     <title>Navbar</title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg bg-clair">
         <div class="container-fluid">
-            <a class="navbar-brand me-4" href="#"> L'oeil</a>
+            <a class="navbar-brand me-4" href="#">
+                <!-- Add eye icon -->
+                <div class="icon_container container">
+                    <?php require '../logo_oeil/oeil.html'?>
+                </div>
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -56,8 +61,8 @@
             </div>
         </div>
     </nav>
-    <script src="assets/vendors/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="assets/vendors/jquery/jquery.min.js"></script>
+    <script src="../../../BootStrap/assets/vendors/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="../../../BootStrap/assets/vendors/jquery/jquery.min.js"></script>
 </body>
 
 </html>
