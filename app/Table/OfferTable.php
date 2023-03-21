@@ -5,10 +5,10 @@ namespace App\Table;
 use \Core\Table\Table;
 
 
-class PostTable extends Table {
+class OfferTable extends Table {
 
 
-	protected $table = 'articles';
+	protected $table = 'offer';
 
 
 	/**

@@ -53,9 +53,10 @@ class Table {
 		}
 	}
 
-
+	
 	public function all() {
-		return $this->query("SELECT * FROM {$this->table}", null);
+		$proc_name = "SEARCH_".strtoupper($this->table); // SEARCH in any table in database and get all records
+		return $this->query($proc_name, null);
 	}
 
 
