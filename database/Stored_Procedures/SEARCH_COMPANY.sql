@@ -1,3 +1,6 @@
+DROP PROCEDURE IF EXISTS SEARCH_COMPANY;
+DELIMITER //
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SEARCH_COMPANY`()
 BEGIN
 SELECT  company.id_company, company.name, company.link, IFNULL(cesi_accepted, 0) as cesi_accepted FROM company
@@ -9,4 +12,6 @@ SELECT  company.id_company, company.name, company.link, IFNULL(cesi_accepted, 0)
 	left join company on company.id_company = localities.id_company
 	WHERE postulate_progress_steps.name = "Acceptée"
 	GROUP BY localities.id_company) as CESICOUNT ON CESICOUNT.id_company = company.id_company;
-END
+END//
+
+DELIMITER;
