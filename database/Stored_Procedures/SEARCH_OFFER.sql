@@ -8,5 +8,3 @@ BEGIN
 END //
 
 DELIMITER ;
-
-call SEARCH_OFFER();

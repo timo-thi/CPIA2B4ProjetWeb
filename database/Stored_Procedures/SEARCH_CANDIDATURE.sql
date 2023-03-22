@@ -12,6 +12,3 @@ BEGIN
 END //
 
 DELIMITER ;
-
-
-call FIND_CANDIDATURE(2);
