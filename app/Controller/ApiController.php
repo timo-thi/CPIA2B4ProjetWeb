@@ -86,4 +86,10 @@ class ApiController extends AppController {
 		header("HTTP/1.0 404 Not Found");
 		$this->render('api.404');
 	}
+
+
+	public function BadRequest() {
+		header("HTTP/1.0 400 Bad Request");
+		$this->render('api.400');
+	}
 }

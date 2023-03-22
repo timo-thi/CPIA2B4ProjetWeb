@@ -7,12 +7,15 @@ $app = App::getInstance();
 
 $apicontroller = new \App\Controller\ApiController();
 
-if (isset($_GET['t'])) {
-	$args = explode('.', $_GET['t']);
-	if (count($args) > 1) {
-		$action = $args[0];
-		$id = $args[1];
-		return $apicontroller->$action($id);
+try {
+	if (isset($_GET['t'])) {
+		$args = explode('.', $_GET['t']);
+		if (count($args) > 1) {
+			$action = $args[0];
+			$id = $args[1];
+			return $apicontroller->$action($id);
+		}
 	}
+} catch (\Throwable $th) {
+	return $apicontroller->BadRequest();
 }
-return $apicontroller->NotFound();
