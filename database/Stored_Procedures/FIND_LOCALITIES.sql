@@ -1,8 +1,8 @@
-DROP PROCEDURE IF EXISTS SEARCH_LOCALITIES;
+DROP PROCEDURE IF EXISTS FIND_LOCALITIES;
 
 DELIMITER //
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SEARCH_LOCALITIES`(p_id_company INT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `FIND_LOCALITIES`(p_id_company INT)
 BEGIN
 	select city.name as city, city.zipcode, address.name as street, address.number, address.comment
 	from city
