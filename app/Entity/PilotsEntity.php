@@ -4,7 +4,7 @@ namespace App\Entity;
 use Core\Entity\Entity;
 
 
-class ProfileEntity extends Entity {
+class PilotsEntity extends Entity {
 	
 	
 	public $promos = [];

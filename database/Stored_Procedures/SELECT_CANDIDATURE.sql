@@ -1,7 +1,10 @@
 DROP PROCEDURE IF EXISTS SELECT_CANDIDATURE;
-DELIMITER//
+
+DELIMITER //
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SELECT_CANDIDATURE`()
 BEGIN
-select * from candidature;
-END//
-DELIMITER;
+	select * from candidature;
+END //
+
+DELIMITER ;

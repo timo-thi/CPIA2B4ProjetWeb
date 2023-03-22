@@ -1,7 +1,10 @@
 DROP PROCEDURE IF EXISTS SELECT_PERSON;
-DELIMITER//
+
+DELIMITER //
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SELECT_PERSON`()
 BEGIN
-select * from person;
-END//
-DELIMITER;
+	select * from person;
+END //
+
+DELIMITER ;

@@ -1,3 +1,5 @@
+DROP VIEW IF EXISTS VIEW_PILOTS;
+
 CREATE VIEW VIEW_PILOTS
 AS
 	select profile.id_profile, profile.fname, profile.lname, person.email, profile.id_roles,prom.name as prom, number.num as student_count,campus.id_campus, campus.name as campus,address.id_address, address.name as address, address.number, address.comment, city.name as city

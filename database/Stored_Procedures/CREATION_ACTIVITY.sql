@@ -6,4 +6,4 @@ BEGIN
 insert into activity (name) values (p_name);
 END //
 
-DELIMITER;
+DELIMITER ;

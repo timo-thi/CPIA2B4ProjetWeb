@@ -1,3 +1,5 @@
+drop view if exists VIEW_STUDENT;
+
 create view VIEW_STUDENT
 AS
 select profile.id_profile, profile.fname, profile.lname, person.id_person,prom.name as prom, person.email,if(accepted.cnt is null, 'n', 'y') as accepted, profile.id_roles, step.id_offer,step.offer, step.id_progress_state, step.state, step.startdate, step.company

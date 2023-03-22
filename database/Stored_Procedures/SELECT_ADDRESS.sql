@@ -1,7 +1,10 @@
 DROP PROCEDURE IF EXISTS SELECT_ADDRESS;
-DELIMITER//
+
+DELIMITER //
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SELECT_ADDRESS`()
 BEGIN
-select * from address;
-END//
-DELIMITER;
+	select * from address;
+END //
+
+DELIMITER ;

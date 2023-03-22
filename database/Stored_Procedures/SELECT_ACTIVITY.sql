@@ -1,4 +1,10 @@
+DROP PROCEDURE IF EXISTS SELECT_ACTIVITY;
+
+DELIMITER //
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SELECT_ACTIVITY`()
 BEGIN
-select * from activity;
-END
+	select * from activity;
+END //
+
+DELIMITER ;

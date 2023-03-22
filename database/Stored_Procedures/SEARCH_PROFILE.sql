@@ -1,3 +1,7 @@
+DROP PROCEDURE IF EXISTS SEARCH_PROFILE;
+
+DELIMITER //
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SEARCH_PROFILE`()
 BEGIN
 SELECT profile.id_profile, profile.fname, profile.lname, person.id_person, person.email, prom.id_prom, prom.name as prom, if(accepted.cnt is null, 'n', 'y') as accepted FROM profile
@@ -10,4 +14,6 @@ SELECT profile.id_profile, profile.fname, profile.lname, person.id_person, perso
         where candidature.id_progress_state = 6
         group by profile.id_profile)
             as accepted on accepted.id_profile = profile.id_profile;
-END
+END //
+
+DELIMITER ;

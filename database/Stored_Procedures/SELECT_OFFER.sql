@@ -1,7 +1,10 @@
 DROP PROCEDURE IF EXISTS SELECT_OFFER;
-DELIMITER//
+
+DELIMITER //
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SELECT_OFFER`()
 BEGIN
-select * from offer;
-END//
-DELIMITER;
+	select * from offer;
+END //
+
+DELIMITER ;

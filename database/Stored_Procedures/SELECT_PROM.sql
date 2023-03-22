@@ -1,7 +1,10 @@
 DROP PROCEDURE IF EXISTS SELECT_PROM;
-DELIMITER//
+
+DELIMITER //
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SELECT_RPOM`()
 BEGIN
-select * from prom;
-END//
-DELIMITER;
+	select * from prom;
+END //
+
+DELIMITER ;

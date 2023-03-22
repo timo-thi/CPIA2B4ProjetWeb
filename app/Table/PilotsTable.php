@@ -1,17 +1,17 @@
 <?php
 namespace App\Table;
 
-use \App\Entity\ProfileEntity;
+use \App\Entity\PilotsEntity;
 use \Core\Table\Table;
 
 
-class ProfileTable extends Table {
+class PilotsTable extends Table {
 
 
-	protected $table = 'profile';
+	protected $table = 'pilots';
 	
 
-	public function get($id): ProfileEntity | Bool {
+	public function get($id): PilotsEntity | Bool {
 		$res = $this->details($id);
 		if (empty($res)) {
 			return false;

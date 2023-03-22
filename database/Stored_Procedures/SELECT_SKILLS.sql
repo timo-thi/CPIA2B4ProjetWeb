@@ -1,7 +1,10 @@
 DROP PROCEDURE IF EXISTS SELECT_SKILLS;
-DELIMITER//
+
+DELIMITER //
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SELECT_SKILLS`()
 BEGIN
-select * from skills;
-END//
-DELIMITER;
+	select * from skills;
+END //
+
+DELIMITER ;

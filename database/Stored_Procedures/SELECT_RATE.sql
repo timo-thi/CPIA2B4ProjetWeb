@@ -1,7 +1,10 @@
 DROP PROCEDURE IF EXISTS SELECT_RATE;
-DELIMITER//
+
+DELIMITER //
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SELECT_RATE`()
 BEGIN
-select * from rate;
-END//
-DELIMITER;
+	select * from rate;
+END //
+
+DELIMITER ;

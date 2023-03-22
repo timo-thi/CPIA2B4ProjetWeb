@@ -1,7 +1,10 @@
 DROP PROCEDURE IF EXISTS SELECT_ROLES;
-DELIMITER//
+
+DELIMITER //
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SELECT_ROLES`()
 BEGIN
-select * from roles;
-END//
-DELIMITER;
+	select * from roles;
+END //
+
+DELIMITER ;

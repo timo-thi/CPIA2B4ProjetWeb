@@ -14,7 +14,9 @@ use \App\Table\LocalitiesTable;
 
 use \App\Table\RateTable;
 
-use \App\Table\ProfileTable;
+use \App\Table\PilotsTable;
+
+use \App\Table\StudentTable;
 
 use App\Table\PromTable;
 
@@ -57,40 +59,26 @@ class ApiController extends AppController {
 	}
 
 
-	public function profile($id) {
-		$ProfileApi = new ProfileTable(\App::getInstance()->getDb());
-		$datas = $ProfileApi->get($id);
-		return $datas;
-	}
-
-
 	public function student($id) {
-		$profile = $this->profile($id);
+		// $profile = $this->profile($id);
+		$StudentApi = new StudentTable(\App::getInstance()->getDb());
+		$profile = $StudentApi->get($id);
 		if (!$profile) {
 			return $this->NotFound();
 		}
-		if ($profile->id_role == 3) {
-			$promApi = new PromTable(\App::getInstance()->getDb());
-			$profile->promos = $promApi->get($id);
-			$this->render('api.student', $profile);
-		} else {
-			$this->NotFound();
-		}
+		$this->render('api.student', $profile);
 	}
 
 
 	public function pilot($id) {
-		$profile = $this->profile($id);
+		$ProfileApi = new PilotsTable(\App::getInstance()->getDb());
+		$profile = $ProfileApi->get($id);
 		if (!$profile) {
 			return $this->NotFound();
 		}
-		if ($profile->id_role == 2) {
-			$promApi = new PromTable(\App::getInstance()->getDb());
-			$profile->promos = $promApi->get($id);
-			$this->render('api.pilot', $profile);
-		} else {
-			$this->NotFound();
-		}
+		$promApi = new PromTable(\App::getInstance()->getDb());
+		$profile->promos = $promApi->get($id);
+		$this->render('api.pilot', $profile);
 	}
 
 

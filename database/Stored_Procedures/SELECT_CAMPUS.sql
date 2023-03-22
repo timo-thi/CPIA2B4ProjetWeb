@@ -1,7 +1,10 @@
 DROP PROCEDURE IF EXISTS SELECT_CAMPUS;
-DELIMITER//
+
+DELIMITER //
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SELECT_CAMPUS`()
 BEGIN
-select * from campus;
-END//
-DELIMITER;
+	select * from campus;
+END //
+
+DELIMITER ;
