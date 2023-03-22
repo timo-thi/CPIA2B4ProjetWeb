@@ -5,7 +5,7 @@ DELIMITER //
 CREATE DEFINER=`root`@`localhost` PROCEDURE `UPDATE_PROFILE`(
 	p_fname VARCHAR(50),
 	p_lname VARCHAR(50),
-	p_id_role INT,
+	p_id_roles INT,
 	p_email VARCHAR(255),
 	p_password VARCHAR(255),
 	p_id_profile INT,
@@ -13,7 +13,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `UPDATE_PROFILE`(
 )
 BEGIN
 	UPDATE profile 
-		SET fname = p_fname, lname = p_lname, id_roles = p_id_role
+		SET fname = p_fname, lname = p_lname, id_roles = p_id_roles
 	WHERE profile.id_profile = p_id_profile;
 	UPDATE person
 		SET email = p_email, password = p_password
