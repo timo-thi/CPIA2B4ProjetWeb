@@ -7,7 +7,7 @@ use Core\Table\Table;
 class App {
 
 
-	public $title = 'Grafikart Tutorials';
+	public $title = 'EyeternShip';
 	private static $_instance;
 	private $db_instance;
 

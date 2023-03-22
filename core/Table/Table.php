@@ -9,13 +9,17 @@ use \App;
 class Table {
 
 
+	/** @var string - name of the table in the database
+	 */
 	protected $table;
-	/**
-	 * @var mixed(Database, MysqlDatabase) || Toute classe de database qui hérite de Database
+	/** @var mixed(Database, MysqlDatabase) || Toute classe de database qui hérite de Database
 	 */
 	protected $db;
 
 
+	/** Table constructor.
+	 * @param Database $db
+	 */
 	public function __construct(Database $db){
 		$this->db = $db;
 		if (is_null($this->table)) {
@@ -26,6 +30,11 @@ class Table {
 	}
 
 
+	/** Extract values ($value) of column ($key) from records
+	 * @param $key string - key in the extracted array
+	 * @param $value string - value to be extracted from records
+	 * @return array
+	 */
 	public function extract($key, $value) {
 		$records = $this->all();
 		$return = [];
@@ -36,6 +45,12 @@ class Table {
 	}
 
 
+	/** Query the database
+	 * @param $statement string - SQL statement
+	 * @param $attributes array - attributes to be binded to the statement
+	 * @param $one boolean - if true, return only one record
+	 * @return array
+	 */
 	public function query($statement, $attributes, $one = false) {
 		if ($attributes) {
 			return $this->db->prepare(
@@ -53,22 +68,53 @@ class Table {
 		}
 	}
 
-	
+
+	/** Get all records from a table
+	 * @return array
+	 */
 	public function all() {
-		$proc_name = "SEARCH_".strtoupper($this->table); // SEARCH in any table in database and get all records
+		$proc_name = "call SELECT_" . strtoupper($this->table) . "();"; // SEARCH in any table in database and get all records
 		return $this->query($proc_name, null);
 	}
 
 
+	/** Get one record from a table where id is $id
+	 * @return Entity or child of Entity
+	 */
+	public function search() {
+		$proc_name = "call SEARCH_" . strtoupper($this->table) . "()"; // SEARCH one record in table
+		return $this->query($proc_name, null);
+	}
+
+
+	/** Get one record from a table
+	 * @param $id int - id of the record to be fetched
+	 * @return array
+	 */
 	public function find($id) {
 		return $this->query(
-			"SELECT * FROM {$this->table} WHERE id = ?",
+			"call FIND_{$this->table}(?)",
 			[$id],
-			true
+			false
 		);
 	}
 
 
+	public function details($id) {
+		$upper_table = strtoupper($this->table);
+		return $this->query(
+			"call DETAILS_{$upper_table}(?)",
+			[$id],
+			false
+		);
+	}
+
+
+	/** Update a record in a table
+	 * @param $id int - id of the record to be updated
+	 * @param $fields array - fields to be updated (format : ['field_name' => 'field_value'])
+	 * @return array
+	 */
 	public function update($id, $fields) {
 		$sql_parts = [];
 		$attributes = [];
@@ -86,15 +132,23 @@ class Table {
 	}
 
 
+	/** Delete a record from a table
+	 * @param $id int - id of the record to be deleted
+	 * @return array
+	 */
 	public function delete($id) {
 		return $this->query(
-			"DELETE FROM {$this->table} WHERE id = ?",
+			"DELETE_{$this->table}(?)",
 			[$id],
 			true
 		);
 	}
 
 
+	/** Create a record in a table
+	 * @param $fields array - fields to be created (format : ['field_name' => 'field_value'])
+	 * @return array
+	 */
 	public function create($fields) {
 		$sql_parts = [];
 		$attributes = [];
