@@ -7,46 +7,33 @@
     <link rel="stylesheet" href="../../../BootStrap/assets/vendors/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../../BootStrap/assets/css/style.css">
     <link rel="stylesheet" href="../../../BootStrap/assets/vendors/fontawesome/css/all.min.css">
-    <title>Candidatures</title>
+    <title>tpl cadre acceuil</title>
 </head>
-
-
-
 
 <body class="bg-sombre">
 
-<?php 
-$page = 'Candidature';
-?>
+    <div class="offre row bg-clair p-2">
+        <div class="col-2">
+            <figure class="figure">
+                <img src="oeil fond noir.png" class="figure-img img-fluid rounded border border-light"
+                    style="width: 90%;" alt="...">
+            </figure>
+        </div>
+        <div class="col text-start">
+            <ul>
+                <li>
+                    <h1>Titre de l'offre</h1>
+                </li>
+                <li>
+                    <p> Entreprise - Ville (Code Postal)</p>
+                </li>
+            </ul>
 
-<?php require './Navbar.php'?>
-<!-- La barre de filtres-->
-<div class="container mt-3" style="max-width:80%">
-        <?php require './Filter.php'?>
+        </div>
     </div>
-    <div class="row g- justify-content-around mt-3 mb-">
-  <div class="col-5 col-rows-1 col-rows-md-2 g- di">
-    
-          <?php 
-          for ($i = 1; $i <= 10; $i++){
-              echo '<div class="row ms-5">';
-              require './cadreOffre.php';
-              echo '</div>';
-          }?>
-       
-
-
-      
-  </div>
-  <div class="col-5 col-rows-1 col-rows-md-2 g- di">
-    
-  </div>
-</div>
-
 
     <script src="../../../BootStrap/assets/vendors/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="../../../BootStrap/assets/vendors/jquery/jquery.min.js"></script>
 </body>
-<?php require './Footer.php'?>
 
 </html>

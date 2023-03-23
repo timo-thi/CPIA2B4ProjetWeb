@@ -10,50 +10,69 @@
     <title>Acceuil</title>
 </head>
 
+<body class="bg-sombre p-4 text-center">
 
-<body class="bg-sombre ">
-<?php $page = 'Navbar';
-require './Navbar.php';
-?>
-
-    <div class="row mt-4 text-center">
+    <!--NAVBAR-->
+    <div class="row di">
         <figure class="figure">
-            <img src="https://cdn.discordapp.com/attachments/1088413788342071388/1088414218056892478/oeil_fond_2c2c2c.png" class="figure-img img-fluid rounded border border-light" style="width: 90%;"
+            <img src="oeil fond noir.png" class="figure-img img-fluid rounded border border-light" style="width: 90%;"
                 alt="...">
         </figure>
     </div>
+    <div class="row  di justify-content-around">
+        <div class="col-4 dib clair ">
+            <div class="row-">
+                <div class="offre row bg-clair p-2">
+                    <div class="col-2">
+                        <figure class="figure">
+                            <img src="oeil fond noir.png" class="figure-img img-fluid rounded border border-light"
+                                style="width: 90%;" alt="...">
+                        </figure>
+                    </div>
+                    <div class="col text-start">
+                        <ul>
+                            <li>
+                                <h1>Titre de l'offre</h1>
+                            </li>
+                            <li>
+                                <p> Entreprise - Ville (Code Postal)</p>
+                            </li>
+                        </ul>
 
-<div class="container">
-<div class="row g-4 justify-content-around">
-    <div class="col-5 col-rows-1 col-rows-md-2 g-4">
-        <?php 
-        $page = 'RechercheOffre';
-        for ($in = 1; $in <= 10; $in++){
-            
-                echo '<div class="row ms-5">';
-                require './CadreAnnonce.php';
-                echo '</div>';
-        }?>
-    
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!--Ajout cadre Offre-->
+                col 1 row 2
+            </div>
+            <div class="row">
+                <!--Ajout cadre Offre-->
+                col 1 row 3
+            </div>
+        </div>
+        <div class="col-4 dib clair text-center">
+            <div class="row text-center">
+                <!--Ajout cadre Entreprise-->
+                col 2 row 1
+            </div>
+            <div class="row">
+                <!--Ajout cadre Entreprise-->
+                col 2 row 2
+            </div>
+            <div class="row">
+                <!--Ajout cadre Entreprise-->
+                col 2 row 3
+            </div>
+        </div>
+
     </div>
 
-    <div class="col-5 col-rows-1 col-rows-md-2 g-4">
-        <?php 
-        $page = 'RechercheEntreprise';
-            for ($in = 1; $in <= 10; $in++){
-                
-                    echo '<div class="row me-5">';
-                    require './CadreAnnonce.php';
-                    echo '</div>';
-            }?>
-    </div>
-</div>
-</div>
 
     <script src="../../../BootStrap/assets/vendors/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="../../../BootStrap/assets/vendors/jquery/jquery.min.js"></script>
 </body>
 
-<?php require './Footer.php'?>
+<!--FOOTER-->
 
 </html>
