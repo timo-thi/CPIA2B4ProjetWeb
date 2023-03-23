@@ -68,7 +68,7 @@ elseif($page == 'RechercheEntreprise'){
     $HideFilter4 = '';
     $Image = 'oeil_fond_fffaf0.png';
     $Titre = 'Titre de l\'entreprise';
-    $SousInfo1 = 'Nombres d\'élèves déjà acceptés en stage';
+    $SousInfo1 = 'Elèves déjà acceptés en stage';
     $SousInfo2 = '';
     $SousInfo3 = '';
     $Delimit1 = ':';

@@ -22,10 +22,9 @@ $page = 'RechercheEtudiant';
         <?php require './Filter.php'?>
     </div>
 
-    <div class="container mt-3" style="max-width:80%">
-
+    <div class="container mt-3 " style="max-width:80%">
         <?php 
-        for ($i = 1; $i <= 10; $i++){
+        for ($Identifiant = 1; $Identifiant <= 10; $Identifiant++){
             require './cadreEtudiant.php';
         }?>
     

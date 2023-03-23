@@ -12,7 +12,8 @@
 
 
 <body class="bg-sombre ">
-<?php require './Navbar.php'?>
+<?php require './Navbar.php';
+?>
 
     <div class="row mt-4 text-center">
         <figure class="figure">
@@ -21,34 +22,30 @@
         </figure>
     </div>
 
+<div class="container">
 <div class="row g-4 justify-content-around">
-<div class="col-5 col-rows-1 col-rows-md-2 g-4">
-  <div class="row ms-5">
-  <?php require './cadreOffre.php'?>
-  </div>
-  <div class="row ms-5">
-  <?php require './cadreOffre.php'?>
-  </div>
-  <div class="row ms-5">
-  <?php require './cadreOffre.php'?>
-  </div>
-  <div class="row ms-5">
-  <?php require './cadreOffre.php'?>
-  </div>
-</div>
-<div class="col-5 col-rows-1 col-rows-md-2 g-4">
-  <div class="row me-5">
-  <?php require './cadreOffre.php'?>
-  </div>
-  <div class="row me-5">
-  <?php require './cadreOffre.php'?>
-  </div>
-  <div class="row me-5">
-  <?php require './cadreOffre.php'?>
-  </div>
-  <div class="row me-5">
-  <?php require './cadreOffre.php'?>
-  </div>
+    <div class="col-5 col-rows-1 col-rows-md-2 g-4">
+        <?php 
+        $page = 'RechercheOffre';
+        for ($in = 1; $in <= 10; $in++){
+            
+                echo '<div class="row ms-5">';
+                require './cadreOffre.php';
+                echo '</div>';
+        }?>
+    
+    </div>
+
+    <div class="col-5 col-rows-1 col-rows-md-2 g-4">
+        <?php 
+        $page = 'RechercheEntreprise';
+            for ($in = 1; $in <= 10; $in++){
+                
+                    echo '<div class="row me-5">';
+                    require './cadreOffre.php';
+                    echo '</div>';
+            }?>
+    </div>
 </div>
 </div>
 
