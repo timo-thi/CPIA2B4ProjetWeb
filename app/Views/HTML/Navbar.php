@@ -1,22 +1,11 @@
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../BootStrap/assets/vendors/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../BootStrap/assets/css/style.css">
-    <link rel="stylesheet" href="../../../BootStrap/assets/vendors/fontawesome/css/all.min.css">
-    <title>Navbar</title>
-</head>
-
-<body>
     <nav class="navbar navbar-expand-lg bg-clair">
         <div class="container-fluid">
-            <a class="navbar-brand me-4" href="#">
+            <a class="navbar-brand me-4" href="./Acceuil.php">
                 <!-- Add eye icon -->
                 <div class="icon_container container">
-                    <?php require '../logo_oeil/oeil.html'?>
+                <?php require '../logo_oeil/oeil.html'?>
+                   
                 </div>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -27,42 +16,37 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-auto mb-lg-0">
                     <li class="nav-item me-2">
-                        <a class="nav-link sombre" href="#">Offres</a>
+                        <a class="nav-link sombre" href="./RechercheOffre.php">Offres</a>
                     </li>
                     <li class="nav-item me-2">
-                        <a class="nav-link sombre" href="#">Entreprises</a>
+                        <a class="nav-link sombre" href="./RechercheEntreprise.php">Entreprises</a>
                     </li>
                     <li class="nav-item me-2">
-                        <a class="nav-link sombre" href="#">Étudiants</a>
+                        <a class="nav-link sombre" href="./RechercheEtudiant.php">Étudiants</a>
                     </li>
                     <li class="nav-item me-2">
-                        <a class="nav-link sombre">Pilotes</a>
+                        <a class="nav-link sombre" href="./RecherchePilote.php">Pilotes</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav mb-auto mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link sombre me-2" href="#">Candidatures</a>
+                        <a class="nav-link sombre me-2" href="./Candidatures.php">Candidatures</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link sombre me-2" href="#">Wish-list</a>
+                        <a class="nav-link sombre me-2" href="./WishList.php">Wish-list</a>
                     </li>
-                    <li class="nav-item dropdown clair bg-sombre but">
-                        <button class="btn active dropdown-toggle border-0" type="button" data-bs-toggle="dropdown"
-                            aria-pressed="true">
+                    <li class="nav-item dropdown clair rounded-2 bg-sombre" style="width:fit-content">
+                        <button class="btn active dropdown-toggle  border-0" type="button" data-bs-toggle="dropdown"
+                            aria-pressed="true" style="width:fit-content">
                             User
                         </button>
-                        <ul class="dropdown-menu dropdown-menu-end mt-2 bg-clair">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><a class="dropdown-item" href="#">Something else</a></li>
+                        <ul class="dropdown-menu dropdown-menu-end rounded-top-0 border-start-0 border-end-0 border-top-0 mt- bg-clair sombre" >
+                            <li><a class="dropdown-item" href="#">Settings</a></li>
+                            <li><a class="dropdown-item" href="#">Sign out</a></li>
+                            <li><a class="dropdown-item" href="#">Help</a></li>
                         </ul>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <script src="../../../BootStrap/assets/vendors/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="../../../BootStrap/assets/vendors/jquery/jquery.min.js"></script>
-</body>
-
-</html>

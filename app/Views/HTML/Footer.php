@@ -16,13 +16,13 @@
     <header></header>
 </body>
 <!-- Footer -->
-<footer class="text-center text-lg-start bg-light text-muted">
+<div class="footer text-center text-lg-start bg-light text-muted mt-auto">
     <!-- Section: Social media -->
 
     <!-- Section: Social media -->
 
     <!-- Section: Links  -->
-    <section class="bg-clair">
+    <section class="bg-clair ">
         <div class="container text-center bg-clair text-md-start ">
             <!-- Grid row -->
             <div class="row pt-4">
@@ -108,23 +108,24 @@
                             </p>
                         
                            
-                        </div>
-                    
                 </div>
-                <!-- Grid column -->
+                    
             </div>
+                <!-- Grid column -->
+         </div>
             <!-- Grid row -->
-        </div>
+       
+        <div class=" text-center p-4 clair bg-sombre">
+        © 2023 Copyright:
+        <a class=" text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    </div>
     </section>
     <!-- Section: Links  -->
 
     <!-- Copyright -->
-    <div class="text-center p-4 clair bg-sombre">
-        © 2023 Copyright:
-        <a class=" text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
-    </div>
+    
     <!-- Copyright -->
-</footer>
+</div>
 <!-- Footer -->
 
 </html>
