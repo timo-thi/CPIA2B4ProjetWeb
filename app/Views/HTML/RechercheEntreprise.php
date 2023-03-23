@@ -54,8 +54,8 @@ require './Navbar.php';?>
 
     <script src="../../../BootStrap/assets/vendors/bootstrap/js/bootstrap.bundle.js"></script>
     <script src="../../../BootStrap/assets/vendors/jquery/jquery.min.js"></script>
+    <?php require './Footer.php'?>
 </body>
-<?php require './Footer.php'?>
 
 </html>
 

@@ -1,4 +1,6 @@
-<link rel="stylesheet" href="../logo_oeil/oeil.css">
+<style>
+    <?= require 'oeil.css'?>
+</style>
 <div class="eye_body">
     <div class="layer">
         <div class="layer">

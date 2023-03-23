@@ -1,20 +1,3 @@
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=
-    , initial-scale=1.0">
-    <title>Footer</title>
-    <link rel="stylesheet" href="../../../BootStrap/assets/vendors/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../BootStrap/assets/css/style.css">
-    <link rel="stylesheet" href="../../../BootStrap/assets/vendors/fontawesome/css/all.min.css">
-
-</head>
-
-<body>
-    <header></header>
-</body>
 <!-- Footer -->
 <div class="footer text-center text-lg-start bg-light text-muted mt-auto">
     <!-- Section: Social media -->
@@ -127,5 +110,3 @@
     <!-- Copyright -->
 </div>
 <!-- Footer -->
-
-</html>

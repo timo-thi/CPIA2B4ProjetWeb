@@ -17,14 +17,14 @@ class OfferController extends AppController {
 
 
 	public function index() {
-		$offers = $this->Offer->search();
-		if (empty($offers)){
+		$annonces = $this->Offer->search();
+		if (empty($annonces)){
 			$this->notFound();
 		}
-		$first_offer = $this->Offer->details($offers[0]->id_offer)[0];
-		echo '<pre>', var_dump($offers), '</pre>';
-		echo '<pre>', var_dump($first_offer), '</pre>';
-		$this->render('offer.index', compact('offers', 'first_offer'));
+		$first = $this->Offer->details($annonces[0]->id_offer)[0];
+		// echo '<pre>', var_dump($annonces), '</pre>';
+		// echo '<pre>', var_dump($first), '</pre>';
+		$this->render('offer.index', compact('annonces', 'first'));
 	}
 
 
