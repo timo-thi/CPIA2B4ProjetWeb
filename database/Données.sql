@@ -58,8 +58,9 @@ CREATE TABLE
         id_profile INT AUTO_INCREMENT PRIMARY KEY,
         fname VARCHAR(50),
         lname VARCHAR(50),
-        id_roles INT NOT NULL,
-        FOREIGN KEY(id_roles) REFERENCES roles(id_roles)
+        id_roles INT,
+        photo VARCHAR(255),
+        FOREIGN KEY(id_roles) REFERENCES roles(id_roles) ON DELETE SET NULL
     );
 
 -- Create table company
@@ -98,7 +99,7 @@ CREATE TABLE
         number VARCHAR(20),
         comment VARCHAR(300),
         id_city INT,
-        FOREIGN KEY(id_city) REFERENCES city(id_city)
+        FOREIGN KEY(id_city) REFERENCES city(id_city) ON DELETE CASCADE
     );
 
 -- Create table localities
@@ -118,8 +119,8 @@ CREATE TABLE
     campus (
         id_campus INT AUTO_INCREMENT PRIMARY KEY,
         name VARCHAR(50),
-        id_address INT NOT NULL,
-        FOREIGN KEY(id_address) REFERENCES address(id_address)
+        id_address INT,
+        FOREIGN KEY(id_address) REFERENCES address(id_address) ON DELETE SET NULL
     );
 
 -- Create table skills
@@ -146,7 +147,7 @@ CREATE TABLE
         id_person INT AUTO_INCREMENT PRIMARY KEY,
         email VARCHAR(255),
         password VARCHAR(255),
-        id_profile INT,
+        id_profile INT NOT NULL,
         FOREIGN KEY(id_profile) REFERENCES profile(id_profile) ON DELETE CASCADE
     );
 
@@ -174,10 +175,11 @@ CREATE TABLE
         comment VARCHAR(500),
         contact_mail VARCHAR(100),
         telephone VARCHAR(15),
-        id_localities INT NOT NULL,
-        id_activity INT NOT NULL,
-        FOREIGN KEY(id_localities) REFERENCES localities(id_localities),
-        FOREIGN KEY(id_activity) REFERENCES activity(id_activity)
+        link VARCHAR(1024),
+        id_localities INT,
+        id_activity INT,
+        FOREIGN KEY(id_localities) REFERENCES localities(id_localities) ON DELETE SET NULL,
+        FOREIGN KEY(id_activity) REFERENCES activity(id_activity) ON DELETE SET NULL
     );
 
 -- Create table candidature
@@ -185,13 +187,13 @@ CREATE TABLE
 CREATE TABLE
     candidature(
         id_candidature INT AUTO_INCREMENT PRIMARY KEY,
-        send_date DATETIME,
-        id_progress_state INT NOT NULL,
+        send_date DATE,
+        id_progress_state INT,
         id_profile INT NOT NULL,
-        id_offer INT NOT NULL,
-        FOREIGN KEY(id_progress_state) REFERENCES postulate_progress_steps(id_progress_state),
-        FOREIGN KEY(id_profile) REFERENCES profile(id_profile) ON DElete cascAde,
-        FOREIGN KEY(id_offer) REFERENCES offer(id_offer)
+        id_offer INT,
+        FOREIGN KEY(id_progress_state) REFERENCES postulate_progress_steps(id_progress_state) ON DELETE SET NULL,
+        FOREIGN KEY(id_profile) REFERENCES profile(id_profile) ON DELETE CASCADE,
+        FOREIGN KEY(id_offer) REFERENCES offer(id_offer) ON DELETE CASCADE
     );
 
 -- Create table affiliated
@@ -200,9 +202,9 @@ CREATE TABLE
     affiliated(
         id_profile INT,
         id_prom INT,
-        PRIMARY KEY(id_profile, id_prom),
+        PRIMARY KEY(id_profile,id_prom),
         FOREIGN KEY(id_profile) REFERENCES profile(id_profile) ON DELETE CASCADE,
-        FOREIGN KEY(id_prom) REFERENCES prom(id_prom)
+        FOREIGN KEY(id_prom) REFERENCES prom(id_prom) ON DELETE CASCADE
     );
 
 -- Create table sector
@@ -211,7 +213,7 @@ CREATE TABLE
     sector(
         id_company INT,
         id_activity INT,
-        PRIMARY KEY(id_company, id_activity),
+        PRIMARY KEY(id_company,id_activity),
         FOREIGN KEY(id_company) REFERENCES company(id_company) ON DELETE CASCADE,
         FOREIGN KEY(id_activity) REFERENCES activity(id_activity) ON DELETE CASCADE
     );
@@ -222,7 +224,7 @@ CREATE TABLE
     wish(
         id_profile INT,
         id_offer INT,
-        PRIMARY KEY(id_profile, id_offer),
+        PRIMARY KEY(id_profile,id_offer),
         FOREIGN KEY(id_profile) REFERENCES profile(id_profile) ON DELETE CASCADE,
         FOREIGN KEY(id_offer) REFERENCES offer(id_offer) ON DELETE CASCADE
     );
@@ -235,8 +237,8 @@ CREATE TABLE
         id_company INT,
         rating INT,
         comment VARCHAR(500),
-        PRIMARY KEY(id_profile, id_company),
-        FOREIGN KEY(id_profile) REFERENCES profile(id_profile),
+        PRIMARY KEY(id_profile,id_company),
+        FOREIGN KEY(id_profile) REFERENCES profile(id_profile) ON DELETE CASCADE,
         FOREIGN KEY(id_company) REFERENCES company(id_company) ON DELETE CASCADE
     );
 
@@ -247,7 +249,7 @@ CREATE TABLE
         id_offer INT,
         id_skill INT,
         level INT NOT NULL,
-        PRIMARY KEY(id_offer, id_skill),
+        PRIMARY KEY(id_offer,id_skill),
         FOREIGN KEY(id_offer) REFERENCES offer(id_offer) ON DELETE CASCADE,
         FOREIGN KEY(id_skill) REFERENCES skills(id_skill) ON DELETE CASCADE
     );
@@ -262,8 +264,17 @@ VALUES ('admin'), ('pilote'), ('etudiant');
 -- Insert data into profile
 
 INSERT INTO
-    profile (fname, lname, id_roles)
-VALUES ('John', 'Doe', 1), ('Jane', 'Doe', 2), ('Bob', 'Smith', 3), ('Alice', 'Johnson', 3), ('Baptiste', 'Quiadelavenne', 2), ('Timothee', 'Quiestduboncote', 1), ('Damian', 'Roulant', 1), ('Elza', 'Quiestduboncote', 1), ('Miriam', 'Tienpond', 1), ('Hubert', 'Lereal', 1);
+    profile (fname, lname, id_roles, photo)
+VALUES ('John', 'Doe', 1,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416535422439476/image.png'), 
+    ('Jane', 'Doe', 2,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416604963995688/image.png'), 
+    ('Bob', 'Smith', 3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416755052978186/image.png'), 
+    ('Alice', 'Johnson', 3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416880332636160/image.png'), 
+    ('Baptiste', 'Quiadelavenne', 2,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'), 
+    ('Timothee', 'Quiestduboncote', 1,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416367771918427/image.png'), 
+    ('Damian', 'Roulant', 1,'https://cdn.discordapp.com/attachments/1088413788342071388/1088419274667864064/image.png'), 
+    ('Elza', 'Quiestduboncote', 1,'https://cdn.discordapp.com/attachments/1088413788342071388/1088419363301883934/image.png'), 
+    ('Miriam', 'Tienpond', 1,'https://cdn.discordapp.com/attachments/1088413788342071388/1088419553874300958/image.png'), 
+    ('Hubert', 'Lereal', 1,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416604963995688/image.png');
 
 -- Insert data into activity
 
@@ -456,6 +467,7 @@ INSERT INTO
         comment,
         contact_mail,
         telephone,
+        link,
         id_localities,
         id_activity
     )
@@ -469,6 +481,7 @@ VALUES (
         'CDI après la période d''essai',
         'contact@entreprise.com',
         '0102030405',
+        'https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378',
         1,
         1
     ), (
@@ -481,6 +494,7 @@ VALUES (
         null,
         'rh@entreprise.com',
         '0607080910',
+        'https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378',
         2,
         2
     ), (
@@ -493,6 +507,7 @@ VALUES (
         'CDD pour remplacement maladie',
         'communication@entreprise.com',
         '0504030201',
+        'https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378',
         3,
         3
     ), (
@@ -505,6 +520,7 @@ VALUES (
         null,
         'projet@entreprise.com',
         '0102030405',
+        'https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378',
         4,
         4
     ), (
@@ -517,6 +533,7 @@ VALUES (
         'Mission chez un client important',
         'contact@entreprise.com',
         '0607080910',
+        'https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378',
         1,
         1
     );
@@ -530,7 +547,7 @@ INSERT INTO
         id_profile,
         id_offer
     )
-VALUES ('2022-02-20 09:00:00', 1, 1, 1), ('2022-02-22 14:30:00', 1, 2, 1), ('2022-02-25 11:45:00', 2, 3, 1), ('2022-03-01 16:20:00', 1, 4, 1), ('2022-03-03 08:00:00', 2, 5, 1), ('2022-03-06 10:00:00', 1, 6, 1), ('2022-03-10 15:00:00', 3, 7, 1), ('2022-03-12 09:30:00', 1, 8, 1), ('2022-03-14 13:00:00', 2, 9, 1), ('2022-02-23 10:00:00', 1, 2, 2), ('2022-02-28 16:00:00', 2, 3, 2), ('2022-03-06 09:00:00', 1, 4, 2), ('2022-03-08 14:30:00', 1, 5, 2), ('2022-03-12 11:00:00', 2, 6, 2);
+VALUES ('2022-02-20', 1, 1, 1), ('2022-02-22', 1, 2, 1), ('2022-02-25', 2, 3, 1), ('2022-03-01', 1, 4, 1), ('2022-03-03', 2, 5, 1), ('2022-03-06', 1, 6, 1), ('2022-03-10', 3, 7, 1), ('2022-03-12', 1, 8, 1), ('2022-03-14', 2, 9, 1), ('2022-02-23', 1, 2, 2), ('2022-02-28', 2, 3, 2), ('2022-03-06', 1, 4, 2), ('2022-03-08', 1, 5, 2), ('2022-03-12', 2, 6, 2);
 
 -- Insertion des données dans la table affiliated
 

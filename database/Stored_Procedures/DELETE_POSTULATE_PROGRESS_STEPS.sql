@@ -1,0 +1,8 @@
+DROP PROCEDURE IF EXISTS DELETE_POSTUALTE_PROGRESS_STEPS;
+DELIMITER//
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DELETE_POSTULATE_PROGRESS_STEPS`(p_id_progress_state INT)
+BEGIN
+DELETE FROM postulate_progress_steps
+	WHERE id_progress_state = p_id_progress_state;
+END//
+DELIMITER;
