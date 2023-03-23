@@ -29,7 +29,7 @@ $page = 'RechercheOffre';
           <?php 
           for ($i = 1; $i <= 10; $i++){
               echo '<div class="row ms-5">';
-              require './cadreOffre.php';
+              require './CadreAnnonce.php';
               echo '</div>';
           }?>
 

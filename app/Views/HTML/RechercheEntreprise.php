@@ -20,7 +20,8 @@
 $page = 'RechercheEntreprise';
 ?>
 
-<?php require './Navbar.php'?>
+<?php 
+require './Navbar.php';?>
 <!-- La barre de filtres-->
 <div class="container mt-3" style="max-width:80%">
         <?php require './Filter.php'?>
@@ -30,14 +31,14 @@ $page = 'RechercheEntreprise';
         <?php 
           for ($i = 1; $i <= 2; $i++):?>
             <div class="row ms-5">
-              <?php require './cadreOffre.php'?>
+              <?php require './CadreAnnonce.php'?>
             </div>
           <?php endfor?>
         
           <?php 
           for ($i = 1; $i <= 10; $i++){
               echo '<div class="row ms-5">';
-              require './cadreOffre.php';
+              require './CadreAnnonce.php';
               echo '</div>';
           }?>
        

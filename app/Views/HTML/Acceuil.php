@@ -12,12 +12,13 @@
 
 
 <body class="bg-sombre ">
-<?php require './Navbar.php';
+<?php $page = 'Navbar';
+require './Navbar.php';
 ?>
 
     <div class="row mt-4 text-center">
         <figure class="figure">
-            <img src="../assets/imgs/oeil_fond_2c2c2c.png" class="figure-img img-fluid rounded border border-light" style="width: 90%;"
+            <img src="https://cdn.discordapp.com/attachments/1088413788342071388/1088414218056892478/oeil_fond_2c2c2c.png" class="figure-img img-fluid rounded border border-light" style="width: 90%;"
                 alt="...">
         </figure>
     </div>
@@ -30,7 +31,7 @@
         for ($in = 1; $in <= 10; $in++){
             
                 echo '<div class="row ms-5">';
-                require './cadreOffre.php';
+                require './CadreAnnonce.php';
                 echo '</div>';
         }?>
     
@@ -42,7 +43,7 @@
             for ($in = 1; $in <= 10; $in++){
                 
                     echo '<div class="row me-5">';
-                    require './cadreOffre.php';
+                    require './CadreAnnonce.php';
                     echo '</div>';
             }?>
     </div>

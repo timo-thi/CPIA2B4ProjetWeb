@@ -1,4 +1,9 @@
+<?php 
 
+include 'TplVar.php';
+$page = 'NavBar';
+
+?>
     <nav class="navbar navbar-expand-lg bg-clair">
         <div class="container-fluid">
             <a class="navbar-brand me-4" href="./Acceuil.php">
@@ -15,26 +20,29 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-auto mb-lg-0">
-                    <li class="nav-item me-2">
-                        <a class="nav-link sombre" href="./RechercheOffre.php">Offres</a>
-                    </li>
-                    <li class="nav-item me-2">
-                        <a class="nav-link sombre" href="./RechercheEntreprise.php">Entreprises</a>
-                    </li>
-                    <li class="nav-item me-2">
-                        <a class="nav-link sombre" href="./RechercheEtudiant.php">Étudiants</a>
-                    </li>
-                    <li class="nav-item me-2">
-                        <a class="nav-link sombre" href="./RecherchePilote.php">Pilotes</a>
-                    </li>
+                <li class="nav-item me-2">
+                    <a class="nav-link sombre" href="./RechercheOffre.php">Offres</a>
+                </li>
+                <li class="nav-item me-2">
+                    <a class="nav-link sombre" href="./RechercheEntreprise.php">Entreprise</a>
+                </li>
+                <li class="nav-item me-2">
+                    <a class="nav-link sombre" href="./RechercheEtudiant.php">Etudiants</a>
+                </li>
+                <li class="nav-item me-2">
+                    <a class="nav-link sombre" href="./RecherchePilote.php">Pilotes</a>
+                </li>
                 </ul>
+
+
                 <ul class="navbar-nav mb-auto mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link sombre me-2" href="./Candidatures.php">Candidatures</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link sombre me-2" href="./WishList.php">Wish-list</a>
-                    </li>
+                <li class="nav-item me-2">
+                    <a class="nav-link sombre" href="./Candidatures.php">Candidatures</a>
+                </li>
+                <li class="nav-item me-2">
+                    <a class="nav-link sombre" href="./WishList.php">WishList</a>
+                </li>
+                
                     <li class="nav-item dropdown clair rounded-2 bg-sombre" style="width:fit-content">
                         <button class="btn active dropdown-toggle  border-0" type="button" data-bs-toggle="dropdown"
                             aria-pressed="true" style="width:fit-content">

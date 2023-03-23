@@ -1,21 +1,4 @@
 
-
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../BootStrap/assets/vendors/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../BootStrap/assets/css/style.css">
-    <link rel="stylesheet" href="../../../BootStrap/assets/vendors/fontawesome/css/all.min.css">
-    <title>Recherche d'Offres</title>
-</head>
-
-
-
-
-
 <?php 
 include 'TplVar.php';
 ?>
@@ -26,6 +9,8 @@ include 'TplVar.php';
     <div class="col-md-2 my-auto mx-auto" style="max-width: 150px;">
       <img src="../assets/imgs/oeil_fond_fffaf0.png" class="img-fluid rounded-start di" alt="..." >
     </div>
+
+    
     <!--Les infos en entête-->
 
     <div class="col-md-10">

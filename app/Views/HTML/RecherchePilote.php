@@ -24,7 +24,7 @@ $page = 'RecherchePilote';
     <div class="container mt-3 " style="max-width:80%">
         <?php 
         for ($Identifiant = 1; $Identifiant <= 10; $Identifiant++){
-            require './cadreEtudiant.php';
+            require './CadreProfile.php';
         }?>
     
 

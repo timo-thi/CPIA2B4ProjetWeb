@@ -21,7 +21,7 @@ elseif ($page == 'RechercheEtudiant'){
     $filtre1 = 'Nom';
     $filtre2 = 'Prénom';
     $filtre3 = 'Promo';
-    $filtre4 = 'Porgès de la recherche';
+    $filtre4 = 'Progression';
     $HideFilter1 = '';
     $HideFilter2 = '';
     $HideFilter3 = '';
@@ -110,7 +110,21 @@ elseif($page == 'WishList'){
     $Delimit1 = '-';
     $Delimit2 = '(';
     $Delimit3 = ')';
-    
-
 }
+if($page == 'Navbar'){
+    $image = '../logo_oeil/oeil.html';
+    $lien1 = 'Offres';
+    $source1 = './RechercheOffre.php';
+    $lien2 = 'Entreprises';
+    $source2 = './RechercheEntreprise.php';
+    $lien3 = 'Étudiants';
+    $source3 = './RechercheEtudiant.php';
+    $lien4 = 'Pilotes';
+    $source4 = './RecherchePilote.php';
+    $lien5 = 'Candidatures';
+    $source5 = './Candidatures.php';
+    $lien6 = 'WishList';
+    $source6 = './WishList.php';
+}
+
 ?>
