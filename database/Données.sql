@@ -1,40 +1,55 @@
--- Drop database if exists
 
-Drop database if exists web;
-
-create database web;
 
 use web;
 
 
 -- Drop tables if exists
-drop table if exists company;
 
-drop table if exists profile;
+drop table if exists wish;
 
-drop table if exists activity;
+drop table if exists requires;
 
-drop table if exists city;
+drop table if exists rate;
 
-drop table if exists address;
-
-drop table if exists localities;
-
-drop table if exists campus;
-
-drop table if exists skills;
-
-drop table if exists postulate_progress_steps;
-
-drop table if exists person;
-
-drop table if exists prom;
-
-drop table if exists offer;
+drop table if exists sector;
 
 drop table if exists candidature;
 
+drop table if exists postulate_progress_steps;
+
+drop table if exists offer;
+
+drop table if exists skills;
+
+drop table if exists localities;
+
+drop table if exists company;
+
+drop table if exists activity;
+
 drop table if exists affiliated;
+
+drop table if exists person;
+
+drop table if exists profile;
+
+drop table if exists prom;
+
+drop table if exists campus;
+
+drop table if exists address;
+
+drop table if exists city;
+
+drop table if exists roles;
+
+-- Create table roles
+
+CREATE TABLE
+    roles(
+        id_roles INT AUTO_INCREMENT PRIMARY KEY,
+        name VARCHAR(100)
+    );
 
 -- Create table profile
 
@@ -43,14 +58,9 @@ CREATE TABLE
         id_profile INT AUTO_INCREMENT PRIMARY KEY,
         fname VARCHAR(50),
         lname VARCHAR(50),
-        role VARCHAR(50)
+        id_roles INT NOT NULL,
+        FOREIGN KEY(id_roles) REFERENCES roles(id_roles)
     );
-
--- Insert data into profile
-
-INSERT INTO
-    profile (fname, lname, role)
-VALUES ('John', 'Doe', 'Developer'), ('Jane', 'Doe', 'Designer'), ('Bob', 'Smith', 'Manager'), ('Alice', 'Johnson', 'Intern');
 
 -- Create table company
 
@@ -62,28 +72,6 @@ CREATE TABLE
         link VARCHAR(500)
     );
 
--- Insert data into company
-
-INSERT INTO
-    company (name, active, link)
-VALUES (
-        'Google',
-        TRUE,
-        'https://www.google.com/'
-    ), (
-        'Microsoft',
-        TRUE,
-        'https://www.microsoft.com/'
-    ), (
-        'Amazon',
-        FALSE,
-        'https://www.amazon.com/'
-    ), (
-        'Apple',
-        TRUE,
-        'https://www.apple.com/'
-    );
-
 -- Create table activity
 
 CREATE TABLE
@@ -91,11 +79,6 @@ CREATE TABLE
         id_activity INT AUTO_INCREMENT PRIMARY KEY,
         name VARCHAR(50)
     );
-
--- Insert data into activity
-
-INSERT INTO activity (name)
-VALUES ('Software Development'), ('Graphic Design'), ('Human Resources'), ('Marketing');
 
 -- Create table city
 
@@ -106,12 +89,6 @@ CREATE TABLE
         zipcode VARCHAR(20)
     );
 
--- Insert data into city
-
-INSERT INTO
-    city (name, zipcode)
-VALUES ('New York', '10001'), ('San Francisco', '94103'), ('Los Angeles', '90001'), ('Seattle', '98101');
-
 -- Create table address
 
 CREATE TABLE
@@ -120,29 +97,8 @@ CREATE TABLE
         name VARCHAR(200),
         number VARCHAR(20),
         comment VARCHAR(300),
-        id_city INT NOT NULL,
+        id_city INT,
         FOREIGN KEY(id_city) REFERENCES city(id_city)
-    );
-
--- Insert data into address
-
-INSERT INTO
-    address (name, number, comment, id_city)
-VALUES (
-        '123 Main St',
-        'Suite 100',
-        'Headquarters',
-        1
-    ), (
-        '456 1st Ave',
-        'Floor 2',
-        NULL,
-        2
-    ), ('789 Broadway', NULL, NULL, 3), (
-        '1010 2nd St',
-        NULL,
-        'Office',
-        4
     );
 
 -- Create table localities
@@ -152,15 +108,9 @@ CREATE TABLE
         id_localities INT AUTO_INCREMENT PRIMARY KEY,
         id_address INT NOT NULL,
         id_company INT NOT NULL,
-        FOREIGN KEY(id_address) REFERENCES address(id_address),
-        FOREIGN KEY(id_company) REFERENCES company(id_company)
+        FOREIGN KEY(id_address) REFERENCES address(id_address) ON DELETE CASCADE,
+        FOREIGN KEY(id_company) REFERENCES company(id_company) ON DELETE CASCADE
     );
-
--- Insert data into localities
-
-INSERT INTO
-    localities (id_address, id_company)
-VALUES (1, 1), (2, 2), (3, 3), (4, 4);
 
 -- Create table campus
 
@@ -171,12 +121,6 @@ CREATE TABLE
         id_address INT NOT NULL,
         FOREIGN KEY(id_address) REFERENCES address(id_address)
     );
-
--- Insert data into campus
-
-INSERT INTO
-    campus (name, id_address)
-VALUES ('NYC Campus', 1), ('SF Campus', 2), ('LA Campus', 3), ('Seattle Campus', 4);
 
 -- Create table skills
 
@@ -200,10 +144,10 @@ CREATE TABLE
 CREATE TABLE
     person(
         id_person INT AUTO_INCREMENT PRIMARY KEY,
-        email VARCHAR(100),
-        password VARCHAR(100),
+        email VARCHAR(255),
+        password VARCHAR(255),
         id_profile INT,
-        FOREIGN KEY(id_profile) REFERENCES profile(id_profile)
+        FOREIGN KEY(id_profile) REFERENCES profile(id_profile) ON DELETE CASCADE
     );
 
 -- Create table prom
@@ -212,9 +156,11 @@ CREATE TABLE
     prom(
         id_prom INT AUTO_INCREMENT PRIMARY KEY,
         name VARCHAR(50),
-        id_campus INT NOT NULL,
+        id_campus INT,
         FOREIGN KEY(id_campus) REFERENCES campus(id_campus)
     );
+
+-- Create table offer
 
 CREATE TABLE
     offer(
@@ -227,12 +173,14 @@ CREATE TABLE
         wage VARCHAR(50),
         comment VARCHAR(500),
         contact_mail VARCHAR(100),
-        telphone VARCHAR(15),
+        telephone VARCHAR(15),
         id_localities INT NOT NULL,
         id_activity INT NOT NULL,
         FOREIGN KEY(id_localities) REFERENCES localities(id_localities),
         FOREIGN KEY(id_activity) REFERENCES activity(id_activity)
     );
+
+-- Create table candidature
 
 CREATE TABLE
     candidature(
@@ -242,36 +190,44 @@ CREATE TABLE
         id_profile INT NOT NULL,
         id_offer INT NOT NULL,
         FOREIGN KEY(id_progress_state) REFERENCES postulate_progress_steps(id_progress_state),
-        FOREIGN KEY(id_profile) REFERENCES profile(id_profile),
+        FOREIGN KEY(id_profile) REFERENCES profile(id_profile) ON DElete cascAde,
         FOREIGN KEY(id_offer) REFERENCES offer(id_offer)
     );
+
+-- Create table affiliated
 
 CREATE TABLE
     affiliated(
         id_profile INT,
         id_prom INT,
         PRIMARY KEY(id_profile, id_prom),
-        FOREIGN KEY(id_profile) REFERENCES profile(id_profile),
+        FOREIGN KEY(id_profile) REFERENCES profile(id_profile) ON DELETE CASCADE,
         FOREIGN KEY(id_prom) REFERENCES prom(id_prom)
     );
+
+-- Create table sector
 
 CREATE TABLE
     sector(
         id_company INT,
         id_activity INT,
         PRIMARY KEY(id_company, id_activity),
-        FOREIGN KEY(id_company) REFERENCES company(id_company),
-        FOREIGN KEY(id_activity) REFERENCES activity(id_activity)
+        FOREIGN KEY(id_company) REFERENCES company(id_company) ON DELETE CASCADE,
+        FOREIGN KEY(id_activity) REFERENCES activity(id_activity) ON DELETE CASCADE
     );
+
+-- Create table wish
 
 CREATE TABLE
     wish(
         id_profile INT,
         id_offer INT,
         PRIMARY KEY(id_profile, id_offer),
-        FOREIGN KEY(id_profile) REFERENCES profile(id_profile),
-        FOREIGN KEY(id_offer) REFERENCES offer(id_offer)
+        FOREIGN KEY(id_profile) REFERENCES profile(id_profile) ON DELETE CASCADE,
+        FOREIGN KEY(id_offer) REFERENCES offer(id_offer) ON DELETE CASCADE
     );
+
+-- Create table rate
 
 CREATE TABLE
     rate(
@@ -281,8 +237,10 @@ CREATE TABLE
         comment VARCHAR(500),
         PRIMARY KEY(id_profile, id_company),
         FOREIGN KEY(id_profile) REFERENCES profile(id_profile),
-        FOREIGN KEY(id_company) REFERENCES company(id_company)
+        FOREIGN KEY(id_company) REFERENCES company(id_company) ON DELETE CASCADE
     );
+
+-- Create table requires
 
 CREATE TABLE
     requires(
@@ -290,9 +248,88 @@ CREATE TABLE
         id_skill INT,
         level INT NOT NULL,
         PRIMARY KEY(id_offer, id_skill),
-        FOREIGN KEY(id_offer) REFERENCES offer(id_offer),
-        FOREIGN KEY(id_skill) REFERENCES skills(id_skill)
+        FOREIGN KEY(id_offer) REFERENCES offer(id_offer) ON DELETE CASCADE,
+        FOREIGN KEY(id_skill) REFERENCES skills(id_skill) ON DELETE CASCADE
     );
+
+-- Insert data into roles
+
+INSERT INTO
+	roles (name)
+VALUES ('admin'), ('pilote'), ('etudiant');
+
+
+-- Insert data into profile
+
+INSERT INTO
+    profile (fname, lname, id_roles)
+VALUES ('John', 'Doe', 1), ('Jane', 'Doe', 2), ('Bob', 'Smith', 3), ('Alice', 'Johnson', 3), ('Baptiste', 'Quiadelavenne', 2), ('Timothee', 'Quiestduboncote', 1), ('Damian', 'Roulant', 1), ('Elza', 'Quiestduboncote', 1), ('Miriam', 'Tienpond', 1), ('Hubert', 'Lereal', 1);
+
+-- Insert data into activity
+
+INSERT INTO activity (name)
+VALUES ('Software Development'), ('Graphic Design'), ('Human Resources'), ('Marketing');
+
+-- Insert data into city
+
+INSERT INTO
+    city (name, zipcode)
+VALUES ('New York', '10001'), ('San Francisco', '94103'), ('Los Angeles', '90001'), ('Seattle', '98101');
+
+-- Insert data into company
+
+INSERT INTO
+    company (name, active, link)
+VALUES (
+        'Google',
+        TRUE,
+        'https://www.google.com/'
+    ), (
+        'Microsoft',
+        TRUE,
+        'https://www.microsoft.com/'
+    ), (
+        'Amazon',
+        FALSE,
+        'https://www.amazon.com/'
+    ), (
+        'Apple',
+        TRUE,
+        'https://www.apple.com/'
+    );
+
+-- Insert data into address
+
+INSERT INTO
+    address (name, number, comment, id_city)
+VALUES (
+        '123 Main St',
+        'Suite 100',
+        'Headquarters',
+        1
+    ), (
+        '456 1st Ave',
+        'Floor 2',
+        NULL,
+        2
+    ), ('789 Broadway', NULL, NULL, 3), (
+        '1010 2nd St',
+        NULL,
+        'Office',
+        4
+    );
+
+-- Insert data into localities
+
+INSERT INTO
+    localities (id_address, id_company)
+VALUES (1, 1), (2, 2), (3, 3), (4, 4);
+
+-- Insert data into campus
+
+INSERT INTO
+    campus (name, id_address)
+VALUES ('NYC Campus', 1), ('SF Campus', 2), ('LA Campus', 3), ('Seattle Campus', 4);
 
 -- Insert data into skills
 
@@ -356,20 +393,6 @@ INSERT INTO
     postulate_progress_steps (name)
 VALUES ('CV reçu'), ('Présélection'), ('Entretien téléphonique'), ('Entretien en personne'), ('Offre faite'), ('Acceptée'), ('Refusée');
 
--- Insertion des données dans la table profile
-
-INSERT INTO
-    profile (fname, lname, role)
-VALUES ('Alice', 'Dupont', 'Etudiante'), ('Bob', 'Martin', 'Etudiant'), (
-        'Camille',
-        'Lefebvre',
-        'Employé'
-    ), ('David', 'Garcia', 'Employé'), (
-        'Emilie',
-        'Dujardin',
-        'Employeur'
-    );
-
 -- Insertion des données dans la table person
 
 INSERT INTO
@@ -432,7 +455,7 @@ INSERT INTO
         wage,
         comment,
         contact_mail,
-        telphone,
+        telephone,
         id_localities,
         id_activity
     )

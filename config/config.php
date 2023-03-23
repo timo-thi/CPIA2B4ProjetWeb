@@ -1,7 +1,7 @@
 <?php
 return array(
-	'db_name' => 'Grfikart',
+	'db_name' => 'web',
 	'db_user' => 'IngeDev',
 	'db_pass' => 'IngeDev#',
-	'db_host' => 'localhost:3600',
+	'db_host' => 'localhost:3306',
 );
