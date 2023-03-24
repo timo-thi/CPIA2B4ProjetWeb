@@ -20,19 +20,4 @@ class ActivityTable extends Table {
 	public function get($id = null): array {
 		return $this->find($id);
 	}
-
-
-	/** Get one record from a table
-	 * Override the parent method to fetch several records
-	 * @param $id int - id of the record to be fetched
-	 * @return array
-	 */
-	public function find($id) {
-		$upper_table = strtoupper($this->table);
-		return $this->query(
-			"call DETAILS_{$upper_table}(?)",
-			[$id],
-			false
-		);
-	}
 }

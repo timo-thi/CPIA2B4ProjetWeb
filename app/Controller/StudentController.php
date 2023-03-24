@@ -24,12 +24,11 @@ class StudentController extends AppController {
 	 * @return void
 	 */
 	public function index() {
-		$annonces = $this->Student->search();
-		if (empty($annonces)){
+		$profiles = $this->Student->search();
+		if (empty($profiles)){
 			$this->notFound();
 		}
-		var_dump($annonces);
-		// $first = $this->Student->details($annonces[0]->id_offer)[0];
-		$this->render('offer.index', compact('annonces', 'first'));
+		// echo '<pre>', var_dump($profiles), '</pre>';
+		$this->render('student.index', compact('profiles'));
 	}
 }

@@ -22,12 +22,6 @@
 							<div class="col text-center mb-auto mt-auto">
 								<p class="card-text"><?=$profile->email?></p>
 							</div>
-							<div class="col text-center mb-auto mt-auto">
-								<p class="card-text"><?=$profile->prom?></p>
-							</div>
-							<div class="col text-center mb-auto mt-auto">
-								<p class="card-text"><?=$profile->accepted?></p>
-							</div>
 							<div class="col text-end ">
 								<button class="rounded-4 but clair px-2 py-2" type="button" data-bs-toggle="collapse" data-bs-target="#<?= $profile->id_profile ?>" aria-expanded="false" aria-controls="<?= $profile->id_profile ?>" style="width:max-content;">
 									Voir les candidatures
@@ -41,16 +35,16 @@
 					
 					<div class="collapse row sombre" id="<?= $profile->id_profile ?>">
 						<div class="col">
-							<p class="card-text">Nom de l'offre</p>
+							<p class="card-text">Nom de la promo</p>
 						</div>
 						<div class="col">
-							<p class="card-text">Progrès</p>
+							<p class="card-text">Nombre d'étudiants</p>
 						</div>
 						<div class="col">
-							<p class="card-text">Entreprise</p>
+							<p class="card-text">Campus</p>
 						</div>
 						<div class="col">
-							<p class="card-text">Date de la candidature</p>
+							<p class="card-text">Adresse</p>
 						</div>
 					</div>
 				</div>

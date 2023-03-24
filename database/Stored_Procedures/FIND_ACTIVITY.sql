@@ -1,8 +1,8 @@
-DROP PROCEDURE IF EXISTS SEARCH_ACTIVITY;
+DROP PROCEDURE IF EXISTS FIND_ACTIVITY;
 
 DELIMITER //
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SEARCH_ACTIVITY`(p_id_company INT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `FIND_ACTIVITY`(p_id_company INT)
 BEGIN
 	select activity.name
 	from activity

@@ -14,7 +14,7 @@ use \App\Table\LocalitiesTable;
 
 use \App\Table\RateTable;
 
-use \App\Table\PilotsTable;
+use \App\Table\PilotTable;
 
 use \App\Table\StudentTable;
 
@@ -71,7 +71,7 @@ class ApiController extends AppController {
 
 
 	public function pilot($id) {
-		$ProfileApi = new PilotsTable(\App::getInstance()->getDb());
+		$ProfileApi = new PilotTable(\App::getInstance()->getDb());
 		$profile = $ProfileApi->get($id);
 		if (!$profile) {
 			return $this->NotFound();

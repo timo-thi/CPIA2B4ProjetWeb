@@ -4,7 +4,7 @@ DELIMITER //
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SEARCH_OFFER`()
 BEGIN
-	select * from VIEW_OFFER;
+	select * from view_offer;
 END //
 
 DELIMITER ;

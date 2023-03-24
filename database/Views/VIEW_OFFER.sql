@@ -1,6 +1,6 @@
-DROP VIEW IF EXISTS VIEW_OFFER;
+DROP VIEW IF EXISTS view_offer;
 
-create view VIEW_OFFER
+create view view_offer
 AS
 select offer.id_offer, offer.name, offer.link, company.name as company, city.name as city, city.zipcode
 	from offer

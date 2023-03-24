@@ -92,8 +92,9 @@ class Table {
 	 * @return array
 	 */
 	public function find($id) {
+		$upper_table = strtoupper($this->table);
 		return $this->query(
-			"call FIND_{$this->table}(?)",
+			"call FIND_{$upper_table}(?)",
 			[$id],
 			false
 		);
