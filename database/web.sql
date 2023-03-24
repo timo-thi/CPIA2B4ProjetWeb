@@ -6,6 +6,7 @@
 -- Généré le : ven. 24 mars 2023 à 10:28
 -- Version du serveur : 10.4.27-MariaDB
 -- Version de PHP : 8.1.12
+drop database if exists `web`;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -716,7 +717,7 @@ INSERT INTO `city` (`id_city`, `name`, `zipcode`) VALUES
 (9, 'Lille', '59000'),
 (10, 'Lille', '59000'),
 (11, 'Lille', '59000'),
-(12, 'Lille', '59000'),
+(12, 'Lille', '59000');
 
 -- --------------------------------------------------------
 
@@ -782,7 +783,7 @@ INSERT INTO `localities` (`id_localities`, `id_address`, `id_company`) VALUES
 (11, 6, 6),
 (12, 6, 6),
 (13, 6, 6),
-(14, 6, 6),
+(14, 6, 6);
 
 -- --------------------------------------------------------
 
@@ -1057,14 +1058,14 @@ INSERT INTO `sector` (`id_company`, `id_activity`) VALUES
 (3, 1),
 (3, 2),
 (4, 4),
-(3, 2),
+(5, 2),
 (8, 2),
 (9, 2),
 (10, 2),
 (11, 2),
 (12, 2),
 (13, 2),
-(14, 2),
+(14, 2);
 
 -- --------------------------------------------------------
 
@@ -1335,7 +1336,7 @@ ALTER TABLE `roles`
   ADD PRIMARY KEY (`id_roles`);
 
 --
--- Index pour la table `sector`
+-- Index pour la table `					`
 --
 ALTER TABLE `sector`
   ADD PRIMARY KEY (`id_company`,`id_activity`),
