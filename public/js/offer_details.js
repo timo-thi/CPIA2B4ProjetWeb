@@ -18,7 +18,7 @@ $(document).ready(function(){
             $('#of-telephone').html(jdata.telephone);
             $('#of-amount').html('Gratification : ' + jdata.amount + '/mois');
             if (jdata.activity == '') {
-                $('#of-activity').html("<li><p class='sombre'> Pas de compétence particulière recommandée</p></li>");
+                $('#of-activity').html("<li><p class='sombre'> Pas de secteur d'activité spécifié</p></li>");
             } else {
                 $('#of-activity').html('<li><p class="sombre"> ' + jdata.activity + '</p></li>');
             }
