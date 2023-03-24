@@ -41,9 +41,9 @@ require './Navbar.php';?>
       </div>
   </div>
 
-  <div class="col-6 position-absolute end-0">
-  <div class="position-absolute ms-2 end-0">
-  <?php require './DetailOffre.php';?>
+  <div class="col-6 position-absolute end-0 ">
+  <div class="position-absolute ms-2 end-0 ">
+  <?php require './DetailEntreprise.php';?>
   </div>
   </div>
 </div>

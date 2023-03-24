@@ -12,7 +12,7 @@
                     
                     <div class="col-md-auto ">
                     
-                        <div class="btn-group position-absolute end-0" role="group" >
+                        <div class="btn-group position-absolute end-0 mt-2" role="group" >
                               <button class="active border-0 bg-sombre clair rounded " style="width: max-content;"> Like</button>
                               <button class="active border-0 bg-sombre clair rounded ms-2 me-3" style="width: max-content;"> Postuler</button>
                         </div>
