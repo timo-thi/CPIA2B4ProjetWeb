@@ -538,15 +538,21 @@ CREATE TABLE `activity` (
 --
 
 INSERT INTO `activity` (`id_activity`, `name`) VALUES
-(1, 'Software Development'),
-(2, 'Graphic Design'),
-(3, 'Human Resources'),
-(4, 'Marketing'),
-(5, 'Informatique'),
-(6, 'Marketing'),
-(7, 'Finance'),
-(8, 'Ressources Humaines'),
-(9, 'Vente');
+(1, 'Python'),
+(2, 'PHP'),
+(3, 'HTML/CSS'),
+(4, 'Javascript'),
+(5, 'Réseau'),
+(6, 'Cybersécurité'),
+(7, 'C++'),
+(8, 'C#'),
+(9, 'C#'),
+(10, 'C#'),
+(11, 'C#'),
+(12, 'C#'),
+(13, 'C#'),
+(14, 'C#'),
+(15, 'C Arduino');
 
 -- --------------------------------------------------------
 
@@ -568,13 +574,20 @@ CREATE TABLE `address` (
 --
 
 INSERT INTO `address` (`id_address`, `name`, `number`, `comment`, `id_city`) VALUES
-(1, '123 Main St', 'Suite 100', 'Headquarters', 1),
-(2, '456 1st Ave', 'Floor 2', NULL, 2),
-(3, '789 Broadway', NULL, NULL, 3),
-(4, '1010 2nd St', NULL, 'Office', 4),
-(5, '1 Rue de Rivoli', '2ème étage', 'Bâtiment A', 1),
-(6, '12 Rue Victor Hugo', NULL, 'Entrée C', 2),
-(7, '8 Avenue du Prado', NULL, 'Bâtiment B', 3);
+(1, 'Avenue de l\'opéra', '38', NULL, 1),
+(2, 'rue de Londres', '8', NULL, 1),
+(3, 'quai du Pr\ésident Roosevelt', 37, NULL, 2),
+(4, 'place d\'Iéna', 7, NULL, 1),
+(5, 'rue M\énars', 6, NULL, 1),
+(6, 'rue de la Paix', 10, NULL, 1),
+(7, 'Avenue Edmund Halley Rouen Madrillet Innovation', 80, NULL, 3),
+(8, 'Boulevard Louis XIV', 8, NULL, 4),
+(9, 'Boulevard Louis XIV', 8, NULL, 4),
+(10, 'Boulevard Louis XIV', 8, NULL, 4),
+(11, 'Boulevard Louis XIV', 8, NULL, 4),
+(12, 'Boulevard Louis XIV', 8, NULL, 4),
+(13, 'Boulevard Louis XIV', 8, NULL, 4),
+(14, 'Boulevard de la Seine', 93, NULL, 5);
 
 -- --------------------------------------------------------
 
@@ -597,7 +610,16 @@ INSERT INTO `affiliated` (`id_profile`, `id_prom`) VALUES
 (2, 1),
 (3, 1),
 (4, 2),
-(5, 2);
+(5, 2),
+(6, 2),
+(7, 2),
+(8, 2),
+(9, 2),
+(10, 2),
+(11, 2),
+(12, 2),
+(13, 2),
+(4, 1);
 
 -- --------------------------------------------------------
 
@@ -617,13 +639,18 @@ CREATE TABLE `campus` (
 --
 
 INSERT INTO `campus` (`id_campus`, `name`, `id_address`) VALUES
-(1, 'NYC Campus', 1),
-(2, 'SF Campus', 2),
-(3, 'LA Campus', 3),
-(4, 'Seattle Campus', 4),
-(5, 'Campus Paris', 1),
-(6, 'Campus Lyon', 2),
-(7, 'Campus Marseille', 3);
+(1, 'Rouen', 3),
+(2, 'Lille', 4),
+(3, 'Nanterre', 5),
+(4, 'Lille', 4),
+(5, 'Lille', 4),
+(6, 'Lille', 4),
+(7, 'Lille', 4),
+(8, 'Lille', 4),
+(9, 'Lille', 4),
+(10, 'Lille', 4),
+(11, 'Lille', 4),
+(12, 'Lille', 4);
 
 -- --------------------------------------------------------
 
@@ -678,13 +705,18 @@ CREATE TABLE `city` (
 --
 
 INSERT INTO `city` (`id_city`, `name`, `zipcode`) VALUES
-(1, 'New York', '10001'),
-(2, 'San Francisco', '94103'),
-(3, 'Los Angeles', '90001'),
-(4, 'Seattle', '98101'),
-(5, 'Paris', '75001'),
-(6, 'Lyon', '69001'),
-(7, 'Marseille', '13001');
+(1, 'Paris', '75001'),
+(2, 'Issy-les-Moulineaux', '92130'),
+(3, 'Saint-Étienne-du-Rouvray', '76800'),
+(4, 'Lille', '59000'),
+(5, 'Nanterre', '92000'),
+(6, 'Lille', '59000'),
+(7, 'Lille', '59000'),
+(8, 'Lille', '59000'),
+(9, 'Lille', '59000'),
+(10, 'Lille', '59000'),
+(11, 'Lille', '59000'),
+(12, 'Lille', '59000'),
 
 -- --------------------------------------------------------
 
@@ -705,14 +737,20 @@ CREATE TABLE `company` (
 --
 
 INSERT INTO `company` (`id_company`, `name`, `active`, `link`) VALUES
-(1, 'Google', 1, 'https://www.google.com/'),
-(2, 'Microsoft', 1, 'https://www.microsoft.com/'),
-(3, 'Amazon', 0, 'https://www.amazon.com/'),
+(1, 'Youtube', 1, 'https://www.youtube.com/'),
+(2, 'Google', 1, 'https://www.google.com/'),
+(3, 'Microsoft', 1, 'https://www.microsoft.com/'),
 (4, 'Apple', 1, 'https://www.apple.com/'),
-(5, 'Google', 1, 'https://www.google.com/'),
-(6, 'Facebook', 1, 'https://www.facebook.com/'),
-(7, 'Microsoft', 0, 'https://www.microsoft.com/');
-
+(5, 'Facebook', 1, 'https://www.facebook.com/'),
+(6, 'Twitter', 0, 'https://www.twitter.com/'),
+(7, 'Instagram', 0, 'https://www.instagram.com/'),
+(8, 'Twitter', 0, 'https://www.twitter.com/'),
+(9, 'Twitter', 0, 'https://www.twitter.com/'),
+(10, 'Twitter', 0, 'https://www.twitter.com/'),
+(11, 'Twitter', 0, 'https://www.twitter.com/'),
+(12, 'Twitter', 0, 'https://www.twitter.com/'),
+(13, 'Twitter', 0, 'https://www.twitter.com/'),
+(14, 'Twitter', 0, 'https://www.twitter.com/');
 -- --------------------------------------------------------
 
 --
@@ -735,9 +773,16 @@ INSERT INTO `localities` (`id_localities`, `id_address`, `id_company`) VALUES
 (2, 2, 2),
 (3, 3, 3),
 (4, 4, 4),
-(5, 1, 1),
-(6, 2, 2),
-(7, 3, 3);
+(5, 5, 5),
+(6, 6, 6),
+(7, 5, 7),
+(8, 6, 6),
+(9, 6, 6),
+(10, 6, 6),
+(11, 6, 6),
+(12, 6, 6),
+(13, 6, 6),
+(14, 6, 6),
 
 -- --------------------------------------------------------
 
@@ -771,7 +816,14 @@ INSERT INTO `offer` (`id_offer`, `name`, `active`, `startdate`, `period`, `amoun
 (2, 'Assistant RH', 1, '2022-04-15', '3 mois', '2200 €', NULL, NULL, 'rh@entreprise.com', '0607080910', 'https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378', 2, 2),
 (3, 'Chargé de communication', 0, '2022-06-01', '6 mois', '3800 €', '30 €/h', 'CDD pour remplacement maladie', 'communication@entreprise.com', '0504030201', 'https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378', 3, 3),
 (4, 'Chef de projet', 1, '2022-03-15', '12 mois', '5000 €', '40 €/h', NULL, 'projet@entreprise.com', '0102030405', 'https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378', 4, 4),
-(5, 'Architecte logiciel', 1, '2022-05-01', '18 mois', '6000 €', '50 €/h', 'Mission chez un client important', 'contact@entreprise.com', '0607080910', 'https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378', 1, 1);
+(5, 'Architecte logiciel', 1, '2022-05-01', '18 mois', '6000 €', '50 €/h', 'Mission chez un client important', 'contact@entreprise.com', '0607080910', 'https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378', 1, 1),
+(6, 'Chef de projet', 1, '2022-03-15', '12 mois', '5000 €', '40 €/h', NULL, 'projet@entreprise.com', '0102030405', 'https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378', 4, 4),
+(7, 'Chef de projet', 1, '2022-03-15', '12 mois', '5000 €', '40 €/h', NULL, 'projet@entreprise.com', '0102030405', 'https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378', 4, 4),
+(8, 'Chef de projet', 1, '2022-03-15', '12 mois', '5000 €', '40 €/h', NULL, 'projet@entreprise.com', '0102030405', 'https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378', 4, 4),
+(9, 'Chef de projet', 1, '2022-03-15', '12 mois', '5000 €', '40 €/h', NULL, 'projet@entreprise.com', '0102030405', 'https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378', 4, 4),
+(10, 'Chef de projet', 1, '2022-03-15', '12 mois', '5000 €', '40 €/h', NULL, 'projet@entreprise.com', '0102030405', 'https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378', 4, 4),
+(11, 'Chef de projet', 1, '2022-03-15', '12 mois', '5000 €', '40 €/h', NULL, 'projet@entreprise.com', '0102030405', 'https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378', 4, 4),
+(12, 'Chef de projet', 1, '2022-03-15', '12 mois', '5000 €', '40 €/h', NULL, 'projet@entreprise.com', '0102030405', 'https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378', 4, 4);
 
 -- --------------------------------------------------------
 
@@ -792,11 +844,19 @@ CREATE TABLE `person` (
 --
 
 INSERT INTO `person` (`id_person`, `email`, `password`, `id_profile`) VALUES
-(1, 'alice.dupont@example.com', 'alice123', 1),
+(1, 'timothee.thienpont@viacesi.fr', 'alice123', 1),
 (2, 'bob.martin@example.com', 'bob123', 2),
 (3, 'camille.lefebvre@example.com', 'camille123', 3),
 (4, 'david.garcia@example.com', 'david123', 4),
-(5, 'emilie.dujardin@example.com', 'emilie123', 5);
+(5, 'david.garcia@example.com', 'david123', 5),
+(6, 'david.garcia@example.com', 'david123', 6),
+(7, 'david.garcia@example.com', 'david123', 7),
+(8, 'david.garcia@example.com', 'david123', 8),
+(9, 'david.garcia@example.com', 'david123', 9),
+(10, 'david.garcia@example.com', 'david123', 10),
+(11, 'david.garcia@example.com', 'david123', 11),
+(12, 'david.garcia@example.com', 'david123', 12),
+(13, 'emilie.dujardin@example.com', 'emilie123', 13);
 
 -- --------------------------------------------------------
 
@@ -843,16 +903,20 @@ CREATE TABLE `profile` (
 --
 
 INSERT INTO `profile` (`id_profile`, `fname`, `lname`, `id_roles`, `photo`) VALUES
-(1, 'John', 'Doe', 1, 'https://cdn.discordapp.com/attachments/1088413788342071388/1088416535422439476/image.png'),
-(2, 'Jane', 'Doe', 2, 'https://cdn.discordapp.com/attachments/1088413788342071388/1088416604963995688/image.png'),
-(3, 'Bob', 'Smith', 3, 'https://cdn.discordapp.com/attachments/1088413788342071388/1088416755052978186/image.png'),
-(4, 'Alice', 'Johnson', 3, 'https://cdn.discordapp.com/attachments/1088413788342071388/1088416880332636160/image.png'),
-(5, 'Baptiste', 'Quiadelavenne', 2, 'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),
-(6, 'Timothee', 'Quiestduboncote', 1, 'https://cdn.discordapp.com/attachments/1088413788342071388/1088416367771918427/image.png'),
-(7, 'Damian', 'Roulant', 1, 'https://cdn.discordapp.com/attachments/1088413788342071388/1088419274667864064/image.png'),
-(8, 'Elza', 'Quiestduboncote', 1, 'https://cdn.discordapp.com/attachments/1088413788342071388/1088419363301883934/image.png'),
-(9, 'Miriam', 'Tienpond', 1, 'https://cdn.discordapp.com/attachments/1088413788342071388/1088419553874300958/image.png'),
-(10, 'Hubert', 'Lereal', 1, 'https://cdn.discordapp.com/attachments/1088413788342071388/1088416604963995688/image.png');
+(1, 'Timothée', 'THIENPONT', 1, 'https://cdn.discordapp.com/attachments/1088413788342071388/1088416535422439476/image.png'),
+(2, 'Damian', 'LAROCHE-RIBERT', 1, 'https://cdn.discordapp.com/attachments/1088413788342071388/1088416604963995688/image.png'),
+(3, 'Baptiste', 'DELAVENNE', 1, 'https://cdn.discordapp.com/attachments/1088413788342071388/1088416755052978186/image.png'),
+(4, 'Léandro', 'DE BARROS BARBOSA', 3, 'https://cdn.discordapp.com/attachments/1088413788342071388/1088416880332636160/image.png'),
+(5, 'Aniss', 'SEJEAN', 2, 'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),
+(6, 'Clyde', 'BARULL', 3, 'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),
+(7, 'Quentin', 'CAMBUZAT', 3, 'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),
+(8, 'Florian', 'MAILLARD', 3, 'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),
+(9, 'Clément', 'REYDEL', 3, 'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),
+(10, 'Paul', 'BREON', 3, 'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),
+(11, 'Luc', 'MARTEN', 3, 'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),
+(12, 'Lilia', 'ABBA', 3, 'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),
+(13, 'Pierre', 'LEJEUNE', 3, 'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png');
+
 
 -- --------------------------------------------------------
 
@@ -874,7 +938,14 @@ CREATE TABLE `prom` (
 INSERT INTO `prom` (`id_prom`, `name`, `id_campus`) VALUES
 (1, 'Promo 2022', 1),
 (2, 'Promo 2023', 2),
-(3, 'Promo 2024', 3);
+(3, 'Promo 2024', 3),
+(4, 'Promo 2023', 4),
+(5, 'Promo 2023', 5),
+(6, 'Promo 2023', 6),
+(7, 'Promo 2023', 7),
+(8, 'Promo 2023', 8),
+(9, 'Promo 2023', 9),
+(10, 'Promo 2023', 10);
 
 -- --------------------------------------------------------
 
@@ -895,11 +966,16 @@ CREATE TABLE `rate` (
 --
 
 INSERT INTO `rate` (`id_profile`, `id_company`, `rating`, `comment`) VALUES
-(1, 1, 4, 'Bonne entreprise'),
-(2, 1, 4, 'Très bonne entreprise, j\'ai apprécié travailler ici'),
-(3, 2, 5, 'Très bonne entreprise'),
+(4, 1, 4, 'Bonne entreprise'),
+(4, 2, 5, 'Très bonne entreprise'),
 (4, 3, 3, 'Assez bonne entreprise'),
-(5, 3, 4, 'Entreprise exceptionnelle, je suis très satisfait(e) de mon expérience');
+(5, 3, 4, 'Entreprise exceptionnelle, je suis très satisfait(e) de mon expérience'),
+(6, 3, 3, 'Assez bonne entreprise'),
+(7, 3, 3, 'Assez bonne entreprise'),
+(8, 3, 3, 'Assez bonne entreprise'),
+(9, 3, 3, 'Assez bonne entreprise'),
+(10, 3, 3, 'Assez bonne entreprise'),
+(11, 3, 3, 'Assez bonne entreprise');
 
 -- --------------------------------------------------------
 
@@ -928,7 +1004,13 @@ INSERT INTO `requires` (`id_offer`, `id_skill`, `level`) VALUES
 (4, 2, 2),
 (4, 4, 3),
 (5, 1, 1),
-(5, 5, 2);
+(6, 5, 2),
+(7, 1, 1),
+(8, 1, 1),
+(9, 1, 1),
+(10, 1, 1),
+(11, 1, 1),
+(12, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -974,7 +1056,15 @@ INSERT INTO `sector` (`id_company`, `id_activity`) VALUES
 (2, 4),
 (3, 1),
 (3, 2),
-(4, 4);
+(4, 4),
+(3, 2),
+(8, 2),
+(9, 2),
+(10, 2),
+(11, 2),
+(12, 2),
+(13, 2),
+(14, 2),
 
 -- --------------------------------------------------------
 
@@ -1087,7 +1177,16 @@ INSERT INTO `wish` (`id_profile`, `id_offer`) VALUES
 (1, 2),
 (2, 1),
 (3, 3),
-(4, 5);
+(4, 5),
+(5, 2),
+(6, 2),
+(7, 2),
+(8, 2),
+(9, 2),
+(10, 2),
+(11, 2),
+(12, 2),
+(13, 2);
 
 -- --------------------------------------------------------
 
