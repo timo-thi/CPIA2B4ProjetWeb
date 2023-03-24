@@ -1,0 +1,8 @@
+DROP PROCEDURE IF EXISTS DELETE_LOCALITIES;
+DELIMITER//
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DELETE_LOCALITIES`(p_id_localities INT)
+BEGIN
+DELETE FROM localities
+	WHERE id_localities = p_id_localities;
+END//
+DELIMITER;

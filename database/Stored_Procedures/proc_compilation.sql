@@ -1,7 +1,3 @@
-use web;
-
-
-
 DROP PROCEDURE IF EXISTS AUTH;
 
 DELIMITER //
@@ -11,6 +7,14 @@ BEGIN
 	SELECT email, password FROM person;
 END //
 
+DELIMITER ;
+DROP PROCEDURE IF EXISTS DELETE_WISH;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DELETE_WISH`(p_id_profile INT, p_id_offer INT)
+BEGIN
+delete from wish
+where id_profile = p_id_profile and id_offer = p_id_offer;
+END//
 DELIMITER ;
 DROP PROCEDURE IF EXISTS SEARCH_PILOTS;
 
@@ -39,6 +43,30 @@ END //
 
 DELIMITER ;
 
+DROP PROCEDURE IF EXISTS DELETE_PROM;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DELETE_PROM`(p_id_prom INT)
+BEGIN
+DELETE FROM prom
+	WHERE id_prom = p_id_prom;
+END//
+DELIMITER ;
+DROP PROCEDURE if EXISTS UPDATE_COMPANY;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UPDATE_COMPANY`(p_id_company INT, p_name VARCHAR(255), p_active BOOL, p_link VARCHAR(255))
+BEGIN
+UPDATE company
+set name = p_name, active = p_active, link = p_link
+where id_company = p_id_company;
+END//
+DELIMITER ;
+DROP PROCEDURE IF EXISTS CREATION_WISH;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CREATION_WISH`(p_id_profile INT, p_id_offer INT)
+BEGIN
+insert into wish (id_profile,id_offer) values (p_id_profile,p_id_offer);
+END//
+DELIMITER ;
 DROP PROCEDURE IF EXISTS SELECT_PROM;
 
 DELIMITER //
@@ -50,6 +78,14 @@ END //
 
 DELIMITER ;
 
+DROP PROCEDURE IF EXISTS DELETE_SKILLS;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DELETE_SKILLS`(p_id_skill INT)
+BEGIN
+DELETE FROM skills
+	WHERE id_skill = p_id_skill;
+END//
+DELIMITER ;
 DROP PROCEDURE IF EXISTS UPDATE_OFFER;
 
 DELIMITER //
@@ -77,6 +113,15 @@ END //
 
 DELIMITER ;
 
+DROP PROCEDURE IF EXISTS UPDATE_CANDIDATURE;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UPDATE_CANDIDATURE`(p_id_candidature INT, p_send_date DATE, p_id_progress_state INT, p_id_profile INT, p_id_offer INT)
+BEGIN
+update candidature
+set send_date = p_send_date ,id_progress_state = p_id_progress_state, id_profile = p_id_profile, id_offer = p_id_offer
+where id_candidature = p_id_candidature;
+END//
+DELIMITER ;
 DROP PROCEDURE IF EXISTS DETAILS_STUDENT;
 
 DELIMITER //
@@ -89,26 +134,6 @@ BEGIN
 END //
 
 DELIMITER ;
-
-DROP PROCEDURE IF EXISTS SEARCH_COMPANY;
-
-DELIMITER //
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SEARCH_COMPANY`()
-BEGIN
-SELECT  company.id_company, company.name, company.link, IFNULL(cesi_accepted, 0) as cesi_accepted FROM company
-    LEFT JOIN
-	(SELECT localities.id_company, count(*) as cesi_accepted FROM candidature
-	inner join offer on candidature.id_offer = offer.id_offer
-	inner join postulate_progress_steps on postulate_progress_steps.id_progress_state = candidature.id_progress_state
-	inner join localities on localities.id_localities = offer.id_localities
-	left join company on company.id_company = localities.id_company
-	WHERE postulate_progress_steps.name = "Acceptée"
-	GROUP BY localities.id_company) as CESICOUNT ON CESICOUNT.id_company = company.id_company;
-END //
-
-DELIMITER ;
-
 DROP PROCEDURE IF EXISTS DETAILS_PROFILE;
 
 DELIMITER //
@@ -124,10 +149,18 @@ BEGIN
 	INNER JOIN city ON address.id_city = city.id_city
 	inner join roles on profile.id_roles = roles.id_roles
 	WHERE profile.id_profile = p_id_profile;
-END //
+END//
 
 DELIMITER ;
 
+DROP PROCEDURE IF EXISTS DELETE_CAMPUS;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DELETE_CAMPUS`(p_id_campus INT)
+BEGIN
+DELETE FROM campus
+	WHERE id_campus = p_id_campus;
+END//
+DELIMITER ;
 DROP PROCEDURE IF EXISTS SEARCH_PROFILE;
 
 DELIMITER //
@@ -252,6 +285,13 @@ END //
 
 DELIMITER ;
 
+DROP PROCEDURE IF EXISTS CREATION_SECTOR;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CREATION_SECTOR`(p_id_company INT, p_id_activity INT)
+BEGIN
+insert into sector (id_company,id_activity) values (p_id_company,p_id_activity);
+END //
+DELIMITER ;
 DROP PROCEDURE IF EXISTS SEARCH_STUDENT;
 
 DELIMITER //
@@ -264,6 +304,22 @@ END //
 
 DELIMITER ;
 
+DROP PROCEDURE IF EXISTS DELETE_LOCALITIES;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DELETE_LOCALITIES`(p_id_localities INT)
+BEGIN
+DELETE FROM localities
+	WHERE id_localities = p_id_localities;
+END//
+DELIMITER ;
+DROP PROCEDURE IF EXISTS DELETE_ADDRESS;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DELETE_ADDRESS`(p_id_address INT)
+BEGIN
+DELETE FROM address
+	WHERE id_address = p_id_address;
+END//
+DELIMITER ;
 DROP PROCEDURE IF EXISTS DETAILS_PILOTS;
 
 DELIMITER //
@@ -288,6 +344,23 @@ END //
 
 DELIMITER ;
 
+DROP PROCEDURE IF EXISTS DELETE_POSTULATE_PROGRESS_STEPS;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DELETE_POSTULATE_PROGRESS_STEPS`(p_id_progress_state INT)
+BEGIN
+DELETE FROM postulate_progress_steps
+	WHERE id_progress_state = p_id_progress_state;
+END//
+DELIMITER ;
+DROP PROCEDURE IF EXISTS DELETE_ROLES;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DELETE_ROLES`(p_id_roles INT)
+BEGIN
+DELETE FROM roles
+	WHERE id_roles = p_id_roles;
+
+END//
+DELIMITER ;
 DROP PROCEDURE IF EXISTS SEARCH_RATE;
 
 DELIMITER //
@@ -302,6 +375,20 @@ END //
 
 DELIMITER ;
 
+DROP PROCEDURE IF EXISTS CREATION_ADDRESS;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CREATION_ADDRESS`(p_name VARCHAR(255), p_number INT, p_comment VARCHAR(255), p_id_city INT)
+BEGIN
+insert into address (name,number,comment,id_city) values (p_name,p_number,p_comment,p_id_city);
+END//
+DELIMITER ;
+DROP PROCEDURE IF EXISTS CREATION_RATE;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CREATION_RATE`(p_id_profile INT, p_id_company INT, p_rating INT, p_comment VARCHAR(500))
+BEGIN
+insert into rate (id_profile,id_company,rating,comment) values (p_id_profile,p_id_company,p_rating,p_comment);
+END //
+DELIMITER ;
 DROP PROCEDURE IF EXISTS SEARCH_SKILLS;
 
 DELIMITER //
@@ -316,6 +403,13 @@ END //
 
 DELIMITER ;
 
+DROP PROCEDURE IF EXISTS CREATION_CANDIDATURE;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CREATION_CANDIDATURE`(p_send_date DATE, p_id_progress_state INT, p_id_profile INT, p_id_offer INT)
+BEGIN
+insert into candidature (send_date,id_progress_state,id_profile,id_offer) values (p_send_date,p_id_progress_state,p_idprofile,p_id_offer);
+END//
+DELIMITER ;
 DROP PROCEDURE IF EXISTS SEARCH_OFFER;
 
 DELIMITER //
@@ -339,6 +433,13 @@ BEGIN
 END//
 
 DELIMITER ;
+DROP PROCEDURE IF EXISTS CREATION_REQUIRES;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CREATION_REQUIRES`(p_id_offer INT,p_id_skill INT, p_level INT)
+BEGIN
+insert into requires (id_offer,id_skill,level) values (p_id_offer,p_id_skill,p_level);
+END //
+DELIMITER ;
 DROP PROCEDURE IF EXISTS DELETE_ACTIVITY;
 DELIMITER //
 
@@ -349,7 +450,6 @@ where id_activity = p_id_activity;
 END //
 
 DELIMITER ;
-
 DROP PROCEDURE IF EXISTS DELETE_OFFER;
 
 DELIMITER //
@@ -386,13 +486,38 @@ END //
 
 DELIMITER ;
 
+DROP PROCEDURE IF EXISTS SEARCH_COMPANY;
+DELIMITER //
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SEARCH_COMPANY`()
+BEGIN
+SELECT  company.id_company, company.name, company.link, IFNULL(cesi_accepted, 0) as cesi_accepted FROM company
+    LEFT JOIN
+	(SELECT localities.id_company, count(*) as cesi_accepted FROM candidature
+	inner join offer on candidature.id_offer = offer.id_offer
+	inner join postulate_progress_steps on postulate_progress_steps.id_progress_state = candidature.id_progress_state
+	inner join localities on localities.id_localities = offer.id_localities
+	left join company on company.id_company = localities.id_company
+	WHERE postulate_progress_steps.name = "Acceptée"
+	GROUP BY localities.id_company) as CESICOUNT ON CESICOUNT.id_company = company.id_company;
+END//
+
+DELIMITER ;
+DROP PROCEDURE IF EXISTS DELETE_PROFILE;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DELETE_PROFILE`(p_id_profile INT)
+BEGIN
+DELETE FROM profile
+	WHERE id_profile = p_id_profile;
+END//
+DELIMITER ;
 DROP PROCEDURE IF EXISTS DETAILS_OFFER;
 
 DELIMITER //
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `DETAILS_OFFER`(p_id_offer INT)
 BEGIN
-    select offer.name, offer.telephone, offer.contact_mail, offer.comment, offer.amount, offer.link, company.name as company, company.link, city.name as city, city.zipcode, address.name as address, address.number, address.comment, activity.name as activity
+    select offer.name, offer.telephone, offer.contact_mail, offer.comment, offer.amount, company.name as company, company.link, city.name as city, city.zipcode, address.name as address, address.number, address.comment, activity.name as activity
     from offer
     inner join localities on offer.id_localities = localities.id_localities
     inner join company on localities.id_company = company.id_company
@@ -452,6 +577,15 @@ END //
 
 DELIMITER ;
 
+DROP PROCEDURE IF EXISTS UPDATE_PROM;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UPDATE_PROM`(p_id_prom INT, p_name VARCHAR(255), p_id_campus INT)
+BEGIN
+UPDATE prom
+set name = p_name, id_campus = p_id_campus
+where id_prom = p_id_prom;
+END//
+DELIMITER ;
 DROP PROCEDURE IF EXISTS CREATE_COMPANY;
 
 DELIMITER //
@@ -548,6 +682,21 @@ END //
 
 DELIMITER ;
 
+DROP PROCEDURE IF EXISTS CREATION_SKILLS;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CREATION_SKILLS`(p_name VARCHAR(255))
+BEGIN
+insert into skills (name) values (p_name);
+END //
+DELIMITER ;
+DROP PROCEDURE IF EXISTS DELETE_CANDIDATURE;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DELETE_CANDIDATURE`(p_id_candidature INT)
+BEGIN
+delete from candidature
+where id_candidature = p_id_candidature;
+END//
+DELIMITER ;
 DROP PROCEDURE IF EXISTS SELECT_OFFER;
 
 DELIMITER //
@@ -559,6 +708,14 @@ END //
 
 DELIMITER ;
 
+DROP PROCEDURE IF EXISTS DELETE_COMPANY;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DELETE_COMPANY`(p_id_company INT)
+BEGIN
+DELETE FROM company
+	WHERE id_company = p_id_company;
+END//
+DELIMITER ;
 DROP PROCEDURE IF EXISTS SELECT_CANDIDATURE;
 
 DELIMITER //
@@ -570,6 +727,13 @@ END //
 
 DELIMITER ;
 
+DROP PROCEDURE IF EXISTS CREATION_PROM;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CREATION_PROM`(p_name VARCHAR(255),p_id_campus INT)
+BEGIN
+insert into prom (name,id_campus) values (p_name,p_id_campus);
+END//
+DELIMITER ;
 DROP PROCEDURE IF EXISTS FIND_CANDIDATURE;
 
 DELIMITER //
@@ -596,4 +760,14 @@ BEGIN
 	where company.id_company = p_id_company;
 END //
 
+DELIMITER ;
+
+DROP PROCEDURE IF EXISTS UPDATE_ADDRESS;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UPDATE_ADDRESS`(p_id_address INT, p_name VARCHAR(255), p_number INT, p_comment VARCHAR(255),p_id_city INT)
+BEGIN
+update address
+set name = p_name, number = p_number, comment = p_comment, id_city = p_id_city;
+where id_address = p_id_address;
+END//
 DELIMITER ;

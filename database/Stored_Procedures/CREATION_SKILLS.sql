@@ -1,0 +1,7 @@
+DROP PROCEDURE IF EXISTS CREATION_SKILLS;
+DELIMITER //
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CREATION_SKILLS`(p_name VARCHAR(255))
+BEGIN
+insert into skills (name) values (p_name);
+END //
+DELIMITER ;
