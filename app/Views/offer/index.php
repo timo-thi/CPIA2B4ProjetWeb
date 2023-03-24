@@ -1,4 +1,4 @@
-<script src="../public/js/script.js"></script>
+<script src="../public/js/offer_details.js"></script>
 <div class="container mt-3  " style="max-width:90%">
 	<?php
 	$filtre1 = 'Rémunération';

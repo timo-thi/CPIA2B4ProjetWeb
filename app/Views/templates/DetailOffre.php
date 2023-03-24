@@ -58,7 +58,7 @@
                         if (isset($first->activity)) {
                             echo "<li><p class='sombre'> $first->activity</p></li>";
                         } else {
-                            echo "<li><p class='sombre'> Pas de compétence particulière recommandée</p></li>";
+                            echo "<li><p class='sombre'> Pas de secteur d'activité spécifié</p></li>";
                         }
                     ?>
                 </ul>
