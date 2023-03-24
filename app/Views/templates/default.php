@@ -31,16 +31,16 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-auto mb-lg-0">
         <li class="nav-item me-2">
-          <a class="nav-link sombre" href="./RechercheOffre.php">Offres</a>
+          <a class="nav-link sombre" href="../public/index.php?p=offer.index">Offres</a>
         </li>
         <li class="nav-item me-2">
-          <a class="nav-link sombre" href="./RechercheEntreprise.php">Entreprise</a>
+          <a class="nav-link sombre" href="../public/index.php?p=company.index">Entreprise</a>
         </li>
         <li class="nav-item me-2">
-          <a class="nav-link sombre" href="./RechercheEtudiant.php">Etudiants</a>
+          <a class="nav-link sombre" href="../public/index.php?p=student.index">Etudiants</a>
         </li>
         <li class="nav-item me-2">
-          <a class="nav-link sombre" href="./RecherchePilote.php">Pilotes</a>
+          <a class="nav-link sombre" href="../public/index.php?p=pilot.index">Pilotes</a>
         </li>
         </ul>
 
