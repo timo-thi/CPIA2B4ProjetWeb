@@ -174,6 +174,7 @@ CREATE TABLE
         comment VARCHAR(500),
         contact_mail VARCHAR(100),
         telephone VARCHAR(15),
+        link VARCHAR(1024),
         id_localities INT NOT NULL,
         id_activity INT NOT NULL,
         FOREIGN KEY(id_localities) REFERENCES localities(id_localities),
@@ -456,6 +457,7 @@ INSERT INTO
         comment,
         contact_mail,
         telephone,
+        link,
         id_localities,
         id_activity
     )
@@ -469,6 +471,7 @@ VALUES (
         'CDI après la période d''essai',
         'contact@entreprise.com',
         '0102030405',
+        'https://cdn.discordapp.com/attachments/1088413788342071388/1088416367771918427/image.png',
         1,
         1
     ), (
@@ -481,6 +484,7 @@ VALUES (
         null,
         'rh@entreprise.com',
         '0607080910',
+        'https://cdn.discordapp.com/attachments/1088413788342071388/1088416367771918427/image.png',
         2,
         2
     ), (
@@ -493,6 +497,7 @@ VALUES (
         'CDD pour remplacement maladie',
         'communication@entreprise.com',
         '0504030201',
+        'https://cdn.discordapp.com/attachments/1088413788342071388/1088416367771918427/image.png',
         3,
         3
     ), (
@@ -505,6 +510,7 @@ VALUES (
         null,
         'projet@entreprise.com',
         '0102030405',
+        'https://cdn.discordapp.com/attachments/1088413788342071388/1088416367771918427/image.png',
         4,
         4
     ), (
@@ -517,6 +523,7 @@ VALUES (
         'Mission chez un client important',
         'contact@entreprise.com',
         '0607080910',
+        'https://cdn.discordapp.com/attachments/1088413788342071388/1088416367771918427/image.png',
         1,
         1
     );

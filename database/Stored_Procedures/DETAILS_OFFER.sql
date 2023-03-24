@@ -4,7 +4,7 @@ DELIMITER //
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `DETAILS_OFFER`(p_id_offer INT)
 BEGIN
-    select offer.name, offer.telephone, offer.contact_mail, offer.comment, offer.amount, company.name as company, company.link, city.name as city, city.zipcode, address.name as address, address.number, address.comment, activity.name as activity
+    select offer.name, offer.telephone, offer.contact_mail, offer.comment, offer.amount, offer.link, company.name as company, company.link, city.name as city, city.zipcode, address.name as address, address.number, address.comment, activity.name as activity
     from offer
     inner join localities on offer.id_localities = localities.id_localities
     inner join company on localities.id_company = company.id_company

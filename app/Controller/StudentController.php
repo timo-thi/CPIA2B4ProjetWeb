@@ -2,13 +2,13 @@
 namespace App\Controller;
 
 
-use App\Table\OfferTable;
+use App\Table\StudentTable;
 
 
-class OfferController extends AppController {
+class StudentController extends AppController {
 
 
-	public OfferTable $Offer;
+	public StudentTable $Student;
 
 
 	/** Contructpr
@@ -16,7 +16,7 @@ class OfferController extends AppController {
 	 */
 	public function __construct() {
 		parent::__construct();
-		$this->loadModel('Offer');
+		$this->loadModel('Student');
 	}
 
 
@@ -24,11 +24,12 @@ class OfferController extends AppController {
 	 * @return void
 	 */
 	public function index() {
-		$annonces = $this->Offer->search();
+		$annonces = $this->Student->search();
 		if (empty($annonces)){
 			$this->notFound();
 		}
-		$first = $this->Offer->details($annonces[0]->id_offer)[0];
+		var_dump($annonces);
+		// $first = $this->Student->details($annonces[0]->id_offer)[0];
 		$this->render('offer.index', compact('annonces', 'first'));
 	}
 }

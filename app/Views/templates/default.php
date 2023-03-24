@@ -3,22 +3,17 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-      <?php require ROOT . 'BootStrap/assets/vendors/bootstrap/css/bootstrap.min.css'?>
-    </style>
-    <style>
-      <?php require ROOT . 'public/css/style.css'?>
-    </style>
-    <style>
-      <?php require ROOT . 'BootStrap/assets/vendors/fontawesome/css/all.min.css'?>
-    </style>
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> -->
-    <title>Recherche d'entreprise</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="<?= '../BootStrap/assets/vendors/bootstrap/css/bootstrap.min.css'?>">
+  <link rel="stylesheet" href="<?= '../public/css/style.css'?>">
+  <link rel="stylesheet" href="<?= '../BootStrap/assets/vendors/fontawesome/css/all.min.css'?>">
+  <link rel="stylesheet" href="<?= '../public/css/oeil.css'?>">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> -->
+  <title>Recherche d'entreprise</title>
 </head>
-<body>
+<body class="bg-sombre">
   <nav class="navbar navbar-expand-lg bg-clair">
     <div class="container-fluid">
       <a class="navbar-brand me-4" href="./Acceuil.php">
@@ -73,10 +68,11 @@
       </div>
     </div>
   </nav>
-
+    <?php
+    echo $content;
+    ?>
   <?php require ROOT . 'app/Views/HTML/Footer.php'?>
-  <script src="../../../BootStrap/assets/vendors/bootstrap/js/bootstrap.bundle.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-  <script src="../../../BootStrap/assets/vendors/jquery/jquery.min.js"></script>
+  <script src="<?= '../BootStrap/assets/vendors/bootstrap/js/bootstrap.bundle.js'?>"></script>
+  <script src="../BootStrap/assets/vendors/jquery/jquery.min.js"></script>
 </body>
 </html>
