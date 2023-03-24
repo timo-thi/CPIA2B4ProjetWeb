@@ -1,6 +1,6 @@
 <?php include 'TplVar.php' ;?> 
 
-<div class="card bg-clair" style="max-width:100%; min-height:39em">
+<div class="card bg-clair" style="max-width:100%; min-height:80vh">
 
     <div class="row">
         <div class="card-title ">

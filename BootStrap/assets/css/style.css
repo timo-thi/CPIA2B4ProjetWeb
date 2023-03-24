@@ -22,7 +22,7 @@
 
 .border-sombre{
   border-color:#2C2C2C;
-  border: solid;
+  border: 1px solid;
 }
 
 .offre{
@@ -45,7 +45,7 @@
 
 .but-clair{
   border-radius: 6px;
-  border: 2px solid #fffaf0;
+  border: 2px solid #2C2C2C;
   background:#fffaf0;
 
 }
@@ -74,11 +74,10 @@ html {
   height: 0px;
   background: #000000;
   color: #FFFFFF;
-  border: 2px solid red;
 }
 
 .partieScrollable{
-  height: 39rem;
+  height: 80vh;
   overflow: auto;
   scroll-behavior: smooth;
 }
