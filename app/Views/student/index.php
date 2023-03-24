@@ -1,4 +1,17 @@
 <div class="container mt-3 " style="max-width:80%">
+	<?php
+	$filtre1 = 'Nom';
+    $filtre2 = 'Prénom';
+    $filtre3 = 'Promo';
+    $filtre4 = 'Progression';
+
+    $HideFilter1 = '';
+    $HideFilter2 = '';
+    $HideFilter3 = '';
+    $HideFilter4 = '';
+
+	require '../app/Views/templates/Filter.php';
+	?>
 	<?php foreach ($profiles as $profile):?>
 
 		<div class="col mt-3">

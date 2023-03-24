@@ -3,12 +3,14 @@ namespace App\Controller;
 
 
 use App\Table\OfferTable;
+use App\Table\SkillsTable;
 
 
 class OfferController extends AppController {
 
 
 	public OfferTable $Offer;
+	public SkillsTable $Skills;
 
 
 	/** Contructpr
@@ -17,6 +19,7 @@ class OfferController extends AppController {
 	public function __construct() {
 		parent::__construct();
 		$this->loadModel('Offer');
+		$this->loadModel('Skills');
 	}
 
 
@@ -29,6 +32,7 @@ class OfferController extends AppController {
 			$this->notFound();
 		}
 		$first = $this->Offer->details($annonces[0]->id_offer)[0];
+		$first->skills = $this->Skills->find($annonces[0]->id_offer);
 		$this->render('offer.index', compact('annonces', 'first'));
 	}
 }

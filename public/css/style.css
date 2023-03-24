@@ -76,3 +76,10 @@ html {
   color: #FFFFFF;
   border: 2px solid red;
 }
+
+.partieScrollable{
+  height: 80vh;
+  overflow: auto;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
