@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="<?= '../public/css/oeil.css'?>">
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> -->
   <title>Recherche d'entreprise</title>
+  <script src="../BootStrap/assets/vendors/jquery/jquery.min.js"></script> <!-- Jquery have to be included here to be recognized -->
 </head>
 <body class="bg-sombre">
   <nav class="navbar navbar-expand-lg bg-clair">
@@ -73,6 +74,5 @@
     ?>
   <?php require ROOT . 'app/Views/HTML/Footer.php'?>
   <script src="<?= '../BootStrap/assets/vendors/bootstrap/js/bootstrap.bundle.js'?>"></script>
-  <script src="../BootStrap/assets/vendors/jquery/jquery.min.js"></script>
 </body>
 </html>

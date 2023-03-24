@@ -5,7 +5,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-auto">
-                        <h1 class="sombre " style="width: max-content;"><?= $first->name?></h1>
+                        <h1 class="sombre" id="of-name" style="width: max-content;"><?= $first->name?></h1>
                     </div>
                     
                     <div class="col-md-auto ">
@@ -26,17 +26,17 @@
                 </div>
     
                  <div class="col-md-auto " >
-                    <h3 class="sombre"> <?= $first->company?></h3>
+                    <h3 class="sombre" id="of-company"> <?= $first->company?></h3>
                     <ul class="navbar-nav">
-                        <li><?= $first->address?></li>
-                        <li><?= $first->city?> (<?= $first->zipcode?>)</li>
-                        <li><a href="<?= $first->link?>" class="nav-link sombre">Site web</a></li>
+                        <li id="of-address"><?= $first->address?></li>
+                        <li id="of-city_zipcode"><?= $first->city?> (<?= $first->zipcode?>)</li>
+                        <li><a id="of-link" href="<?= $first->link?>" class="nav-link sombre">Site web</a></li>
                     </ul>
                 </div>
                 <div class="col-md-auto ">
                      <ul class="navbar-nav align-self-end">
-                        <li><!--logoMail--> <?= $first->contact_mail?></li>
-                        <li><!--logoPhone--> <?= $first->telephone?></li>
+                        <li id="of-email"><!--logoMail--> <?= $first->contact_mail?></li>
+                        <li id="of-telephone"><!--logoPhone--> <?= $first->telephone?></li>
                     </ul>
                 </div>
 
@@ -47,25 +47,25 @@
         <div class="card-text">
             <div class="container">
             <p><?=$first->comment?></p>
-            <p>Gratification: <?= $first->amount?> /mois</p>
+            <p id="of-amount">Gratification : <?= $first->amount?> /mois</p>
             </div>
         </div>
         <div class="card-body">
             <div class="container">
                 <h5 class="but clair p-1" style="width:max-content">Secteur d'activité:</h5>        
-                <ul class="navbar-nav border-sombre rounded-4 ps-2">
-                <?php
-                    if (isset($first->activity)) {
-                        echo "<li><p class='sombre'> $first->activity</p></li>";
-                    } else {
-                        echo "<li><p class='sombre'> Pas de compétence particulière recommandée</p></li>";
-                    }
+                <ul class="navbar-nav border-sombre rounded-4 ps-2" id="of-activity">
+                    <?php
+                        if (isset($first->activity)) {
+                            echo "<li><p class='sombre'> $first->activity</p></li>";
+                        } else {
+                            echo "<li><p class='sombre'> Pas de compétence particulière recommandée</p></li>";
+                        }
                     ?>
                 </ul>
             
 
                 <h5 class="but clair p-1 mt-3" style="width:max-content">Skills:</h5>
-                <ul class="navbar-nav border-sombre rounded-4 ps-2 ">
+                <ul class="navbar-nav border-sombre rounded-4 ps-2" id="of-skills">
                     
                     <?php
                     if (!empty($first->skills)) {
