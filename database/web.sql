@@ -372,8 +372,9 @@ END$$
 
 DROP PROCEDURE IF EXISTS `SEARCH_STUDENT`$$
 CREATE DEFINER=`root`@`localhost` PROCEDURE `SEARCH_STUDENT` ()   BEGIN
-	SELECT distinct id_profile, fname, lname, id_person, prom, email, accepted, id_roles
-	FROM VIEW_STUDENT;
+	SELECT id_profile, fname, lname, id_person, prom, email, accepted, id_roles, photo
+	FROM view_student
+  group by id_profile;
 END$$
 
 DROP PROCEDURE IF EXISTS `SELECT`$$

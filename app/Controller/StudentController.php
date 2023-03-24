@@ -28,7 +28,7 @@ class StudentController extends AppController {
 		if (empty($profiles)){
 			$this->notFound();
 		}
-		// echo '<pre>', var_dump($profiles), '</pre>';
+		echo '<pre>', var_dump($profiles), '</pre>';
 		$this->render('student.index', compact('profiles'));
 	}
 }
