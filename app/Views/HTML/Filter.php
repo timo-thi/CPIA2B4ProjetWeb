@@ -17,7 +17,7 @@ include 'TplVar.php';
 <body class="bg-sombre">
 
 
-<form class="d-flex" role="search">
+<form class="d-flex ms-1" role="search">
         <input class="form-control me-2" type="search" style="max-width: 200px; max-height:25px" placeholder="Search" aria-label="Search">
         <button class="bg-clair rounded-3 border-0"  type="submit">Search</button>
         
