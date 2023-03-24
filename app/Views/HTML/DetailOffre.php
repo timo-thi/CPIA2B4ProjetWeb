@@ -49,13 +49,33 @@
         <div class="card-text">
             <div class="container">
             <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium ipsum excepturi, doloribus architecto dolore delectus repellendus totam. Blanditiis magnam molestiae facilis mollitia minus id numquam fugiat alias quae? Recusandae, nam?</p>
+            <p>Gratification: <!--variable du prix--> /mois</p>
             </div>
         </div>
         <div class="card-body">
             <div class="container">
-                <div class="row ">
-                    <label class=" sombre rounded-1 mb-1" for="Activity"> <h4>Secteur d'activité:</h4> </label>
+                               
                     <ul class="navbar-nav"  name="Activity">
+                        <li>
+                            <h4>Secteur d'activité:</h4>
+                        </li>
+                        <!--faire une boucle-->
+                        <li>
+                            <p class="sombre"> Activité 1</p>
+                        </li>
+                        <li>
+                            <p class="sombre"> Activité 2</p>
+                        </li>
+
+                    </ul>
+                
+
+                
+                    <ul class="navbar-nav "  name="Activity">
+                        <li>
+                            <h4>Skills</h4>
+                        </li>
+                        <!--faire une boucle-->
                         <li>
                             <p class="sombre"> Activité 1</p>
                         </li>
@@ -63,18 +83,7 @@
                             <p class="sombre"> Activité 2</p>
                         </li>
                     </ul>
-                </div>
-                <div class="row ">
-                    <label class=" sombre rounded-1 mb-1" for="Activity"> <h4>Skills</h4> </label>
-                    <ul class="navbar-nav"  name="Activity">
-                        <li>
-                            <p class="sombre"> Activité 1</p>
-                        </li>
-                        <li>
-                            <p class="sombre"> Activité 2</p>
-                        </li>
-                    </ul>
-                </div>
+                
             </div>
         </div>
        
