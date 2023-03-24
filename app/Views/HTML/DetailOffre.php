@@ -32,7 +32,7 @@
                     <ul class="navbar-nav">
                         <li>Adresse</li>
                         <li>Ville (code postal)</li>
-                        <li>Site web</li
+                        <li>Site web</li>
                     </ul>
                 </div>
                 <div class="col-md-auto ">
@@ -54,11 +54,9 @@
         </div>
         <div class="card-body">
             <div class="container">
-                               
-                    <ul class="navbar-nav"  name="Activity">
-                        <li>
-                            <h4>Secteur d'activité:</h4>
-                        </li>
+                    <h5 class="but clair p-1" style="width:max-content">Secteurs d'activité:</h5>        
+                    <ul class="navbar-nav border-sombre rounded-4 ps-2"  name="Activity">
+                        
                         <!--faire une boucle-->
                         <li>
                             <p class="sombre"> Activité 1</p>
@@ -70,11 +68,10 @@
                     </ul>
                 
 
-                
-                    <ul class="navbar-nav "  name="Activity">
-                        <li>
-                            <h4>Skills</h4>
-                        </li>
+                    <h5 class="but clair p-1 " style="width:max-content">Skills:</h5>
+                    <ul class="navbar-nav border-sombre rounded-4 ps-2 "  name="Activity">
+                      
+                    
                         <!--faire une boucle-->
                         <li>
                             <p class="sombre"> Activité 1</p>
