@@ -2,3 +2,4 @@
 .vscode/
 pages_to _discuss.txt
 config/config.php
+database/file_compile.py
