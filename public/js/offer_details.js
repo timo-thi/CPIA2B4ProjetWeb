@@ -22,7 +22,7 @@ $(document).ready(function(){
             } else {
                 $('#of-activity').html('<li><p class="sombre"> ' + jdata.activity + '</p></li>');
             }
-            if (jdata.skills.length < 0) {
+            if (jdata.skills.length <= 0) {
                 $('#of-skills').html("<li><p class='sombre'> Pas de compétence particulière recommandée</p></li>");
             } else {
                 $('#of-skills').html('');
