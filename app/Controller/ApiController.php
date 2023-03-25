@@ -20,6 +20,8 @@ use \App\Table\StudentTable;
 
 use App\Table\PromTable;
 
+use App\Table\CandidatureTable;
+
 
 class ApiController extends AppController {
 

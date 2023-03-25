@@ -8,5 +8,5 @@ use Core\Entity\Entity;
 class StudentEntity extends Entity {
 	
 
-	protected $candidatures;
+	public $candidatures;
 }

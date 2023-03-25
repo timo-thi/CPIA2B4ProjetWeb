@@ -6,8 +6,7 @@ use \App\Entity\CandidatureEntity;
 use \Core\Table\Table;
 
 
-class CandidartureTable extends Table {
+class CandidatureTable extends Table {
 
 	protected $table = 'candidature';
-²²²²
 }
