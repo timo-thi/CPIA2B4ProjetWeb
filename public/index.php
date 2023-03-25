@@ -11,7 +11,11 @@ $app = App::getInstance();
  * If not, redirect to home
  */
 if (isset($_SESSION['auth'],$_SESSION['role'])) {
-	$page = 'offer.index';
+	if (! isset($_GET['p'])) {
+		$page = 'offer.index';
+	} else {
+		$page = $_GET['p'];
+	}
 } else {
 	// $page = 'offer.index';
 	$page = 'users.login';
