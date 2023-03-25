@@ -10,11 +10,15 @@ $app = App::getInstance();
  * Check if the page exists
  * If not, redirect to home
  */
-if (isset($_GET['p'])) {
-	$page = $_GET['p'];
+if (isset($_SESSION['auth'],$_SESSION['role'])) {
+	if (! isset($_GET['p'])) {
+		$page = 'offer.index';
+	} else {
+		$page = $_GET['p'];
+	}
 } else {
-	// $page = 'posts.index';
-	$page = 'offer.index';
+	// $page = 'offer.index';
+	$page = 'users.login';
 }
 
 

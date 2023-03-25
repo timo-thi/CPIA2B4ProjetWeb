@@ -2,14 +2,14 @@
 namespace App\Controller;
 
 
-use App\Table\OfferTable;
+use App\Table\CandidatureTable;
 use App\Table\SkillsTable;
 
 
-class OfferController extends AppController {
+class CandidatureController extends AppController {
 
 
-	public OfferTable $Offer;
+	public CandidatureTable $Candidature;
 	public SkillsTable $Skills;
 
 
@@ -18,7 +18,7 @@ class OfferController extends AppController {
 	 */
 	public function __construct() {
 		parent::__construct();
-		$this->loadModel('Offer');
+		$this->loadModel('Candidature');
 		$this->loadModel('Skills');
 	}
 
@@ -27,13 +27,13 @@ class OfferController extends AppController {
 	 * @return void
 	 */
 	public function index() {
-		$annonces = $this->Offer->search();
+		$annonces = $this->Candidature->search();
 		if (empty($annonces)){
 			$this->notFound();
 		}
 		// echo '<pre>', var_dump($annonces), '</pre>';
-		$first = $this->Offer->details($annonces[0]->id_offer)[0];
-		$first->skills = $this->Skills->find($annonces[0]->id_offer);
-		$this->render('offer.index', compact('annonces', 'first'));
+		$first = $this->Candidature->find($_SESSION['role']);
+		$first->skills = $this->Skills->find($annonces[0]->id_candidature);
+		$this->render('profile.candidature', compact('annonces', 'first'));
 	}
 }
