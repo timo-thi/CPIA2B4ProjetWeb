@@ -1,3 +1,4 @@
+<script src="../public/js/pilot_details.js"></script>
 <div class="container mt-3 " style="max-width:80%">
 	<?php
 	$filtre1 = 'Nom';
@@ -35,9 +36,9 @@
 							<div class="col text-center mb-auto mt-auto">
 								<p class="card-text"><?=$profile->email?></p>
 							</div>
-							<div class="col text-end ">
-								<button class="rounded-4 but clair px-2 py-2" type="button" data-bs-toggle="collapse" data-bs-target="#<?= $profile->id_profile ?>" aria-expanded="false" aria-controls="<?= $profile->id_profile ?>" style="width:max-content;">
-									Voir les candidatures
+							<div class="col text-end list-item" id="<?= $profile->id_profile ?>">
+								<button class="rounded-4 but clair px-2 py-2" type="button" data-bs-toggle="collapse" data-bs-target="#pil<?= $profile->id_profile ?>" aria-expanded="false" aria-controls="pil<?= $profile->id_profile ?>" style="width:max-content;">
+									Voir les promos
 								</button>
 							</div>
 						</div>
@@ -45,19 +46,11 @@
 
 					
 					<!--Les infos qui apparaissent-->
-					
-					<div class="collapse row sombre" id="<?= $profile->id_profile ?>">
-						<div class="col">
-							<p class="card-text">Nom de la promo</p>
-						</div>
-						<div class="col">
-							<p class="card-text">Nombre d'étudiants</p>
-						</div>
-						<div class="col">
-							<p class="card-text">Campus</p>
-						</div>
-						<div class="col">
-							<p class="card-text">Adresse</p>
+					<div class="collapse" id="pil<?= $profile->id_profile ?>">
+						<div class="row sombre">
+							<div class="col">
+								<p class="card-text">Chargement</p>
+							</div>
 						</div>
 					</div>
 				</div>

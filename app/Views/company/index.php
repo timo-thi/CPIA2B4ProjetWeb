@@ -1,3 +1,4 @@
+<script src="../public/js/company_details.js"></script>
 <div class="container mt-3 " style="max-width:90%">
   <?php
   $filtre1 = 'Nom';
@@ -18,7 +19,7 @@
         <?php foreach ($annonces as $el):?>
 
           <div class="row ms-5">
-            <div class="card bg-clair mb-3 " style="max-width: 100%;">
+            <div class="card bg-clair mb-3 list-item" style="max-width: 100%;" id="<?= $el->id_company?>">
               <div class="row g-0 dib">
                 <div class="col-md-4 my-auto di">
                   <img src="https://cdn.discordapp.com/attachments/1072440528026738688/1088735990673317978/company.png" class="img-fluid rounded-start" alt="...">

@@ -1,3 +1,4 @@
+<script src="../public/js/student_details.js"></script>
 <div class="container mt-3 " style="max-width:80%">
 	<?php
 	$filtre1 = 'Nom';
@@ -41,8 +42,8 @@
 							<div class="col text-center mb-auto mt-auto">
 								<p class="card-text"><?=$profile->accepted?></p>
 							</div>
-							<div class="col text-end ">
-								<button class="rounded-4 but clair px-2 py-2" type="button" data-bs-toggle="collapse" data-bs-target="#<?= $profile->id_profile ?>" aria-expanded="false" aria-controls="<?= $profile->id_profile ?>" style="width:max-content;">
+							<div class="col text-end list-item" id="<?= $profile->id_profile ?>">
+								<button class="rounded-4 but clair px-2 py-2" type="button" data-bs-toggle="collapse" data-bs-target="#stu<?= $profile->id_profile ?>" aria-expanded="false" aria-controls="stu<?= $profile->id_profile ?>" style="width:max-content;">
 									Voir les candidatures
 								</button>
 							</div>
@@ -51,19 +52,11 @@
 
 					
 					<!--Les infos qui apparaissent-->
-					
-					<div class="collapse row sombre" id="<?= $profile->id_profile ?>">
-						<div class="col">
-							<p class="card-text">Nom de l'offre</p>
-						</div>
-						<div class="col">
-							<p class="card-text">Progrès</p>
-						</div>
-						<div class="col">
-							<p class="card-text">Entreprise</p>
-						</div>
-						<div class="col">
-							<p class="card-text">Date de la candidature</p>
+					<div class="collapse" id="stu<?= $profile->id_profile ?>">
+						<div class="row sombre">
+							<div class="col">
+								<p class="card-text">Chargement</p>
+							</div>
 						</div>
 					</div>
 				</div>

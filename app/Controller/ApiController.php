@@ -20,6 +20,8 @@ use \App\Table\StudentTable;
 
 use App\Table\PromTable;
 
+use App\Table\CandidatureTable;
+
 
 class ApiController extends AppController {
 
@@ -41,8 +43,8 @@ class ApiController extends AppController {
 		$datas->skills = $SkillsApi->get($id);
 		$this->render('api.offer', $datas);
 	}
-	
-	
+
+
 	public function company($id) {
 		$CompanyApi = new CompanyTable(\App::getInstance()->getDb());
 		$datas = $CompanyApi->get($id);
@@ -62,10 +64,12 @@ class ApiController extends AppController {
 	public function student($id) {
 		// $profile = $this->profile($id);
 		$StudentApi = new StudentTable(\App::getInstance()->getDb());
+		$CandidatureApi = new CandidatureTable(\App::getInstance()->getDb());
 		$profile = $StudentApi->get($id);
 		if (!$profile) {
 			return $this->NotFound();
 		}
+		$profile->candidatures = $CandidatureApi->find($id);
 		$this->render('api.student', $profile);
 	}
 
