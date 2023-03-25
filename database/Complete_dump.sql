@@ -630,9 +630,10 @@ UNLOCK TABLES;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `AUTH`()
+CREATE DEFINER=`root`@`localhost` PROCEDURE `AUTH`(p_email VARCHAR(255))
 BEGIN
-	SELECT email, password FROM person;
+	SELECT id_person, email, password, id_profile FROM person
+  WHERE email = p_email;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;

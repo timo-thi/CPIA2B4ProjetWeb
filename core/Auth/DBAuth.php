@@ -32,11 +32,15 @@ class DBAuth {
 	 * @param $password
 	 * @return bool
 	 */
-	public function login($username, $password) {
-		$user = $this->db->prepare('SELECT * FROM users WHERE username = ?', [$username], null, true);
+	public function login($username, $password) {	 
+		$user = $this->db->prepare('call AUTH(?)', [$username], null, true);
 		if ($user) {
-			if (sha1($password) === $user->password) {
-				$_SESSION['auth'] = $user->id;
+			if ($password === $user->password) { //ajouter sha1() pour crypter le password
+				$profile = \App::getInstance()->getTable('User');
+				$role = $profile->details($user->id_profile)[0];
+				//var_dump($role);
+				$_SESSION['auth'] = $user->id_profile;
+				$_SESSION['role'] = $role->id_roles;
 				return true;
 			}
 		}

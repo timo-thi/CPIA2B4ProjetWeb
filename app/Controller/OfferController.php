@@ -13,7 +13,7 @@ class OfferController extends AppController {
 	public SkillsTable $Skills;
 
 
-	/** Contructpr
+	/** Contructor
 	 * @return void
 	 */
 	public function __construct() {
@@ -31,6 +31,7 @@ class OfferController extends AppController {
 		if (empty($annonces)){
 			$this->notFound();
 		}
+		// echo '<pre>', var_dump($annonces), '</pre>';
 		$first = $this->Offer->details($annonces[0]->id_offer)[0];
 		$first->skills = $this->Skills->find($annonces[0]->id_offer);
 		$this->render('offer.index', compact('annonces', 'first'));
