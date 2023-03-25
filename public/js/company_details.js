@@ -25,7 +25,7 @@ $(document).ready(function(){
             } else {
                 $('#com-localities').html('');
                 jdata.localities.forEach(element => {
-                    $('#com-localities').append("<li><p class='sombre'>" + element.number + ' ' + element.street + ' - ' + ElementInternals.city + ' (' + element.zipcode + ')</p></li>');
+                    $('#com-localities').append("<li><p class='sombre'>" + element.number + ' ' + element.street + ' - ' + element.city + ' (' + element.zipcode + ')</p></li>');
                 });
             }
             if (jdata.rates.length <= 0) {
