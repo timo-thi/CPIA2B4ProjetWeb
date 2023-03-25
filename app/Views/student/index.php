@@ -1,3 +1,4 @@
+<script src="../public/js/student_details.js"></script>
 <div class="container mt-3 " style="max-width:80%">
 	<?php
 	$filtre1 = 'Nom';
