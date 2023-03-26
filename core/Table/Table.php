@@ -35,11 +35,11 @@ class Table {
 	 * @param $value string - value to be extracted from records
 	 * @return array
 	 */
-	public function extract($key, $value) {
+	public function extract($key) {
 		$records = $this->all();
 		$return = [];
 		foreach ($records as $v) {
-			$return[$v->$key] = $v->$value;
+			$return[] = $v->$key;
 		}
 		return $return;
 	}

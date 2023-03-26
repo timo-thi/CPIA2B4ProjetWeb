@@ -659,6 +659,7 @@ BEGIN
 	insert into address (name,number,comment,id_city) VALUES (p_address,p_number,p_comment,@temp2);
 	set @temp3 = last_insert_id();
 	insert into localities (id_address,id_company) VALUES (@temp3,@temp);
+  select @temp;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;

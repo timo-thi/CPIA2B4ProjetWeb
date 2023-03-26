@@ -29,10 +29,12 @@
                     <label for="activity" class="col ">
                         <strong style="font-size: 130%;">Secteur d'activité</strong>
                     </label>
-                    <select name="sector" id="activity" class="col border-1 rounded  position-absolute end-0" style="width: 40%;" multiple> 
+                    <select name="sector" id="activity" class="col border-1 rounded  position-absolute end-0" style="width: 40%;" multiple>
+                        <?php foreach ($annonces as $el):?>  
                         <!--boucle foreach secteur
                             on doit pouvoir en choisir plusieurs donc selection multipple-->
-                        <option value=""><!-- option --></option>
+                        <option value="<?= $el->id_activity?>"><?php echo "{$el->name}" ?></option>
+                        <?php endforeach?>
                     </select>
                 </div>
                 <br>
