@@ -58,4 +58,38 @@ class StudentController extends AppController {
 		$promos = $this->Prom->all();
 		$this->render('users.create', compact('promos' , 'errors'));
 	}
+
+
+	public function edit() {
+		if (isset($_GET['id'])) {
+			$profile = $this->Student->details($_GET['id']);
+			if (empty($profile)){
+				return $this->notFound();
+			}
+			$profile = $profile[0];
+			// echo '<pre>', var_dump($profile), '</pre>';
+		} else {
+			return $this->notFound();
+		}
+		$errors = false;
+		if (isset($_POST['lname'], $_POST['fname'], $_POST['email'], $_POST['pwd'], $_POST['conf'], $_POST['prom'])) {
+			if ($_POST['pwd'] != $_POST['conf'] || $_POST['pwd'] == '' || $_POST['conf'] == '') {
+				$errors = true;
+			} else {
+				$result = $this->Student->edit([
+					$_POST['lname'],
+					$_POST['fname'],
+					$_POST['role'],
+					$_POST['email'],
+					sha1($_POST['pwd']),
+					$_POST['prom']
+				]);
+				if ($result) {
+					return $this->index();
+				}
+			}
+		}
+		$promos = $this->Prom->all();
+		$this->render('users.edit', compact('promos', 'profile' , 'errors'));
+	}
 }

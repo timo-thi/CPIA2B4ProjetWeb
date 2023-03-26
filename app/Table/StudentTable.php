@@ -27,5 +27,14 @@ class StudentTable extends Table {
 			true
 		);
 	}
+
+
+	public function edit($attributes) {
+		return $this->query(
+			"call UPDATE_PROFILE(?, ?, ?, ?, ?, ?)",
+			$attributes,
+			true
+		);
+	}
 }
 ?>
