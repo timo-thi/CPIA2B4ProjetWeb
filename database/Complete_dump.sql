@@ -93,7 +93,7 @@ CREATE TABLE `affiliated` (
 
 LOCK TABLES `affiliated` WRITE;
 /*!40000 ALTER TABLE `affiliated` DISABLE KEYS */;
-INSERT INTO `affiliated` VALUES (1,1),(2,1),(3,1),(4,1),(4,2),(5,2),(6,2),(7,2),(8,2),(9,2),(10,2),(11,2),(12,2),(13,2);
+INSERT INTO `affiliated` VALUES (1,1),(2,1),(3,1),(4,1),(14,1),(4,2),(5,2),(6,2),(7,2),(8,2),(9,2),(10,2),(11,2),(12,2),(13,2),(17,2),(15,3),(16,3);
 /*!40000 ALTER TABLE `affiliated` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -291,7 +291,7 @@ CREATE TABLE `person` (
   PRIMARY KEY (`id_person`),
   KEY `id_profile` (`id_profile`),
   CONSTRAINT `person_ibfk_1` FOREIGN KEY (`id_profile`) REFERENCES `profile` (`id_profile`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -300,7 +300,7 @@ CREATE TABLE `person` (
 
 LOCK TABLES `person` WRITE;
 /*!40000 ALTER TABLE `person` DISABLE KEYS */;
-INSERT INTO `person` VALUES (1,'timothee.thienpont@viacesi.fr','alice123',1),(2,'bob.martin@example.com','bob123',2),(3,'camille.lefebvre@example.com','camille123',3),(4,'david.garcia@example.com','david123',4),(5,'david.garcia@example.com','david123',5),(6,'david.garcia@example.com','david123',6),(7,'david.garcia@example.com','david123',7),(8,'david.garcia@example.com','david123',8),(9,'david.garcia@example.com','david123',9),(10,'david.garcia@example.com','david123',10),(11,'david.garcia@example.com','david123',11),(12,'david.garcia@example.com','david123',12),(13,'emilie.dujardin@example.com','emilie123',13);
+INSERT INTO `person` VALUES (1,'timothee.thienpont@viacesi.fr','timi123',1),(2,'bob.martin@example.com','bob123',2),(3,'camille.lefebvre@example.com','camille123',3),(4,'david.garcia@example.com','david123',4),(5,'anniss.sejean@example.com','anniss123',5),(6,'david.garcia@example.com','david123',6),(7,'david.garcia@example.com','david123',7),(8,'david.garcia@example.com','david123',8),(9,'david.garcia@example.com','david123',9),(10,'david.garcia@example.com','david123',10),(11,'david.garcia@example.com','david123',11),(12,'david.garcia@example.com','david123',12),(13,'emilie.dujardin@example.com','emilie123',13),(14,'dupondlebg@example.net','71f19a8c4cdc1ee3d995ed8579bbb0793f0c6ce1',14),(15,'timo.thi@laposte.net','da39a3ee5e6b4b0d3255bfef95601890afd80709',15),(16,'timo.thi@laposte.net','781ccdd2e1bc72b646046df9105c23ce7f72cb07',16),(17,'timo.thi@laposte.net','781ccdd2e1bc72b646046df9105c23ce7f72cb07',17);
 /*!40000 ALTER TABLE `person` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -345,7 +345,7 @@ CREATE TABLE `profile` (
   PRIMARY KEY (`id_profile`),
   KEY `id_roles` (`id_roles`),
   CONSTRAINT `profile_ibfk_1` FOREIGN KEY (`id_roles`) REFERENCES `roles` (`id_roles`) ON DELETE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -354,7 +354,7 @@ CREATE TABLE `profile` (
 
 LOCK TABLES `profile` WRITE;
 /*!40000 ALTER TABLE `profile` DISABLE KEYS */;
-INSERT INTO `profile` VALUES (1,'Timothée','THIENPONT',1,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416535422439476/image.png'),(2,'Damian','LAROCHE-RIBERT',1,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416604963995688/image.png'),(3,'Baptiste','DELAVENNE',1,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416755052978186/image.png'),(4,'Léandro','DE BARROS BARBOSA',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416880332636160/image.png'),(5,'Aniss','SEJEAN',2,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),(6,'Clyde','BARULL',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),(7,'Quentin','CAMBUZAT',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),(8,'Florian','MAILLARD',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),(9,'Clément','REYDEL',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),(10,'Paul','BREON',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),(11,'Luc','MARTEN',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),(12,'Lilia','ABBA',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),(13,'Pierre','LEJEUNE',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png');
+INSERT INTO `profile` VALUES (1,'Timothée','THIENPONT',1,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416535422439476/image.png'),(2,'Damian','LAROCHE-RIBERT',1,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416604963995688/image.png'),(3,'Baptiste','DELAVENNE',1,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416755052978186/image.png'),(4,'Léandro','DE BARROS BARBOSA',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416880332636160/image.png'),(5,'Aniss','SEJEAN',2,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),(6,'Clyde','BARULL',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),(7,'Quentin','CAMBUZAT',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),(8,'Florian','MAILLARD',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),(9,'Clément','REYDEL',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),(10,'Paul','BREON',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),(11,'Luc','MARTEN',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),(12,'Lilia','ABBA',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),(13,'Pierre','LEJEUNE',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),(14,'Dupond','Antoine',3,NULL),(15,'Dupond','Antoine',3,NULL),(16,'Dupond','Antoine',3,NULL),(17,'Dupond','dsf',2,NULL);
 /*!40000 ALTER TABLE `profile` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -575,6 +575,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `photo`,
  1 AS `id_person`,
  1 AS `prom`,
+ 1 AS `id_prom`,
  1 AS `email`,
  1 AS `accepted`,
  1 AS `id_roles`,
@@ -747,17 +748,16 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `CREATION_PROFILE`(`p_fname` VARCHAR(50), `p_lname` VARCHAR(50), `p_id_roles` INT, `p_email` VARCHAR(255), `p_password` VARCHAR(255), `p_name` VARCHAR(50))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CREATION_PROFILE`(`p_fname` VARCHAR(50), `p_lname` VARCHAR(50), `p_id_roles` INT, `p_email` VARCHAR(255), `p_password` VARCHAR(255), `p_id_prom` INT)
 BEGIN
 	INSERT INTO profile (fname,lname,id_roles) VALUES (p_fname,p_lname,p_id_roles);
 	SET @temp=last_insert_id();
 	INSERT INTO person (email,password,id_profile) VALUES (p_email,p_password,@temp);
-	SET @temp2 = (select id_prom from prom where name = p_name);
-INSERT INTO affiliated (id_profile,id_prom) VALUES (@temp,@temp2);
+	INSERT INTO affiliated (id_profile,id_prom) VALUES (@temp, p_id_prom);
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1247,13 +1247,13 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `DETAILS_STUDENT`(`p_id_profile` INT)
 BEGIN
-	SELECT distinct id_profile, fname, lname, id_person, prom, email, accepted, id_roles
+	SELECT distinct id_profile, fname, lname, id_person, id_prom, prom, email, accepted, id_roles
 	FROM view_student
 	WHERE id_profile = p_id_profile;
 END ;;
@@ -1357,7 +1357,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
 DELIMITER ;;
@@ -2104,26 +2104,47 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `UPDATE_PASSWORD` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`inge-tim`@`localhost` PROCEDURE `UPDATE_PASSWORD`(p_id_user VARCHAR(255), p_password VARCHAR(255))
+BEGIN
+	UPDATE person
+		SET password = p_password
+	WHERE id_person = p_id_user;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `UPDATE_PROFILE` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `UPDATE_PROFILE`(`p_fname` VARCHAR(50), `p_lname` VARCHAR(50), `p_id_roles` INT, `p_email` VARCHAR(255), `p_password` VARCHAR(255), `p_id_profile` INT, `p_name` VARCHAR(50))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UPDATE_PROFILE`(`p_fname` VARCHAR(50), `p_lname` VARCHAR(50), `p_id_roles` INT, `p_email` VARCHAR(255), `p_id_profile` INT, `p_id_prom` INT)
 BEGIN
 	UPDATE profile
 		SET fname = p_fname, lname = p_lname, id_roles = p_id_roles
 	WHERE profile.id_profile = p_id_profile;
 	UPDATE person
-		SET email = p_email, password = p_password
+		SET email = p_email
 	WHERE person.id_profile = p_id_profile;
 		SET @temp = (select id_prom from prom
-	WHERE name = p_name);
+	WHERE id_prom = p_id_prom);
 	UPDATE affiliated
 		SET id_prom = @temp
 	WHERE affiliated.id_profile=p_id_profile;
@@ -2201,10 +2222,10 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb3_general_ci */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `view_student` AS select `profile`.`id_profile` AS `id_profile`,`profile`.`fname` AS `fname`,`profile`.`lname` AS `lname`,`profile`.`photo` AS `photo`,`person`.`id_person` AS `id_person`,`prom`.`name` AS `prom`,`person`.`email` AS `email`,if((`accepted`.`cnt` is null),'n','y') AS `accepted`,`profile`.`id_roles` AS `id_roles`,`step`.`id_offer` AS `id_offer`,`step`.`offer` AS `offer`,`step`.`id_progress_state` AS `id_progress_state`,`step`.`state` AS `state`,`step`.`startdate` AS `startdate`,`step`.`company` AS `company` from (((((`profile` left join `affiliated` on((`profile`.`id_profile` = `affiliated`.`id_profile`))) left join `prom` on((`affiliated`.`id_prom` = `prom`.`id_prom`))) left join `person` on((`profile`.`id_profile` = `person`.`id_profile`))) left join (select `profile`.`id_profile` AS `id_profile`,`candidature`.`id_offer` AS `id_offer`,`offer`.`name` AS `offer`,`offer`.`startdate` AS `startdate`,`company`.`name` AS `company`,`candidature`.`id_progress_state` AS `id_progress_state`,`postulate_progress_steps`.`name` AS `state` from (((((`profile` join `candidature` on((`candidature`.`id_profile` = `profile`.`id_profile`))) join `offer` on((`candidature`.`id_offer` = `offer`.`id_offer`))) join `localities` on((`offer`.`id_localities` = `localities`.`id_localities`))) join `company` on((`localities`.`id_company` = `company`.`id_company`))) join `postulate_progress_steps` on((`candidature`.`id_progress_state` = `postulate_progress_steps`.`id_progress_state`))) order by `profile`.`id_profile`) `step` on((`step`.`id_profile` = `profile`.`id_profile`))) left join (select `profile`.`id_profile` AS `id_profile`,count(`candidature`.`id_progress_state`) AS `cnt` from (`profile` join `candidature` on((`candidature`.`id_profile` = `profile`.`id_profile`))) where (`candidature`.`id_progress_state` = 6) group by `profile`.`id_profile`) `accepted` on((`accepted`.`id_profile` = `profile`.`id_profile`))) where (`profile`.`id_roles` = 3) */;
+/*!50001 VIEW `view_student` AS select `profile`.`id_profile` AS `id_profile`,`profile`.`fname` AS `fname`,`profile`.`lname` AS `lname`,`profile`.`photo` AS `photo`,`person`.`id_person` AS `id_person`,`prom`.`name` AS `prom`,`prom`.`id_prom` AS `id_prom`,`person`.`email` AS `email`,if((`accepted`.`cnt` is null),'n','y') AS `accepted`,`profile`.`id_roles` AS `id_roles`,`step`.`id_offer` AS `id_offer`,`step`.`offer` AS `offer`,`step`.`id_progress_state` AS `id_progress_state`,`step`.`state` AS `state`,`step`.`startdate` AS `startdate`,`step`.`company` AS `company` from (((((`profile` left join `affiliated` on((`profile`.`id_profile` = `affiliated`.`id_profile`))) left join `prom` on((`affiliated`.`id_prom` = `prom`.`id_prom`))) left join `person` on((`profile`.`id_profile` = `person`.`id_profile`))) left join (select `profile`.`id_profile` AS `id_profile`,`candidature`.`id_offer` AS `id_offer`,`offer`.`name` AS `offer`,`offer`.`startdate` AS `startdate`,`company`.`name` AS `company`,`candidature`.`id_progress_state` AS `id_progress_state`,`postulate_progress_steps`.`name` AS `state` from (((((`profile` join `candidature` on((`candidature`.`id_profile` = `profile`.`id_profile`))) join `offer` on((`candidature`.`id_offer` = `offer`.`id_offer`))) join `localities` on((`offer`.`id_localities` = `localities`.`id_localities`))) join `company` on((`localities`.`id_company` = `company`.`id_company`))) join `postulate_progress_steps` on((`candidature`.`id_progress_state` = `postulate_progress_steps`.`id_progress_state`))) order by `profile`.`id_profile`) `step` on((`step`.`id_profile` = `profile`.`id_profile`))) left join (select `profile`.`id_profile` AS `id_profile`,count(`candidature`.`id_progress_state`) AS `cnt` from (`profile` join `candidature` on((`candidature`.`id_profile` = `profile`.`id_profile`))) where (`candidature`.`id_progress_state` = 6) group by `profile`.`id_profile`) `accepted` on((`accepted`.`id_profile` = `profile`.`id_profile`))) where (`profile`.`id_roles` = 3) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -2218,4 +2239,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-24 20:22:57
+-- Dump completed on 2023-03-26 22:21:57

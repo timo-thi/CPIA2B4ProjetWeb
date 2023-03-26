@@ -36,5 +36,23 @@ class StudentTable extends Table {
 			true
 		);
 	}
+
+
+	public function edit_password($attributes) {
+		return $this->query(
+			"call UPDATE_PASSWORD(?, ?)",
+			$attributes,
+			true
+		);
+	}
+
+
+	public function delete($id) {
+		return $this->query(
+			"call DELETE_PROFILE(?)",
+			[$id],
+			true
+		);
+	}
 }
 ?>
