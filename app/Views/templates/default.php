@@ -20,7 +20,7 @@
 <body class="bg-sombre">
   <nav class="navbar navbar-expand-lg bg-clair">
     <div class="container-fluid">
-      <a class="navbar-brand me-4" href="./Acceuil.php">
+      <a class="navbar-brand me-4" href="../public/index.php?p=offer.index">
         <!-- Add eye icon -->
         <div class="icon_container container">
         <?php require 'oeil.php';?>
@@ -51,10 +51,10 @@
 
         <ul class="navbar-nav mb-auto mb-lg-0">
         <li class="nav-item me-2">
-          <a class="nav-link sombre" href="./Candidatures.php">Candidatures</a>
+          <a class="nav-link sombre" href="../public/index.php?p=profile.candidature">Candidatures</a>
         </li>
         <li class="nav-item me-2">
-          <a class="nav-link sombre" href="./WishList.php">WishList</a>
+          <a class="nav-link sombre" href="../public/index.php?p=profile.wish">WishList</a>
         </li>
         
           <li class="nav-item dropdown clair rounded-2 bg-sombre" style="width:fit-content">
@@ -63,8 +63,8 @@
               User
             </button>
             <ul class="dropdown-menu dropdown-menu-end rounded-top-0 border-start-0 border-end-0 border-top-0 mt- bg-clair sombre" >
-              <li><a class="dropdown-item" href="#">Settings</a></li>
-              <li><a class="dropdown-item" href="#">Sign out</a></li>
+              <li><a class="dropdown-item" href="">Settings</a></li>
+              <li><a class="dropdown-item" href="../public/index.php?p=users.logout">Sign out</a></li>
               <li><a class="dropdown-item" href="#">Help</a></li>
             </ul>
           </li>

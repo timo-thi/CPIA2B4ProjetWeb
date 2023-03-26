@@ -6,4 +6,6 @@ use Core\Entity\Entity;
 
 class WishEntity extends Entity {
 	
+	
+	public $skills = [];
 }
