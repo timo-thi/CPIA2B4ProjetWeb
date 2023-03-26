@@ -35,7 +35,7 @@ class ProfileController extends AppController {
 	public function candidature() {
 		$annonces = $this->Candidature->find($_SESSION['auth']);
 		if (empty($annonces)){
-			$this->notFound();
+			return $this->notFound();
 		}
 		//echo '<pre>', var_dump($annonces), '</pre>';
 		$first = $this->Offer->details($annonces[0]->id_offer)[0];
@@ -47,7 +47,7 @@ class ProfileController extends AppController {
     public function wish() {
 		$annonces = $this->Wish->find($_SESSION['auth']);
 		if (empty($annonces)){
-			$this->notFound();
+			return $this->notFound();
 		}
 		//echo '<pre>', var_dump($annonces), '</pre>';
 		$first = $this->Offer->details($annonces[0]->id_offer)[0];
