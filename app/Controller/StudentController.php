@@ -97,4 +97,14 @@ class StudentController extends AppController {
 		$promos = $this->Prom->all();
 		$this->render('users.edit', compact('promos', 'profile' , 'errors'));
 	}
+
+
+	public function delete() {
+		if (isset($_GET['id'])) {
+			$result = $this->Student->delete($_GET['id']);
+			if ($result) {
+				return $this->index();
+			}
+		}
+	}
 }
