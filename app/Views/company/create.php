@@ -17,6 +17,11 @@
 
 <div class="container mt-5 bg-clair rounded-3" style="width: 60vh; max-width:90%;height:max-content"><!--ou style="width: 40%; max-width=90vh;"-->
             <h1 class="sombre text-center">Ajouter une entreprise</h1>
+            <?php if ($errors):?>
+	            <div class="alert alert-danger">
+		            Champ(s) manquant(s)!  
+                </div>
+            <?php endif; ?>
             <form action="" class="mx-auto" method="post" style="width:95%">
                 <div class="container mt-5 position-relative">
                     <label for="nom" class="col ">
