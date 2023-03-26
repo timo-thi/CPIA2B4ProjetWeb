@@ -49,9 +49,9 @@ class Table {
 	 * @param $statement string - SQL statement
 	 * @param $attributes array - attributes to be binded to the statement
 	 * @param $one boolean - if true, return only one record
-	 * @return array
+	 * @return mixed
 	 */
-	public function query($statement, $attributes, $one = false) {
+	public function query($statement, $attributes, $one = false) : mixed {
 		if ($attributes) {
 			return $this->db->prepare(
 				$statement,
@@ -141,26 +141,6 @@ class Table {
 		return $this->query(
 			"DELETE_{$this->table}(?)",
 			[$id],
-			true
-		);
-	}
-
-
-	/** Create a record in a table
-	 * @param $fields array - fields to be created (format : ['field_name' => 'field_value'])
-	 * @return array
-	 */
-	public function create($fields) {
-		$sql_parts = [];
-		$attributes = [];
-		foreach ($fields as $k => $v) {
-			$sql_parts[] = "$k = ?";
-			$attributes[] = $v;
-		}
-		$sql_part = implode(', ', $sql_parts);
-		return $this->query(
-			"INSERT INTO {$this->table} SET $sql_part",
-			$attributes,
 			true
 		);
 	}

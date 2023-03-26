@@ -19,4 +19,13 @@ class CompanyTable extends Table {
 		}
 		return $res[0];
 	}
+
+
+	public function create($attributes) {
+		return $this->query(
+			"call CREATE_COMPANY(?, ?, ?, ?, ?, ?, ?, ?)",
+			$attributes,
+			true
+		);
+	}
 }
