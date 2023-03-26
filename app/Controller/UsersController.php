@@ -36,6 +36,10 @@ class UsersController extends AppController {
 		$form = new BootstrapForm($_POST);
 		$this->render('users.login', compact('form', 'errors'));
 	}
+
+	/** Logout
+	 * @return void
+	 */
 	public function logout(){
 		session_destroy();
 		$this->login();
