@@ -96,4 +96,10 @@ class ApiController extends AppController {
 		header("HTTP/1.0 400 Bad Request");
 		$this->render('api.400');
 	}
+
+
+	public function Unauthorized() {
+		header("HTTP/1.0 401 Unauthorized");
+		$this->render('api.401');
+	}
 }

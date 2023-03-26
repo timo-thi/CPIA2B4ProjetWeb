@@ -5,7 +5,15 @@ App::load();
 
 $app = App::getInstance();
 
+
 $apicontroller = new \App\Controller\ApiController();
+
+/**
+ * Check if the user is logged in and if he has the right role
+ */
+if (!isset($_SESSION['auth'],$_SESSION['role'])) {
+	return $apicontroller->Unauthorized();
+}
 
 try {
 	if (isset($_GET['t'])) {
