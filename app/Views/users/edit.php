@@ -25,7 +25,7 @@
 		<input type="hidden" name="id_profile" value="<?= $profile->id_profile?>">
 		<input type="submit" name="delete" value="Supprimer">
 
-		<input type="submit" name="edit" value="Ajouter">
+		<input type="submit" name="edit" value="Modifier">
 		<input type="reset" name="cancel" value="Annnuler">
 	</form>
 </div>

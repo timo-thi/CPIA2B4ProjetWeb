@@ -16,7 +16,8 @@ $(document).ready(function(){
             $('#of-link').attr('href', jdata.link);
             $('#of-email').html(jdata.contact_email);
             $('#of-telephone').html(jdata.telephone);
-            $('#of-amount').html('Gratification : ' + jdata.amount + ' /mois');
+            $('#of-wage').html('Gratification : ' + jdata.wage);
+            $('#of-amount').html('Gratification : ' + jdata.amount);
             if (jdata.activity == '') {
                 $('#of-activity').html("<li><p class='sombre'> Pas de secteur d'activité spécifié</p></li>");
             } else {

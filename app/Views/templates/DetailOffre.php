@@ -46,8 +46,9 @@
         </div>
         <div class="card-text">
             <div class="container">
-            <p><?=$first->comment?></p>
-            <p id="of-amount">Gratification : <?= $first->amount?> /mois</p>
+                <p><?=$first->descr?></p>
+                <p id="of-wage">Gratification : <?= $first->wage?></p>
+                <p id="of-amount">Nombre de stagiaires acceptés : <?= $first->amount?></p>
             </div>
         </div>
         <div class="card-body">

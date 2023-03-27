@@ -13,7 +13,7 @@ class CompanyTable extends Table {
 
 
 	public function get($id = null): CompanyEntity | Bool {
-		$res = $this->find($id);
+		$res = $this->details($id);
 		if (empty($res)) {
 			return false;
 		}
