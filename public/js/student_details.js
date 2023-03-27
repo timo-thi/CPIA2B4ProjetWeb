@@ -2,7 +2,7 @@ $(document).ready(function(){
     $('.list-item').click(function(){
         let div = $('#stu' + $(this).attr('id'));
         $.ajax({
-            url: 'http://localhost/www/CPIA2B4ProjetWeb/public/api.php?t=student.' + $(this).attr('id'),
+            url: '../public/api.php?t=student.' + $(this).attr('id'),
             type: 'GET',
             dataType: 'json'
         }).done(function(response) {
