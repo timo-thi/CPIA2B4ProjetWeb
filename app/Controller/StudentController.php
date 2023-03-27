@@ -61,29 +61,30 @@ class StudentController extends AppController {
 
 
 	public function edit() {
+		$errors = false;
 		if (isset($_POST['delete'])) {
 			return $this->delete();
-		}
-		$errors = false;
-		if (isset($_POST['lname'], $_POST['fname'], $_POST['id_profile'], $_POST['email'], $_POST['pwd'], $_POST['conf'], $_POST['prom'])) {
-			if ($_POST['pwd'] != $_POST['conf']) {
-				$errors = true;
-			} elseif ($_POST['pwd'] == $_POST['conf'] && $_POST['pwd'] != '') {
-				$p_result = $this->Student->edit_password([
-					$_GET['id'],
-					sha1($_POST['pwd'])
-				]);
-			} else {
-				$result = $this->Student->edit([
-					$_POST['lname'],
-					$_POST['fname'],
-					3,
-					$_POST['email'],
-					$_GET['id'],
-					$_POST['prom']
-				]);
-				if ($result) {
-					return $this->index();
+		} elseif (isset($_POST['edit'])) {
+			if (isset($_POST['lname'], $_POST['fname'], $_POST['id_profile'], $_POST['email'], $_POST['pwd'], $_POST['conf'], $_POST['prom'])) {
+				if ($_POST['pwd'] != $_POST['conf']) {
+					$errors = true;
+				} elseif ($_POST['pwd'] == $_POST['conf'] && $_POST['pwd'] != '') {
+					$p_result = $this->Student->edit_password([
+						$_GET['id'],
+						sha1($_POST['pwd'])
+					]);
+				} else {
+					$result = $this->Student->edit([
+						$_POST['lname'],
+						$_POST['fname'],
+						3,
+						$_POST['email'],
+						$_GET['id'],
+						$_POST['prom']
+					]);
+					if ($result) {
+						return $this->index();
+					}
 				}
 			}
 		}
