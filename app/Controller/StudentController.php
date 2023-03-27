@@ -105,7 +105,6 @@ class StudentController extends AppController {
 	public function delete() {
 		if (isset($_POST['delete'])) {
 			$result = $this->Student->delete($_POST['id_profile']);
-			var_dump($result);
 			return $this->index();
 		}
 	}
