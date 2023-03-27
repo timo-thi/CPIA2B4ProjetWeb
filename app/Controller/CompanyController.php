@@ -17,7 +17,7 @@ class CompanyController extends AppController {
 	public RateTable $Rate;
 	public LocalitiesTable $Localities;
 	public SectorTable $Sector;
-
+	
 
 	/** Contructpr
 	 * @return void
@@ -68,5 +68,19 @@ class CompanyController extends AppController {
 			}
 		}
 		$this->render('company.create', compact('annonces', 'errors'));
+	}
+
+	public function edit() {
+		$annonces = $this->Activity->all();
+		$errors = false;
+		if (!empty($_POST)) {
+			if ((!empty($_POST['name'])) && (!empty($_POST['link'])) && (!empty($_POST['city'])) && (!empty($_POST['zipcode'])) && (!empty($_POST['address'])) && (!empty($_POST['number']))){
+				if (isset($_POST['name'],$_POST['link'],$_POST['city'],$_POST['zipcode'],$_POST['address'],$_POST['number'],$_POST['comment'])) {
+					//$first =
+				}
+			} else {
+				$errors = true;
+			}
+		}	
 	}
 }
