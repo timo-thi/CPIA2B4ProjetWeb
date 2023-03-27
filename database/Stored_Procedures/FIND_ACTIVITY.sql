@@ -4,7 +4,7 @@ DELIMITER //
 
 CREATE DEFINER=`root`@`localhost` PROCEDURE `FIND_ACTIVITY`(p_id_company INT)
 BEGIN
-	select activity.name
+	select activity.id_activity, activity.name
 	from activity
 		inner join sector on activity.id_activity = sector.id_activity
 		inner join company on sector.id_company = company.id_company
