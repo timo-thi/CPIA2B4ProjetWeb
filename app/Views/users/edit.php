@@ -14,7 +14,7 @@
 		<!-- Promo si étudiant ou pilote -->
 		<?php if (!($profile->id_roles == 1)): ?>
 			<label for="prom">Promotion
-				<select name="prom" id="prom">
+				<select name="prom" id="prom" <?= (isset($_SESSION['role']) && $_SESSION['role'] == 1) ? 'multiple' : ''?>>
 					<option value="0" <?= (!isset($profile->id_prom) || $profile->id_prom == 0 || $profile->id_prom == null) ? 'selected' : ''?>>Choisissez une option</option>
 					<?php foreach ($promos as $promo): ?>
 						<option value="<?= $promo->id_prom ?>" <?= (isset($profile->id_prom) && $profile->id_prom == $promo->id_prom) ? 'selected' : ''?>><?= $promo->name ?></option>

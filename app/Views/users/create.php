@@ -1,9 +1,9 @@
 <div class="bg-clair">
 	<h1>Ajouter un utilisateur</h1>
 	<form action="" method="post">
-		<label for="lname">Nom<input type="text" name="lname" id="lname" placeholder="Ex : Dupond'" value="<?= isset($_POST['lname']) ? $_POST['lname'] : ''?>"></label>
-		<label for="fname">Prénom<input type="text" name="fname" id="fname" placeholder="Ex : Antoine'" value="<?= isset($_POST['fname']) ? $_POST['fname'] : ''?>"></label>
-		<label for="email">E-mail<input type="email" name="email" id="email" placeholder="Ex : nom.prenom@viacesi.fr'" value="<?= isset($_POST['email']) ? $_POST['email'] : ''?>"></label>
+		<label for="lname">Nom<input type="text" name="lname" id="lname" placeholder="Ex : Dupond" value="<?= isset($_POST['lname']) ? $_POST['lname'] : ''?>"></label>
+		<label for="fname">Prénom<input type="text" name="fname" id="fname" placeholder="Ex : Antoine" value="<?= isset($_POST['fname']) ? $_POST['fname'] : ''?>"></label>
+		<label for="email">E-mail<input type="email" name="email" id="email" placeholder="Ex : nom.prenom@viacesi.fr" value="<?= isset($_POST['email']) ? $_POST['email'] : ''?>"></label>
 		<?php if ($errors):?>
 			<div class="alert alert-danger">
 				<p>Veuiller entrer des identifiants valides</p>
@@ -27,7 +27,7 @@
 		</label>
 		<!-- Promo si étudiant ou pilote -->
 		<label for="prom">Promotion
-			<select name="prom" id="prom">
+			<select name="prom" id="prom" <?= (isset($_SESSION['role']) && $_SESSION['role'] == 1) ? 'multiple' : ''?>>
 				<option value="0" <?= (!isset($_POST['prom']) || $_POST['prom'] == 0) ? 'selected' : ''?>>Choisissez une option</option>
 				<?php foreach ($promos as $promo): ?>
 					<option value="<?= $promo->id_prom ?>" <?= (isset($_POST['prom']) && $_POST['prom'] == $promo->id_prom) ? 'selected' : ''?>><?= $promo->name ?></option>
