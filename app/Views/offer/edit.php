@@ -44,8 +44,10 @@
 			<label for="visibility">Publique</label>
 			<input type="radio" name="visibility" id="visibility" value="0" checked>
 		</div>
+		<input type="hidden" name="id_offer" value="<?= $offer->id_offer?>">
+		<input type="submit" name="delete" value="Supprimer">
 
-		<input type="submit" value="Ajouter">
-		<input type="reset" value="Annuler">
+		<input type="submit" name="edit" value="Ajouter">
+		<input type="reset" name="cancel" value="Annuler">
 	</form>
 </div>

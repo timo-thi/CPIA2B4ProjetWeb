@@ -23,4 +23,12 @@ class OfferTable extends Table {
 		}
 		return $res[0];
 	}
+
+
+	public function create($attributes) {
+		return $this->query(
+			'call CREATION_OFFER(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+			$attributes
+		);
+	}
 }
