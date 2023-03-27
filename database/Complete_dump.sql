@@ -57,7 +57,7 @@ CREATE TABLE `address` (
   PRIMARY KEY (`id_address`),
   KEY `id_city` (`id_city`),
   CONSTRAINT `address_ibfk_1` FOREIGN KEY (`id_city`) REFERENCES `city` (`id_city`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,7 +66,7 @@ CREATE TABLE `address` (
 
 LOCK TABLES `address` WRITE;
 /*!40000 ALTER TABLE `address` DISABLE KEYS */;
-INSERT INTO `address` VALUES (1,'Avenue de l\'opéra','38',NULL,1),(2,'rue de Londres','8',NULL,1),(3,'quai du Président Roosevelt','37',NULL,2),(4,'place d\'Iéna','7',NULL,1),(5,'rue Ménars','6',NULL,1),(6,'rue de la Paix','10',NULL,1),(7,'Avenue Edmund Halley Rouen Madrillet Innovation','80',NULL,3),(8,'Boulevard Louis XIV','8',NULL,4),(9,'Boulevard Louis XIV','8',NULL,4),(10,'Boulevard Louis XIV','8',NULL,4),(11,'Boulevard Louis XIV','8',NULL,4),(12,'Boulevard Louis XIV','8',NULL,4),(13,'Boulevard Louis XIV','8',NULL,4),(14,'Boulevard de la Seine','93',NULL,5);
+INSERT INTO `address` VALUES (1,'Avenue de l\'opéra','38',NULL,1),(2,'rue de Londres','8',NULL,1),(3,'quai du Président Roosevelt','37',NULL,2),(4,'place d\'Iéna','7',NULL,1),(5,'rue Ménars','6',NULL,1),(6,'rue de la Paix','10',NULL,1),(7,'Avenue Edmund Halley Rouen Madrillet Innovation','80',NULL,3),(8,'Boulevard Louis XIV','8',NULL,4),(9,'Boulevard Louis XIV','8',NULL,4),(10,'Boulevard Louis XIV','8',NULL,4),(11,'Boulevard Louis XIV','8',NULL,4),(12,'Boulevard Louis XIV','8',NULL,4),(13,'Boulevard Louis XIV','8',NULL,4),(14,'Boulevard de la Seine','93',NULL,5),(15,'Rue machin','5','Yesss stv mec',5),(16,'Rue de la renardière','15','',13),(17,'Rue de la renardière','15','',13);
 /*!40000 ALTER TABLE `address` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -169,7 +169,7 @@ CREATE TABLE `city` (
   `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `zipcode` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`id_city`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -178,7 +178,7 @@ CREATE TABLE `city` (
 
 LOCK TABLES `city` WRITE;
 /*!40000 ALTER TABLE `city` DISABLE KEYS */;
-INSERT INTO `city` VALUES (1,'Paris','75001'),(2,'Issy-les-Moulineaux','92130'),(3,'Saint-Étienne-du-Rouvray','76800'),(4,'Lille','59000'),(5,'Nanterre','92000'),(6,'Lille','59000'),(7,'Lille','59000'),(8,'Lille','59000'),(9,'Lille','59000'),(10,'Lille','59000'),(11,'Lille','59000'),(12,'Lille','59000');
+INSERT INTO `city` VALUES (1,'Paris','75001'),(2,'Issy-les-Moulineaux','92130'),(3,'Saint-Étienne-du-Rouvray','76800'),(4,'Lille','59000'),(5,'Nanterre','92000'),(6,'Lille','59000'),(7,'Lille','59000'),(8,'Lille','59000'),(9,'Lille','59000'),(10,'Lille','59000'),(11,'Lille','59000'),(12,'Lille','59000'),(13,'Rouen','76000');
 /*!40000 ALTER TABLE `city` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -195,7 +195,7 @@ CREATE TABLE `company` (
   `active` tinyint(1) DEFAULT NULL,
   `link` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`id_company`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -204,7 +204,7 @@ CREATE TABLE `company` (
 
 LOCK TABLES `company` WRITE;
 /*!40000 ALTER TABLE `company` DISABLE KEYS */;
-INSERT INTO `company` VALUES (1,'Youtube',1,'https://www.youtube.com/'),(2,'Google',1,'https://www.google.com/'),(3,'Microsoft',1,'https://www.microsoft.com/'),(4,'Apple',1,'https://www.apple.com/'),(5,'Facebook',1,'https://www.facebook.com/'),(6,'Twitter',0,'https://www.twitter.com/'),(7,'Instagram',0,'https://www.instagram.com/'),(8,'Twitter',0,'https://www.twitter.com/'),(9,'Twitter',0,'https://www.twitter.com/'),(10,'Twitter',0,'https://www.twitter.com/'),(11,'Twitter',0,'https://www.twitter.com/'),(12,'Twitter',0,'https://www.twitter.com/'),(13,'Twitter',0,'https://www.twitter.com/'),(14,'Twitter',0,'https://www.twitter.com/');
+INSERT INTO `company` VALUES (1,'Youtube',1,'https://www.youtube.com/'),(2,'Google',1,'https://www.google.com/'),(3,'Microsoft',1,'https://www.microsoft.com/'),(4,'Apple',1,'https://www.apple.com/'),(5,'Facebook',1,'https://www.facebook.com/'),(6,'Twitter',0,'https://www.twitter.com/'),(7,'Instagram',0,'https://www.instagram.com/'),(8,'Twitter',0,'https://www.twitter.com/'),(9,'Twitter',0,'https://www.twitter.com/'),(10,'Twitter',0,'https://www.twitter.com/'),(11,'Twitter',0,'https://www.twitter.com/'),(12,'Twitter',0,'https://www.twitter.com/'),(13,'Twitter',0,'https://www.twitter.com/'),(14,'Twitter',0,'https://www.twitter.com/'),(15,'twitch',1,'twitch.tv'),(16,'twitch',1,'twitch.tv'),(17,'twitch',1,'twitch.tv');
 /*!40000 ALTER TABLE `company` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -224,7 +224,7 @@ CREATE TABLE `localities` (
   KEY `id_company` (`id_company`),
   CONSTRAINT `localities_ibfk_1` FOREIGN KEY (`id_address`) REFERENCES `address` (`id_address`) ON DELETE CASCADE,
   CONSTRAINT `localities_ibfk_2` FOREIGN KEY (`id_company`) REFERENCES `company` (`id_company`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -233,7 +233,7 @@ CREATE TABLE `localities` (
 
 LOCK TABLES `localities` WRITE;
 /*!40000 ALTER TABLE `localities` DISABLE KEYS */;
-INSERT INTO `localities` VALUES (1,1,1),(2,2,2),(3,3,3),(4,4,4),(5,5,5),(6,6,6),(7,5,7),(8,6,6),(9,6,6),(10,6,6),(11,6,6),(12,6,6),(13,6,6),(14,6,6);
+INSERT INTO `localities` VALUES (1,1,1),(2,2,2),(3,3,3),(4,4,4),(5,5,5),(6,6,6),(7,5,7),(8,6,6),(9,6,6),(10,6,6),(11,6,6),(12,6,6),(13,6,6),(14,6,6),(15,15,15),(16,16,16),(17,17,17);
 /*!40000 ALTER TABLE `localities` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -489,7 +489,7 @@ CREATE TABLE `sector` (
 
 LOCK TABLES `sector` WRITE;
 /*!40000 ALTER TABLE `sector` DISABLE KEYS */;
-INSERT INTO `sector` VALUES (1,1),(3,1),(2,2),(3,2),(5,2),(8,2),(9,2),(10,2),(11,2),(12,2),(13,2),(14,2),(1,3),(2,4),(4,4);
+INSERT INTO `sector` VALUES (1,1),(3,1),(2,2),(3,2),(5,2),(8,2),(9,2),(10,2),(11,2),(12,2),(13,2),(14,2),(17,2),(1,3),(2,4),(4,4);
 /*!40000 ALTER TABLE `sector` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -575,6 +575,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `photo`,
  1 AS `id_person`,
  1 AS `prom`,
+ 1 AS `id_prom`,
  1 AS `email`,
  1 AS `accepted`,
  1 AS `id_roles`,
@@ -653,12 +654,20 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `CREATE_COMPANY`(`p_name` VARCHAR(255), `p_active` BOOL, `p_link` VARCHAR(255), `p_city` VARCHAR(255), `p_zipcode` VARCHAR(20), `p_address` VARCHAR(255), `p_number` VARCHAR(20), `p_comment` VARCHAR(300))
 BEGIN
 	insert into company (name,active,link) VALUES (p_name,p_active,p_link);
-	set @temp = last_insert_id();
-	insert into city (name,zipcode) VALUES (p_city,p_zipcode);
-	set @temp2 = last_insert_id();
-	insert into address (name,number,comment,id_city) VALUES (p_address,p_number,p_comment,@temp2);
-	set @temp3 = last_insert_id();
-	insert into localities (id_address,id_company) VALUES (@temp3,@temp);
+    set @temp = last_insert_id();
+    IF (p_city IN (select name FROM city) AND p_zipcode IN (SELECT zipcode from city)) then
+        set @temp2 = (select id_city from city where p_city = name);
+        insert into address (name,number,comment,id_city) VALUES (p_address,p_number,p_comment,@temp2);
+        set @temp3 = last_insert_id();
+    else 
+        insert into city (name,zipcode) VALUES (p_city,p_zipcode);
+        set @temp2 = last_insert_id();
+        insert into address (name,number,comment,id_city) VALUES (p_address,p_number,p_comment,@temp2);
+        set @temp3 = last_insert_id();
+    end if;
+    
+    insert into localities (id_address,id_company) VALUES (@temp3,@temp);
+    select @temp as id_company;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1247,13 +1256,13 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `DETAILS_STUDENT`(`p_id_profile` INT)
 BEGIN
-	SELECT distinct id_profile, fname, lname, id_person, prom, email, accepted, id_roles
+	SELECT distinct id_profile, fname, lname, id_person, id_prom, prom, email, accepted, id_roles
 	FROM view_student
 	WHERE id_profile = p_id_profile;
 END ;;
@@ -1357,7 +1366,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
 DELIMITER ;;
@@ -2104,26 +2113,47 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `UPDATE_PASSWORD` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`inge-tim`@`localhost` PROCEDURE `UPDATE_PASSWORD`(p_id_user VARCHAR(255), p_password VARCHAR(255))
+BEGIN
+	UPDATE person
+		SET password = p_password
+	WHERE id_person = p_id_user;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `UPDATE_PROFILE` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `UPDATE_PROFILE`(`p_fname` VARCHAR(50), `p_lname` VARCHAR(50), `p_id_roles` INT, `p_email` VARCHAR(255), `p_password` VARCHAR(255), `p_id_profile` INT, `p_name` VARCHAR(50))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `UPDATE_PROFILE`(`p_fname` VARCHAR(50), `p_lname` VARCHAR(50), `p_id_roles` INT, `p_email` VARCHAR(255), `p_id_profile` INT, `p_id_prom` INT)
 BEGIN
 	UPDATE profile
 		SET fname = p_fname, lname = p_lname, id_roles = p_id_roles
 	WHERE profile.id_profile = p_id_profile;
 	UPDATE person
-		SET email = p_email, password = p_password
+		SET email = p_email
 	WHERE person.id_profile = p_id_profile;
 		SET @temp = (select id_prom from prom
-	WHERE name = p_name);
+	WHERE id_prom = p_id_prom);
 	UPDATE affiliated
 		SET id_prom = @temp
 	WHERE affiliated.id_profile=p_id_profile;
@@ -2201,10 +2231,10 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb3_general_ci */;
+/*!50001 SET collation_connection      = utf8mb4_0900_ai_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
-/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `view_student` AS select `profile`.`id_profile` AS `id_profile`,`profile`.`fname` AS `fname`,`profile`.`lname` AS `lname`,`profile`.`photo` AS `photo`,`person`.`id_person` AS `id_person`,`prom`.`name` AS `prom`,`person`.`email` AS `email`,if((`accepted`.`cnt` is null),'n','y') AS `accepted`,`profile`.`id_roles` AS `id_roles`,`step`.`id_offer` AS `id_offer`,`step`.`offer` AS `offer`,`step`.`id_progress_state` AS `id_progress_state`,`step`.`state` AS `state`,`step`.`startdate` AS `startdate`,`step`.`company` AS `company` from (((((`profile` left join `affiliated` on((`profile`.`id_profile` = `affiliated`.`id_profile`))) left join `prom` on((`affiliated`.`id_prom` = `prom`.`id_prom`))) left join `person` on((`profile`.`id_profile` = `person`.`id_profile`))) left join (select `profile`.`id_profile` AS `id_profile`,`candidature`.`id_offer` AS `id_offer`,`offer`.`name` AS `offer`,`offer`.`startdate` AS `startdate`,`company`.`name` AS `company`,`candidature`.`id_progress_state` AS `id_progress_state`,`postulate_progress_steps`.`name` AS `state` from (((((`profile` join `candidature` on((`candidature`.`id_profile` = `profile`.`id_profile`))) join `offer` on((`candidature`.`id_offer` = `offer`.`id_offer`))) join `localities` on((`offer`.`id_localities` = `localities`.`id_localities`))) join `company` on((`localities`.`id_company` = `company`.`id_company`))) join `postulate_progress_steps` on((`candidature`.`id_progress_state` = `postulate_progress_steps`.`id_progress_state`))) order by `profile`.`id_profile`) `step` on((`step`.`id_profile` = `profile`.`id_profile`))) left join (select `profile`.`id_profile` AS `id_profile`,count(`candidature`.`id_progress_state`) AS `cnt` from (`profile` join `candidature` on((`candidature`.`id_profile` = `profile`.`id_profile`))) where (`candidature`.`id_progress_state` = 6) group by `profile`.`id_profile`) `accepted` on((`accepted`.`id_profile` = `profile`.`id_profile`))) where (`profile`.`id_roles` = 3) */;
+/*!50013 DEFINER=`inge-tim`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `view_student` AS select `profile`.`id_profile` AS `id_profile`,`profile`.`fname` AS `fname`,`profile`.`lname` AS `lname`,`profile`.`photo` AS `photo`,`person`.`id_person` AS `id_person`,`prom`.`name` AS `prom`,`prom`.`id_prom` AS `id_prom`,`person`.`email` AS `email`,if((`accepted`.`cnt` is null),'n','y') AS `accepted`,`profile`.`id_roles` AS `id_roles`,`step`.`id_offer` AS `id_offer`,`step`.`offer` AS `offer`,`step`.`id_progress_state` AS `id_progress_state`,`step`.`state` AS `state`,`step`.`startdate` AS `startdate`,`step`.`company` AS `company` from (((((`profile` left join `affiliated` on((`profile`.`id_profile` = `affiliated`.`id_profile`))) left join `prom` on((`affiliated`.`id_prom` = `prom`.`id_prom`))) left join `person` on((`profile`.`id_profile` = `person`.`id_profile`))) left join (select `profile`.`id_profile` AS `id_profile`,`candidature`.`id_offer` AS `id_offer`,`offer`.`name` AS `offer`,`offer`.`startdate` AS `startdate`,`company`.`name` AS `company`,`candidature`.`id_progress_state` AS `id_progress_state`,`postulate_progress_steps`.`name` AS `state` from (((((`profile` join `candidature` on((`candidature`.`id_profile` = `profile`.`id_profile`))) join `offer` on((`candidature`.`id_offer` = `offer`.`id_offer`))) join `localities` on((`offer`.`id_localities` = `localities`.`id_localities`))) join `company` on((`localities`.`id_company` = `company`.`id_company`))) join `postulate_progress_steps` on((`candidature`.`id_progress_state` = `postulate_progress_steps`.`id_progress_state`))) order by `profile`.`id_profile`) `step` on((`step`.`id_profile` = `profile`.`id_profile`))) left join (select `profile`.`id_profile` AS `id_profile`,count(`candidature`.`id_progress_state`) AS `cnt` from (`profile` join `candidature` on((`candidature`.`id_profile` = `profile`.`id_profile`))) where (`candidature`.`id_progress_state` = 6) group by `profile`.`id_profile`) `accepted` on((`accepted`.`id_profile` = `profile`.`id_profile`))) where (`profile`.`id_roles` = 3) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -2218,4 +2248,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-24 20:22:57
+-- Dump completed on 2023-03-27  0:17:16
