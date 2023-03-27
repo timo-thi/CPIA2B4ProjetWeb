@@ -80,4 +80,5 @@ color: #FFFFFF;
 height: 80vh;
 overflow: auto;
 scroll-behavior: smooth;
+overflow-x: hidden;
 }
