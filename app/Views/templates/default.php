@@ -20,7 +20,7 @@
 <body class="bg-sombre">
   <nav class="navbar navbar-expand-lg bg-clair">
     <div class="container-fluid">
-      <a class="navbar-brand me-4" href="../public/index.php?p=offer.index">
+      <a class="navbar-brand me-4" href="../public/index.php?p=acceuil.index">
         <!-- Add eye icon -->
         <div class="icon_container container">
         <?php require 'oeil.php';?>

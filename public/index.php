@@ -12,7 +12,7 @@ $app = App::getInstance();
  */
 if (isset($_SESSION['auth'],$_SESSION['role'])) {
 	if (! isset($_GET['p'])) {
-		$page = 'offer.index';
+		$page = 'acceuil.index';
 	} else {
 		$page = $_GET['p'];
 	}
