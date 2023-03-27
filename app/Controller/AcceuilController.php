@@ -31,15 +31,15 @@ class AcceuilController extends AppController {
 		if (empty($offer)){
 			$this->notFound();
 		}
-		echo '<pre>', var_dump($offer), '</pre>';
+		// echo '<pre>', var_dump($offer), '</pre>';
 		
 
 		$comp = $this->Company->search();
 		if (empty($comp)){
 			$this->notFound();
 		}
+		// echo '<pre class="clair">', var_dump($comp), '</pre>';
 	
-		echo '<pre class="clair">', var_dump($comp), '</pre>';
 		$this->render('acceuil.index', compact('comp', 'offer'));
 	}
 }
