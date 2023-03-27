@@ -99,7 +99,7 @@ class CompanyController extends AppController {
 		}
 		if (isset($_GET['id'])) {
 			$company = $this->Company->details($_GET['id']);
-			echo '<pre>', var_dump($company), '</pre>';
+			// echo '<pre>', var_dump($company), '</pre>';
 			if (empty($company)){
 				return $this->notFound();
 			}
