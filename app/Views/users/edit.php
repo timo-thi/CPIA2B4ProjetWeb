@@ -23,6 +23,7 @@
 			</label>
 		<?php endif; ?>
 		<input type="hidden" name="id_profile" value="<?= $profile->id_profile?>">
+		<input type="submit" name="delete" value="Supprimer">
 
 		<input type="submit" value="Ajouter">
 		<input type="reset" value="Annnuler">

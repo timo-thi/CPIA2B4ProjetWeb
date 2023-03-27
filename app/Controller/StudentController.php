@@ -61,6 +61,9 @@ class StudentController extends AppController {
 
 
 	public function edit() {
+		if (isset($_POST['delete'])) {
+			return $this->delete();
+		}
 		$errors = false;
 		if (isset($_POST['lname'], $_POST['fname'], $_POST['id_profile'], $_POST['email'], $_POST['pwd'], $_POST['conf'], $_POST['prom'])) {
 			if ($_POST['pwd'] != $_POST['conf']) {
@@ -100,11 +103,10 @@ class StudentController extends AppController {
 
 
 	public function delete() {
-		if (isset($_GET['id'])) {
-			$result = $this->Student->delete($_GET['id']);
-			if ($result) {
-				return $this->index();
-			}
+		if (isset($_POST['delete'])) {
+			$result = $this->Student->delete($_POST['id_profile']);
+			var_dump($result);
+			return $this->index();
 		}
 	}
 }

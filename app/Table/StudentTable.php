@@ -51,7 +51,7 @@ class StudentTable extends Table {
 		return $this->query(
 			"call DELETE_PROFILE(?)",
 			[$id],
-			true
+			false
 		);
 	}
 }
