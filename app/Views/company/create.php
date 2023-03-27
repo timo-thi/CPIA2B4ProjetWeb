@@ -1,20 +1,3 @@
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../../BootStrap/assets/vendors/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../../BootStrap/assets/css/style.css">
-    <link rel="stylesheet" href="../../../BootStrap/assets/vendors/fontawesome/css/all.min.css">
-    <title>Recherche d'entreprise</title>
-</head>
-
-
-
-
-<body class="bg-sombre">
-
 <div class="container mt-5 bg-clair rounded-3" style="width: 60vh; max-width:90%;height:max-content"><!--ou style="width: 40%; max-width=90vh;"-->
             <h1 class="sombre text-center">Ajouter une entreprise</h1>
             <?php if ($errors):?>
@@ -99,14 +82,7 @@
                     
                 </div>
             </form>
-            <br>
-                            <br>
-                            <br>
 </div>
-
-
-    <script src="../../../BootStrap/assets/vendors/bootstrap/js/bootstrap.bundle.js"></script>
-    <script src="../../../BootStrap/assets/vendors/jquery/jquery.min.js"></script>
-</body>
-
-</html>
+<br>
+                            <br>
+                            <br>
