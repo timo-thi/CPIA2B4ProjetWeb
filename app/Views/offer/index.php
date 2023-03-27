@@ -39,7 +39,7 @@
             <!--Pagination-->
       </div>
     </div>
-
+<!--Detail offre-->
   
     <div class="col-6 position-absolute end-0">
       <div class="position-absolute ms-2 end-0">
