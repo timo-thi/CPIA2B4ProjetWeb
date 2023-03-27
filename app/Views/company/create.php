@@ -15,9 +15,14 @@
 
 <body class="bg-sombre">
 
-<div class="container mt-5 bg-clair rounded-3" style="width: 60vh; max-width=90%;height:max-content"><!--ou style="width: 40%; max-width=90vh;"-->
+<div class="container mt-5 bg-clair rounded-3" style="width: 60vh; max-width:90%;height:max-content"><!--ou style="width: 40%; max-width=90vh;"-->
             <h1 class="sombre text-center">Ajouter une entreprise</h1>
-            <form action="" class="mx-auto" method="" style="width:95%">
+            <?php if ($errors):?>
+	            <div class="alert alert-danger">
+		            Champ(s) manquant(s)!  
+                </div>
+            <?php endif; ?>
+            <form action="" class="mx-auto" method="post" style="width:95%">
                 <div class="container mt-5 position-relative">
                     <label for="nom" class="col ">
                         <strong style="font-size: 130%;">Nom</strong>
@@ -29,10 +34,12 @@
                     <label for="activity" class="col ">
                         <strong style="font-size: 130%;">Secteur d'activité</strong>
                     </label>
-                    <select name="sector" id="activity" class="col border-1 rounded  position-absolute end-0" style="width: 40%;" multiple> 
+                    <select name="sector[]" id="activity" class="col border-1 rounded  position-absolute end-0" style="width: 40%;" multiple>
+                        <?php foreach ($annonces as $el):?>  
                         <!--boucle foreach secteur
                             on doit pouvoir en choisir plusieurs donc selection multipple-->
-                        <option value=""><!-- option --></option>
+                        <option value="<?= $el->id_activity?>"><?php echo "{$el->name}" ?></option>
+                        <?php endforeach?>
                     </select>
                 </div>
                 <br>

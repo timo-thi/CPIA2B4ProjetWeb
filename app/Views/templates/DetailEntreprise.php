@@ -12,7 +12,7 @@
                     
                         <div class="btn-group position-absolute end-0 mt-2" role="group" >
                               <button class="active border-0 bg-sombre clair rounded " style="width: max-content;"> Wish-List</button>
-                              <button class="active border-0 bg-sombre clair rounded ms-2 me-3" style="width: max-content;"> Voir les offres</button>
+                              <a href="?p=company.create"><button class="active border-0 bg-sombre clair rounded ms-2 me-3" style="width: max-content;"> Voir les offres</button></a>
                         </div>
                     </div>
                     

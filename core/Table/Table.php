@@ -35,11 +35,11 @@ class Table {
 	 * @param $value string - value to be extracted from records
 	 * @return array
 	 */
-	public function extract($key, $value) {
+	public function extract($key) {
 		$records = $this->all();
 		$return = [];
 		foreach ($records as $v) {
-			$return[$v->$key] = $v->$value;
+			$return[] = $v->$key;
 		}
 		return $return;
 	}
@@ -49,9 +49,9 @@ class Table {
 	 * @param $statement string - SQL statement
 	 * @param $attributes array - attributes to be binded to the statement
 	 * @param $one boolean - if true, return only one record
-	 * @return array
+	 * @return mixed
 	 */
-	public function query($statement, $attributes, $one = false) {
+	public function query($statement, $attributes, $one = false) : mixed {
 		if ($attributes) {
 			return $this->db->prepare(
 				$statement,
@@ -143,14 +143,5 @@ class Table {
 			[$id],
 			true
 		);
-	}
-
-
-	/** Create a record in a table
-	 * @param $fields array - fields to be created (format : ['field_name' => 'field_value'])
-	 * @return array
-	 */
-	public function create($attributes) {
-		return;
 	}
 }

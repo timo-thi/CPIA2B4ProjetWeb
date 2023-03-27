@@ -14,7 +14,7 @@
                     
                         <div class="btn-group position-absolute end-0 mt-2" role="group" >
                               <button class="active border-0 bg-sombre clair rounded " style="width: max-content;"> Wish-List</button>
-                              <button class="active border-0 bg-sombre clair rounded ms-2 me-3" style="width: max-content;"> Voir les offres</button>
+                              <a href="../public/index.php?p=company.CreationEntreprise"><button class="active border-0 bg-sombre clair rounded ms-2 me-3" style="width: max-content;"> Voir les offres</button></a>²²
                         </div>
                     </div>
                     
@@ -60,12 +60,11 @@
                     </ul>
 
                     <h5 class="but clair p-1 mt-4" style="width:max-content">Commentaires</h5>
-                    <div class="">
+                     <div class="">
                         <div class="border-sombre rounded-4 px-2">
-                            <!--boucles avec les commentaires-->
+                           <!-- boucles avec les commentaires-->
                         </div>
                     </div>
-                
             </div>
         </div>
        
