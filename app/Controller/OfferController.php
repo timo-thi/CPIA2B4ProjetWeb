@@ -96,12 +96,16 @@ class OfferController extends AppController {
 	
 	
 	public function edit() {
+		if (!isset($_GET['id'])) {
+			return $this->notFound();
+		}
 		$errors = false;
 		if (isset($_POST['Supprimer'])) {
 			return $this->delete();
 		}
 		if (isset($_POST['title'], $_POST['description'], $_POST['startdate'], $_POST['period'], $_POST['locality'], $_POST['email'], $_POST['tel'], $_POST['wage'], $_POST['activity'], $_POST['visibility'], $_POST['skills'])) {
-			$result = $this->Offer->create([
+			$result = $this->Offer->edit([
+				$_GET['id'],
 				$_POST['title'],
 				$_POST['visibility'],
 				$_POST['startdate'],
@@ -115,32 +119,51 @@ class OfferController extends AppController {
 				$_POST['activity']
 			]);
 			if (!empty($_POST['skills'])) {
-				$requirement = $_POST['skills'];
-				foreach ($requirement as $id_skill) {
-					if ($id_skill == "0"){
+				$new = $_POST['skills'];
+				$old = $this->Skills->find($_GET['id']);
+				for ($i = 0; $i < count($old); $i++) {
+					$old[$i] = $old[$i]->id_skill;
+				}
+				// Parcourir old et supprimer ce qui n'existe pas dans new
+				foreach ($old as $id_skill) {
+					if ($id_skill == "0" || in_array($id_skill, $new)){
+						continue;
+					}
+					$this->Require->delete([
+						$id_skill,
+						$_GET['id']
+					]);
+				}
+				// Parcourir new et ajouter ce qui n'existe pas dans old
+				foreach ($new as $id_skill) {
+					if ($id_skill == "0" || in_array($id_skill, $old)){
 						continue;
 					}
 					$this->Require->create([
-						$id_skill,
-						$result[0]->id_offer
+						$_GET['id'],
+						$id_skill
 					]);
 				}
 			}
-			// $_POST['skills'];
-			if ($result) {
-				return $this->index();
-			}
+			return $this->index();
 		}
-		if (isset($_GET['id'])) {
-			$offer = $this->Offer->details($_GET['id'])[0];
-			$company = $this->Company->details($_GET['id'])[0];
-			$localities = $this->Localities->find($_GET['id']); // TODO: find all localities or reorganise offer creation
-			$activities = $this->Activity->find($_GET['id']);
-			$skills = $this->Skills->all();
-		} else {
+
+		$offer = $this->Offer->details($_GET['id']);
+		if (empty($offer)){
 			return $this->notFound();
 		}
-		$this->render('offer.create', compact('localities', 'activities', 'skills', 'company', 'offer', 'errors'));
+		$offer = $offer[0];
+		$offer->skills = $this->Skills->find($_GET['id']);
+		for ($i = 0; $i < count($offer->skills); $i++) {
+			$offer->skills[$i] = $offer->skills[$i]->id_skill;
+		}
+
+		$company = $this->Company->details($_GET['id'])[0];
+		$localities = $this->Localities->find($_GET['id']); // TODO: find all localities or reorganise offer creation
+		$activities = $this->Activity->find($_GET['id']);
+		$skills = $this->Skills->all();
+
+		$this->render('offer.edit', compact('localities', 'activities', 'skills', 'company', 'offer', 'errors'));
 	}
 
 

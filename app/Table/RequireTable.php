@@ -13,7 +13,15 @@ class RequireTable extends Table {
 	public function create($attributes) {
 		return $this->query(
 			"call CREATION_REQUIRES(?, ?)",
-			[$attributes]
+			$attributes
+		);
+	}
+
+
+	public function delete($attributes) {
+		return $this->query(
+			"call DELETE_REQUIRES(?, ?)",
+			$attributes
 		);
 	}
 }

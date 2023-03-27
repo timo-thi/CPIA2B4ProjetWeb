@@ -31,4 +31,12 @@ class OfferTable extends Table {
 			$attributes
 		);
 	}
+
+
+	public function edit($attributes) {
+		return $this->query(
+			'call UPDATE_OFFER(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+			$attributes
+		);
+	}
 }
