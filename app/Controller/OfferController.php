@@ -100,7 +100,7 @@ class OfferController extends AppController {
 			return $this->notFound();
 		}
 		$errors = false;
-		if (isset($_POST['Supprimer'])) {
+		if (isset($_POST['delete'])) {
 			return $this->delete();
 		}
 		if (isset($_POST['title'], $_POST['description'], $_POST['startdate'], $_POST['period'], $_POST['locality'], $_POST['email'], $_POST['tel'], $_POST['wage'], $_POST['activity'], $_POST['visibility'], $_POST['skills'])) {

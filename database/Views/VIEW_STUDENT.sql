@@ -1,10 +1,6 @@
-drop view if exists VIEW_STUDENT;
+drop view if exists view_student;
 
-CREATE 
-    ALGORITHM = UNDEFINED 
-    DEFINER = `root`@`localhost` 
-    SQL SECURITY DEFINER
-VIEW `view_student` AS
+CREATE VIEW `view_student` AS
     SELECT 
         `profile`.`id_profile` AS `id_profile`,
         `profile`.`fname` AS `fname`,

@@ -2,9 +2,9 @@ DROP PROCEDURE IF EXISTS DETAILS_OFFER;
 
 DELIMITER //
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `DETAILS_OFFER`(p_id_offer INT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DETAILS_OFFER`(`p_id_offer` INT)
 BEGIN
-    select offer.name, offer.telephone, offer.contact_mail, offer.comment, offer.amount, offer.link, company.name as company, company.link, city.name as city, city.zipcode, address.name as address, address.number, address.comment, activity.name as activity
+    select offer.id_offer, offer.active as visibility, offer.name, offer.period, offer.startdate, offer.telephone, offer.contact_mail, offer.comment as descr, offer.amount, offer.wage, company.name as company, company.link, localities.id_localities, city.name as city, city.zipcode, address.name as address, address.number, address.comment, activity.id_activity, activity.name as activity
     from offer
     inner join localities on offer.id_localities = localities.id_localities
     inner join company on localities.id_company = company.id_company

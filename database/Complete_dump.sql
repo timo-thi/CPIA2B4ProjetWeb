@@ -263,7 +263,7 @@ CREATE TABLE `offer` (
   KEY `id_activity` (`id_activity`),
   CONSTRAINT `offer_ibfk_1` FOREIGN KEY (`id_localities`) REFERENCES `localities` (`id_localities`) ON DELETE SET NULL,
   CONSTRAINT `offer_ibfk_2` FOREIGN KEY (`id_activity`) REFERENCES `activity` (`id_activity`) ON DELETE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -272,7 +272,7 @@ CREATE TABLE `offer` (
 
 LOCK TABLES `offer` WRITE;
 /*!40000 ALTER TABLE `offer` DISABLE KEYS */;
-INSERT INTO `offer` VALUES (1,'Développeur Web',1,'2022-05-01','6 mois','4000 €','35 €/h','CDI après la période d\'essai','contact@entreprise.com','0102030405','https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378',1,1),(2,'Assistant RH',1,'2022-04-15','3 mois','2200 €',NULL,NULL,'rh@entreprise.com','0607080910','https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378',2,2),(3,'Chargé de communication',0,'2022-06-01','6 mois','3800 €','30 €/h','CDD pour remplacement maladie','communication@entreprise.com','0504030201','https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378',3,3),(4,'Chef de projet',1,'2022-03-15','12 mois','5000 €','40 €/h',NULL,'projet@entreprise.com','0102030405','https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378',4,4),(5,'Architecte logiciel',1,'2022-05-01','18 mois','6000 €','50 €/h','Mission chez un client important','contact@entreprise.com','0607080910','https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378',1,1),(6,'Chef de projet',1,'2022-03-15','12 mois','5000 €','40 €/h',NULL,'projet@entreprise.com','0102030405','https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378',4,4),(7,'Chef de projet',1,'2022-03-15','12 mois','5000 €','40 €/h',NULL,'projet@entreprise.com','0102030405','https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378',4,4),(8,'Chef de projet',1,'2022-03-15','12 mois','5000 €','40 €/h',NULL,'projet@entreprise.com','0102030405','https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378',4,4),(9,'Chef de projet',1,'2022-03-15','12 mois','5000 €','40 €/h',NULL,'projet@entreprise.com','0102030405','https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378',4,4),(10,'Chef de projet',1,'2022-03-15','12 mois','5000 €','40 €/h',NULL,'projet@entreprise.com','0102030405','https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378',4,4),(11,'Chef de projet',1,'2022-03-15','12 mois','5000 €','40 €/h',NULL,'projet@entreprise.com','0102030405','https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378',4,4),(12,'Chef de projet',1,'2022-03-15','12 mois','5000 €','40 €/h',NULL,'projet@entreprise.com','0102030405','https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378',4,4);
+INSERT INTO `offer` VALUES (1,'Développeur Web et ouais',1,'2022-05-01','6 mois','','35 €/h','CDI après la période d\'essai','contact@entreprise.com','0102030405','https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378',1,1),(2,'Assistant RH',1,'2022-04-15','3 mois','2200 €',NULL,NULL,'rh@entreprise.com','0607080910','https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378',2,2),(3,'Chargé de communication',0,'2022-06-01','6 mois','3800 €','30 €/h','CDD pour remplacement maladie','communication@entreprise.com','0504030201','https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378',3,3),(4,'Chef de projet',1,'2022-03-15','12 mois','5000 €','40 €/h',NULL,'projet@entreprise.com','0102030405','https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378',4,4),(5,'Architecte logiciel',1,'2022-05-01','18 mois','','50 €/h','Mission chez un client important','contact@entreprise.com','0607080910','https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378',5,2),(6,'Chef de projet',1,'2022-03-15','12 mois','5000 €','40 €/h',NULL,'projet@entreprise.com','0102030405','https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378',4,4),(7,'Chef de projet',1,'2022-03-15','12 mois','5000 €','40 €/h',NULL,'projet@entreprise.com','0102030405','https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378',4,4),(8,'Chef de projet',1,'2022-03-15','12 mois','5000 €','40 €/h',NULL,'projet@entreprise.com','0102030405','https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378',4,4),(9,'Chef de projet',1,'2022-03-15','12 mois','5000 €','40 €/h',NULL,'projet@entreprise.com','0102030405','https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378',4,4),(10,'Chef de projet',1,'2022-03-15','12 mois','5000 €','40 €/h',NULL,'projet@entreprise.com','0102030405','https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378',4,4),(11,'Chef de projet',1,'2022-03-15','12 mois','5000 €','40 €/h',NULL,'projet@entreprise.com','0102030405','https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378',4,4),(12,'Chef de projet',1,'2022-03-15','12 mois','5000 €','40 €/h',NULL,'projet@entreprise.com','0102030405','https://discord.com/channels/1021334122209235036/1072440528026738688/1088414479504654378',4,4);
 /*!40000 ALTER TABLE `offer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -291,7 +291,7 @@ CREATE TABLE `person` (
   PRIMARY KEY (`id_person`),
   KEY `id_profile` (`id_profile`),
   CONSTRAINT `person_ibfk_1` FOREIGN KEY (`id_profile`) REFERENCES `profile` (`id_profile`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -300,7 +300,7 @@ CREATE TABLE `person` (
 
 LOCK TABLES `person` WRITE;
 /*!40000 ALTER TABLE `person` DISABLE KEYS */;
-INSERT INTO `person` VALUES (1,'timothee.thienpont@viacesi.fr','alice123',1),(2,'bob.martin@example.com','bob123',2),(3,'camille.lefebvre@example.com','camille123',3),(4,'david.garcia@example.com','david123',4),(5,'david.garcia@example.com','david123',5),(6,'david.garcia@example.com','david123',6),(7,'david.garcia@example.com','david123',7),(8,'david.garcia@example.com','david123',8),(9,'david.garcia@example.com','david123',9),(10,'david.garcia@example.com','david123',10),(11,'david.garcia@example.com','david123',11),(12,'david.garcia@example.com','david123',12),(13,'emilie.dujardin@example.com','emilie123',13),(14,'Array','781ccdd2e1bc72b646046df9105c23ce7f72cb07',14),(15,'test@test','a94a8fe5ccb19ba61c4c0873d391e987982fbbd3',15),(16,'test@test','a94a8fe5ccb19ba61c4c0873d391e987982fbbd3',16),(17,'test@test','a94a8fe5ccb19ba61c4c0873d391e987982fbbd3',17);
+INSERT INTO `person` VALUES (1,'timothee.thienpont@viacesi.fr','alice123',1),(2,'bob.martin@example.com','bob123',2),(3,'camille.lefebvre@example.com','camille123',3),(4,'david.garcia@example.com','david123',4),(5,'david.garcia@example.com','david123',5),(6,'david.garcia@example.com','david123',6),(7,'david.garcia@example.com','david123',7),(8,'david.garcia@example.com','david123',8),(9,'david.garcia@example.com','david123',9),(10,'david.garcia@example.com','david123',10),(11,'david.garcia@example.com','david123',11),(12,'david.garcia@example.com','david123',12),(13,'emilie.dujardin@example.com','emilie123',13);
 /*!40000 ALTER TABLE `person` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -345,7 +345,7 @@ CREATE TABLE `profile` (
   PRIMARY KEY (`id_profile`),
   KEY `id_roles` (`id_roles`),
   CONSTRAINT `profile_ibfk_1` FOREIGN KEY (`id_roles`) REFERENCES `roles` (`id_roles`) ON DELETE SET NULL
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -354,7 +354,7 @@ CREATE TABLE `profile` (
 
 LOCK TABLES `profile` WRITE;
 /*!40000 ALTER TABLE `profile` DISABLE KEYS */;
-INSERT INTO `profile` VALUES (1,'Timothée','THIENPONT',1,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416535422439476/image.png'),(2,'Damian','LAROCHE-RIBERT',1,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416604963995688/image.png'),(3,'Baptiste','DELAVENNE',1,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416755052978186/image.png'),(4,'Léandro','DE BARROS BARBOSA',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416880332636160/image.png'),(5,'Aniss','SEJEAN',2,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),(6,'Clyde','BARULL',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),(7,'Quentin','CAMBUZAT',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),(8,'Florian','MAILLARD',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),(9,'Clément','REYDEL',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),(10,'Paul','BREON',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),(11,'Luc','MARTEN',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),(12,'Lilia','ABBA',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),(13,'Pierre','LEJEUNE',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),(14,'Dupond','Antoine',2,NULL),(15,'Dupond','Antoine',3,NULL),(16,'Dupond','Antoine',3,NULL),(17,'Dupond','Antoine',3,NULL);
+INSERT INTO `profile` VALUES (1,'Timothée','THIENPONT',1,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416535422439476/image.png'),(2,'Damian','LAROCHE-RIBERT',1,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416604963995688/image.png'),(3,'Baptiste','DELAVENNE',1,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416755052978186/image.png'),(4,'Léandro','DE BARROS BARBOSA',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416880332636160/image.png'),(5,'Aniss','SEJEAN',2,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),(6,'Clyde','BARULL',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),(7,'Quentin','CAMBUZAT',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),(8,'Florian','MAILLARD',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),(9,'Clément','REYDEL',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),(10,'Paul','BREON',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),(11,'Luc','MARTEN',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),(12,'Lilia','ABBA',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png'),(13,'Pierre','LEJEUNE',3,'https://cdn.discordapp.com/attachments/1088413788342071388/1088416946426499102/image.png');
 /*!40000 ALTER TABLE `profile` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -424,7 +424,7 @@ DROP TABLE IF EXISTS `requires`;
 CREATE TABLE `requires` (
   `id_offer` int NOT NULL,
   `id_skill` int NOT NULL,
-  `level` int NOT NULL,
+  `level` int DEFAULT NULL,
   PRIMARY KEY (`id_offer`,`id_skill`),
   KEY `id_skill` (`id_skill`),
   CONSTRAINT `requires_ibfk_1` FOREIGN KEY (`id_offer`) REFERENCES `offer` (`id_offer`) ON DELETE CASCADE,
@@ -438,7 +438,7 @@ CREATE TABLE `requires` (
 
 LOCK TABLES `requires` WRITE;
 /*!40000 ALTER TABLE `requires` DISABLE KEYS */;
-INSERT INTO `requires` VALUES (1,1,3),(1,3,2),(2,2,1),(2,3,3),(3,1,2),(3,2,1),(4,2,2),(4,4,3),(5,1,1),(6,5,2),(7,1,1),(8,1,1),(9,1,1),(10,1,1),(11,1,1),(12,1,1);
+INSERT INTO `requires` VALUES (1,1,3),(1,2,NULL),(1,3,NULL),(2,2,1),(2,3,3),(3,1,2),(3,2,1),(4,1,NULL),(4,2,2),(4,4,3),(5,1,1),(6,5,2),(7,1,1),(8,1,1),(9,1,1),(10,1,1),(11,1,1),(12,1,1);
 /*!40000 ALTER TABLE `requires` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -737,13 +737,14 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `CREATION_OFFER`(`p_name` VARCHAR(50), `p_active` BOOL, `p_period` VARCHAR(50), `p_amount` VARCHAR(50), `p_wage` VARCHAR(50), `p_comment` VARCHAR(500), `p_contact_mail` VARCHAR(100), `p_telephone` VARCHAR(15), `id_localities` INT, `id_activity` INT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CREATION_OFFER`(`p_name` VARCHAR(50), `p_active` BOOL, `p_startdate` DATE, `p_period` VARCHAR(50), `p_amount` VARCHAR(50), `p_wage` VARCHAR(50), `p_comment` VARCHAR(500), `p_contact_mail` VARCHAR(100), `p_telephone` VARCHAR(15), `id_localities` INT, `id_activity` INT)
 BEGIN
-        INSERT INTO offer (name,active,startdate,period,amount,wage,comment,contact_mail,telephone,id_localities,id_activity) VALUES (p_name,p_active,p_period,p_amount,p_wage,p_comment,p_contact_mail,p_telephone,id_localities,id_activity);
+	INSERT INTO offer (name,active,startdate,period,amount,wage,comment,contact_mail,telephone,id_localities,id_activity) VALUES (p_name,p_active,p_startdate,p_period,p_amount,p_wage,p_comment,p_contact_mail,p_telephone,id_localities,id_activity);
+    SELECT last_insert_id() as id_offer;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -756,17 +757,16 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `CREATION_PROFILE`(`p_fname` VARCHAR(50), `p_lname` VARCHAR(50), `p_id_roles` INT, `p_email` VARCHAR(255), `p_password` VARCHAR(255), `p_name` VARCHAR(50))
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CREATION_PROFILE`(`p_fname` VARCHAR(50), `p_lname` VARCHAR(50), `p_id_roles` INT, `p_email` VARCHAR(255), `p_password` VARCHAR(255), `p_id_prom` INT)
 BEGIN
 	INSERT INTO profile (fname,lname,id_roles) VALUES (p_fname,p_lname,p_id_roles);
 	SET @temp=last_insert_id();
 	INSERT INTO person (email,password,id_profile) VALUES (p_email,p_password,@temp);
-	SET @temp2 = (select id_prom from prom where name = p_name);
-INSERT INTO affiliated (id_profile,id_prom) VALUES (@temp,@temp2);
+INSERT INTO affiliated (id_profile,id_prom) VALUES (@temp, p_id_prom);
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -817,13 +817,14 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `CREATION_REQUIRES`(`p_id_offer` INT, `p_id_skill` INT, `p_level` INT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CREATION_REQUIRES`(`p_id_offer` INT, `p_id_skill` INT)
 BEGIN
-insert into requires (id_offer,id_skill,level) values (p_id_offer,p_id_skill,p_level);
+	insert into requires (id_offer,id_skill) values (p_id_offer,p_id_skill);
+    select last_insert_id() as id_offer;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1087,6 +1088,25 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 DROP PROCEDURE IF EXISTS `DELETE_REQUIRES` */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+CREATE DEFINER=`root`@`localhost` PROCEDURE `DELETE_REQUIRES`(p_id_skill INT, p_id_offer INT)
+BEGIN
+	DELETE FROM requires WHERE id_skill = p_id_skill AND id_offer = p_id_offer;
+END ;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 /*!50003 DROP PROCEDURE IF EXISTS `DELETE_ROLES` */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
@@ -1182,13 +1202,13 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `DETAILS_OFFER`(`p_id_offer` INT)
 BEGIN
-    select offer.name, offer.telephone, offer.contact_mail, offer.comment, offer.amount, company.name as company, company.link, city.name as city, city.zipcode, address.name as address, address.number, address.comment, activity.name as activity
+    select offer.id_offer, offer.active as visibility, offer.name, offer.period, offer.startdate, offer.telephone, offer.contact_mail, offer.comment as descr, offer.amount, offer.wage, company.name as company, company.link, localities.id_localities, city.name as city, city.zipcode, address.name as address, address.number, address.comment, activity.id_activity, activity.name as activity
     from offer
     inner join localities on offer.id_localities = localities.id_localities
     inner join company on localities.id_company = company.id_company
@@ -1256,7 +1276,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -1277,13 +1297,13 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `FIND_ACTIVITY`(p_id_company INT)
 BEGIN
-	select activity.name
+	select activity.id_activity, activity.name
 	from activity
 		inner join sector on activity.id_activity = sector.id_activity
 		inner join company on sector.id_company = company.id_company
@@ -1321,13 +1341,13 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `FIND_LOCALITIES`(`p_id_company` INT)
 BEGIN
-	select city.name as city, city.zipcode, address.name as street, address.number, address.comment
+	select id_localities, city.id_city, city.name as city, city.zipcode, address.id_address, address.name as street, address.number, address.comment
 	from city
 	inner join address on city.id_city = address.id_city
 	inner join localities on address.id_address = localities.id_address
@@ -2119,7 +2139,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -2140,7 +2160,7 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
 /*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
@@ -2231,7 +2251,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8_general_ci */;
+/*!50001 SET collation_connection      = utf8mb3_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `view_student` AS select `profile`.`id_profile` AS `id_profile`,`profile`.`fname` AS `fname`,`profile`.`lname` AS `lname`,`profile`.`photo` AS `photo`,`person`.`id_person` AS `id_person`,`prom`.`name` AS `prom`,`prom`.`id_prom` AS `id_prom`,`person`.`email` AS `email`,if((`accepted`.`cnt` is null),'n','y') AS `accepted`,`profile`.`id_roles` AS `id_roles`,`step`.`id_offer` AS `id_offer`,`step`.`offer` AS `offer`,`step`.`id_progress_state` AS `id_progress_state`,`step`.`state` AS `state`,`step`.`startdate` AS `startdate`,`step`.`company` AS `company` from (((((`profile` left join `affiliated` on((`profile`.`id_profile` = `affiliated`.`id_profile`))) left join `prom` on((`affiliated`.`id_prom` = `prom`.`id_prom`))) left join `person` on((`profile`.`id_profile` = `person`.`id_profile`))) left join (select `profile`.`id_profile` AS `id_profile`,`candidature`.`id_offer` AS `id_offer`,`offer`.`name` AS `offer`,`offer`.`startdate` AS `startdate`,`company`.`name` AS `company`,`candidature`.`id_progress_state` AS `id_progress_state`,`postulate_progress_steps`.`name` AS `state` from (((((`profile` join `candidature` on((`candidature`.`id_profile` = `profile`.`id_profile`))) join `offer` on((`candidature`.`id_offer` = `offer`.`id_offer`))) join `localities` on((`offer`.`id_localities` = `localities`.`id_localities`))) join `company` on((`localities`.`id_company` = `company`.`id_company`))) join `postulate_progress_steps` on((`candidature`.`id_progress_state` = `postulate_progress_steps`.`id_progress_state`))) order by `profile`.`id_profile`) `step` on((`step`.`id_profile` = `profile`.`id_profile`))) left join (select `profile`.`id_profile` AS `id_profile`,count(`candidature`.`id_progress_state`) AS `cnt` from (`profile` join `candidature` on((`candidature`.`id_profile` = `profile`.`id_profile`))) where (`candidature`.`id_progress_state` = 6) group by `profile`.`id_profile`) `accepted` on((`accepted`.`id_profile` = `profile`.`id_profile`))) where (`profile`.`id_roles` = 3) */;
@@ -2248,4 +2268,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-27  8:58:40
+-- Dump completed on 2023-03-27 22:23:22

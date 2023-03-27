@@ -138,8 +138,9 @@ class Table {
 	 * @return array
 	 */
 	public function delete($id) {
+		$query = strtoupper($this->table);
 		return $this->query(
-			"DELETE_{$this->table}(?)",
+			"call DELETE_{$query}(?)",
 			[$id],
 			true
 		);
