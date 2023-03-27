@@ -73,8 +73,8 @@ class OfferController extends AppController {
 						continue;
 					}
 					$this->Require->create([
-						$id_skill,
-						$result[0]->id_offer
+						$result[0]->id_offer,
+						$id_skill
 					]);
 				}
 			}
@@ -153,14 +153,14 @@ class OfferController extends AppController {
 			return $this->notFound();
 		}
 		$offer = $offer[0];
-		$offer->skills = $this->Skills->find($_GET['id']);
+		$offer->skills = $this->Skills->find($offer->id_company);
 		for ($i = 0; $i < count($offer->skills); $i++) {
 			$offer->skills[$i] = $offer->skills[$i]->id_skill;
 		}
 
-		$company = $this->Company->details($_GET['id'])[0];
-		$localities = $this->Localities->find($_GET['id']); // TODO: find all localities or reorganise offer creation
-		$activities = $this->Activity->find($_GET['id']);
+		$company = $this->Company->details($offer->id_company)[0];
+		$localities = $this->Localities->find($offer->id_company); // TODO: find all localities or reorganise offer creation
+		$activities = $this->Activity->find($offer->id_company);
 		$skills = $this->Skills->all();
 
 		$this->render('offer.edit', compact('localities', 'activities', 'skills', 'company', 'offer', 'errors'));
