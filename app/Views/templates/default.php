@@ -63,7 +63,7 @@
               User
             </button>
             <ul class="dropdown-menu dropdown-menu-end rounded-top-0 border-start-0 border-end-0 border-top-0 mt- bg-clair sombre" >
-              <li><a class="dropdown-item" href="">Settings</a></li>
+              <li><a class="dropdown-item" href="../public/index.php?p=users.settings">Settings</a></li>
               <li><a class="dropdown-item" href="../public/index.php?p=users.logout">Sign out</a></li>
               <li><a class="dropdown-item" href="#">Help</a></li>
             </ul>
