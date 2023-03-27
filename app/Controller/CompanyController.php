@@ -17,7 +17,7 @@ class CompanyController extends AppController {
 	public RateTable $Rate;
 	public LocalitiesTable $Localities;
 	public SectorTable $Sector;
-	
+
 
 	/** Contructpr
 	 * @return void
@@ -71,16 +71,49 @@ class CompanyController extends AppController {
 	}
 
 	public function edit() {
-		$annonces = $this->Activity->all();
 		$errors = false;
-		if (!empty($_POST)) {
-			if ((!empty($_POST['name'])) && (!empty($_POST['link'])) && (!empty($_POST['city'])) && (!empty($_POST['zipcode'])) && (!empty($_POST['address'])) && (!empty($_POST['number']))){
-				if (isset($_POST['name'],$_POST['link'],$_POST['city'],$_POST['zipcode'],$_POST['address'],$_POST['number'],$_POST['comment'])) {
-					//$first =
+		if ((!empty($_POST['name'])) && (!empty($_POST['link'])) && (!empty($_POST['city'])) && (!empty($_POST['zipcode'])) && (!empty($_POST['address'])) && (!empty($_POST['number']))){
+			if (isset($_POST['name'],$_POST['link'],$_POST['city'],$_POST['zipcode'],$_POST['address'],$_POST['number'],$_POST['comment'])) {
+				$first = $this->Company->search($_GET['id']);
+				$result = $this->Company->edit([
+					$_GET['id'],
+					$_POST['name'],
+					true,
+					$_POST['link']					
+				]);
+				$results = $this->Company->add([
+					$_POST['address'],
+					$_POST['number'],
+					$_POST['comment'],
+					$result[0]->id_city,
+					$_GET['id'],
+					$_POST['city'],
+					$_POST['zipcode']
+				]);
+				if ($result) {
+					return $this->index();
 				}
-			} else {
-				$errors = true;
 			}
-		}	
+		} else {
+			$errors = true;
+		}
+		if (isset($_GET['id'])) {
+			$company = $this->Company->details($_GET['id']);
+			// echo '<pre>', var_dump($company), '</pre>';
+			if (empty($company)){
+				return $this->notFound();
+			}
+			$company = $company[0];
+			$company->activities = $this->Activity->find($_GET['id']);
+			for ($i=0;$i<count($company->activities);$i++){
+				$company->activities[$i]=$company->activities[$i]->id_activity;
+			}
+			$company->localities = $this->Localities->find($_GET['id']);
+			//echo '<pre>', var_dump($company->localities), '</pre>';
+		} else {
+			return $this->index();
+		}
+		$activity = $this->Activity->all();
+		$this->render('company.edit', compact('company','activity', 'errors'));
 	}
 }
