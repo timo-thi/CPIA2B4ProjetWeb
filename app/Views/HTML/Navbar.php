@@ -46,11 +46,11 @@ $page = 'NavBar';
                     <li class="nav-item dropdown clair rounded-2 bg-sombre" style="width:fit-content">
                         <button class="btn active dropdown-toggle  border-0" type="button" data-bs-toggle="dropdown"
                             aria-pressed="true" style="width:fit-content">
-                            User
+                            <?= $_SESSION['username'] ?>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end rounded-top-0 border-start-0 border-end-0 border-top-0 mt- bg-clair sombre" >
                             <li><a class="dropdown-item" href="#">Settings</a></li>
-                            <li><a class="dropdown-item" href="#">Sign out</a></li>
+                            <li><a class="dropdown-item" href="#">Se déconnecter</a></li>
                             <li><a class="dropdown-item" href="#">Help</a></li>
                         </ul>
                     </li>

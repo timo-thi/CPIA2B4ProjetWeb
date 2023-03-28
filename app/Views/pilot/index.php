@@ -32,7 +32,7 @@
 							 	<p class="card-text"><?=$profile->email?></p>
 							</div>
 							<div class="col text-end list-item" id="<?= $profile->id_profile ?>">
-								<button class="rounded-4 but clair px-2 py-2" type="button" data-bs-toggle="collapse" data-bs-target="#pil<?= $profile->id_profile ?>" aria-expanded="false" aria-controls="pil<?= $profile->id_profile ?>" style="width:max-content;">
+								<button class="rounded-4 dropdown-toggle but clair px-2 py-2" type="button" data-bs-toggle="collapse" data-bs-target="#pil<?= $profile->id_profile ?>" aria-expanded="false" aria-controls="pil<?= $profile->id_profile ?>" style="width:max-content;">
 									Voir les promos
 								</button>
 							</div>

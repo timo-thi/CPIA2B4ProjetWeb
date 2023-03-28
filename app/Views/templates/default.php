@@ -64,11 +64,11 @@
           <li class="nav-item dropdown clair rounded-2 bg-sombre" style="width:fit-content">
             <button class="btn active dropdown-toggle  border-0" type="button" data-bs-toggle="dropdown"
               aria-pressed="true" style="width:fit-content">
-              User
+              <i class="fas fa-user-circle"></i> Utilisateur
             </button>
             <ul class="dropdown-menu dropdown-menu-end rounded-top-0 border-start-0 border-end-0 border-top-0 mt- bg-clair sombre" >
               <li><a class="dropdown-item" href="../public/index.php?p=users.settings">Settings</a></li>
-              <li><a class="dropdown-item" href="../public/index.php?p=users.logout">Sign out</a></li>
+              <li><a class="dropdown-item" href="../public/index.php?p=users.logout">Se déconnecter</a></li>
               <li><a class="dropdown-item" href="#">Help</a></li>
             </ul>
           </li>

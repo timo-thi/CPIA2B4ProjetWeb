@@ -13,7 +13,7 @@
 
   require '../app/Views/templates/Filter.php';
   ?>
-    <div class="row mt-3 position-relative">
+    <div class="row mt-3 position-relative dropend">
         <div class="col-6  ">
             <div class="partieScrollable">
                 <?php foreach ($annonces as $el):?>
@@ -30,6 +30,7 @@
                                     </div>
                                 </div>
                             </div>
+					    <button class="dropdown-toggle"></button>
                         </div>
                     </div>
                 <?php endforeach; ?>

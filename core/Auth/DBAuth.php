@@ -40,6 +40,7 @@ class DBAuth {
 				$role = $profile->details($user->id_profile)[0];
 				//var_dump($role);
 				$_SESSION['auth'] = $user->id_profile;
+				$_SESSION['user'] = $username;
 				$_SESSION['role'] = $role->id_roles;
 				return true;
 			}
