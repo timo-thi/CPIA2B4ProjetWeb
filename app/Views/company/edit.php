@@ -41,6 +41,7 @@
 
             <button type="button" onclick="addAddress()" class="bg-sombre clair border-0 rounded px-2 mb-2 mt-3 ms-2 me-3">+</button>
             </div>
+            <?php $num_addresse=0;?>
             <?php foreach ($company->localities as $locality):?>
                  <?php $num_addresse++;?>
                  <div class="container">
@@ -148,11 +149,11 @@ function addAddress() {
                 </label>
                     <div class="col">
                         <input type="radio" id="public" class="btn-check" autocomplete="off" checked name="visibility" value="public" checked>
-                        <label for="public" class="btn bg-sombre">Public</label>
+                        <label for="public" class="btn">Public</label>
                     </div>
                     <div class="col">
                         <input type="radio" id="private" class="btn-check" autocomplete="off" name="visibility" value="private">
-                        <label for="private" class="btn bg-sombre">Privé</label>
+                        <label for="private" class="btn">Privé</label>
                     </div>
             </div>
         </div>

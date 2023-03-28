@@ -15,7 +15,7 @@
                                 <button class="active border-0 bg-sombre clair rounded " style="width: max-content;"> Like</button>
                                 <a id="postulate-link" href="../public/index.php?p=offer.postulate&id=<?= $first->id_offer?>"><button class="active border-0 bg-sombre clair rounded ms-2 me-3" style="width: max-content;"> Postuler</button></a>*
                             <?php else :?>
-                                <a id="postulate-link" href="../public/index.php?p=offer.edit&id=<?= $first->id_offer?>"><button class="active border-0 bg-sombre clair rounded ms-2 me-3" style="width: max-content;">Modifier</button></a>
+                                <a href="../public/index.php?p=offer.edit&id=<?= $first->id_offer?>"><button class="active border-0 bg-sombre clair rounded ms-2 me-3" style="width: max-content;">Modifier</button></a>
                             <?php endif?>
                         </div>
                     </div>

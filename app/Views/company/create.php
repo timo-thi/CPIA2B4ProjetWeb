@@ -61,11 +61,11 @@
         </label>
             <div class="col">
                 <input type="radio" id="public" class="btn-check" autocomplete="off" checked name="visibility" value="1" checked>
-                <label for="public" class="btn bg-sombre">Public</label>
+                <label for="public" class="btn">Public</label>
             </div>
             <div class="col">
                 <input type="radio" id="private" class="btn-check" autocomplete="off" name="visibility" value="0">
-                <label for="private" class="btn bg-sombre">Privé</label>
+                <label for="private" class="btn">Privé</label>
             </div>
         </div>
         <div class="row mt-4">
