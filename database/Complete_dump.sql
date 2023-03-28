@@ -907,13 +907,18 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `CREATION_WISH`(`p_id_profile` INT, `p_id_offer` INT)
 BEGIN
-insert into wish (id_profile,id_offer) values (p_id_profile,p_id_offer);
+	if exists(select id_profile, id_offer FROM wish WHERE id_profile = p_id_profile AND id_offer = p_id_offer )
+    then
+		select true; delete from wish where id_profile = p_id_profile AND id_offer = p_id_offer;
+	else
+		select false; insert into wish (id_profile,id_offer) values (p_id_profile,p_id_offer);
+	end if;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -2306,4 +2311,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-28 14:29:48
+-- Dump completed on 2023-03-28 21:30:56

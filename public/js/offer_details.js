@@ -15,7 +15,6 @@ $(document).ready(function(){
             $('#of-city_zipcode').html(jdata.city + ' (' + jdata.zipcode + ')');
             $('#of-link').attr('href', jdata.link);
             $('#postulate-link').attr('href', '../public/index.php?p=offer.postulate&id='+jdata.id_offer);
-            console.log(jdata.id_offer);
             $('#of-email').html(jdata.contact_email);
             $('#of-telephone').html(jdata.telephone);
             $('#of-wage').html('Gratification : ' + jdata.wage);
@@ -32,6 +31,13 @@ $(document).ready(function(){
                 jdata.skills.forEach(element => {
                     $('#of-skills').append('<li><p class="sombre">' + element.name + '</p></li>');
                 });
+            }
+            if (jdata.wished) {
+                $('#wished').removeClass('fa-sharp fa-regular fa-heart');
+                $('#wished').addClass('fa-solid fa-heart');
+            } else {
+                $('#wished').removeClass('fa-solid fa-heart');
+                $('#wished').addClass('fa-sharp fa-regular fa-heart');
             }
         });
     });

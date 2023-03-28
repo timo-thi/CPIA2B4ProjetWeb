@@ -8,4 +8,5 @@ class OfferEntity extends Entity {
 	
 	
 	public $skills = [];
+	public $wished = false;
 }

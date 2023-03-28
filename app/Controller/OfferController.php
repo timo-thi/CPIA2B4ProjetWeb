@@ -77,6 +77,7 @@ class OfferController extends AppController {
 		$first = $this->Offer->details($annonces[0]->id_offer)[0];
 		//echo "<pre>",var_dump($first),"</pre>";
 		$first->skills = $this->Skills->find($annonces[0]->id_offer);
+		$first->wished = empty($this->Wish->wished($annonces[0]->id_offer)) ? false : true;
 		$this->render('offer.index', compact('annonces', 'first', 'total_pages', 'current_page'));
 	}
 
