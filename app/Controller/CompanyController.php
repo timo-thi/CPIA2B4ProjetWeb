@@ -36,7 +36,29 @@ class CompanyController extends AppController {
 	 * @return void
 	 */
 	public function index() {
-		$annonces = $this->Company->search();
+		// Configuration
+		$items_per_page = 6; // Nombre de pilotes par page
+
+		// Récupération du nombre total d'offres
+		$total_items = $this->Company->getActiveCompanyCount()->count;
+
+		// Calcul du nombre de pages
+		$total_pages = ceil($total_items / $items_per_page);
+
+		// Récupération du numéro de la page courante
+		$current_page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+
+		// Vérification de la validité du numéro de page
+		if ($current_page < 1 || $current_page > $total_pages) {
+			$current_page = 1;
+		}
+
+		// Calcul des bornes LIMIT pour la requête SQL
+		
+		$annonces = $this->Company->search([
+			($current_page - 1) * $items_per_page,
+			$items_per_page
+		]);
 		if (empty($annonces)){
 			$this->notFound();
 		}
@@ -45,7 +67,7 @@ class CompanyController extends AppController {
 		$first->localities = $this->Localities->get($annonces[0]->id_company);
 		$first->rates = $this->Rate->get($annonces[0]->id_company);
 		// echo '<pre class="clair">', var_dump($first), '</pre>';
-		$this->render('company.index', compact('annonces', 'first'));
+		$this->render('company.index', compact('annonces', 'first', 'total_pages', 'current_page'));
 	}
 
 	public function create() {

@@ -53,4 +53,16 @@ class CompanyTable extends Table {
 			true
 		);
 	}
+
+
+	public function search($attributes) {
+		$proc_name = "call SEARCH_" . strtoupper($this->table) . "(?, ?)"; // SEARCH one record in table
+		return $this->query($proc_name, $attributes);
+	}
+
+
+	public function getActiveCompanyCount() {
+		$proc_name = "SELECT COUNT(*) AS count FROM company WHERE active = '1'"; // GET_ACTIVE_COMPANY_COUNT
+		return $this->query($proc_name, null, true);
+	}
 }

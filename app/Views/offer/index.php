@@ -16,37 +16,46 @@
   <div class="row mt-3 position-relative">
 
     <div class=" col-6 ">
-      <div class="partieScrollable">
-	  <?php foreach ($annonces as $el):?>
-
-			<div class="row ms-5">
-				<div class="card bg-clair mb-3 list-item" style="max-width: 100%;" id="<?= $el->id_offer?>">
-					<div class="row g-0">
-						<div class="col-md-4 my-auto" >
-							<img src="<?= $el->link?>" class="img-fluid rounded-start" alt="..." >
-						</div>
-						<div class="col-md-7">
-							<div class="card-body sombre di" >
-							<h5 class="card-title"> <?= $el->name ?> </h5>
-							<p class="card-text"><?php echo "{$el->company} - {$el->city} ({$el->zipcode})"; ?> </p>
+      	<div class="partieScrollable">
+	 		 <?php foreach ($annonces as $el):?>
+				<div class="row ms-5">
+					<div class="car bg-clair mb-3 list-item" style="max-width: 100%;" id="<?= $el->id_offer?>">
+						<div class="row g-0">
+							<div class="col-md-4 my-auto">
+								<img src="<?= $el->link?>" class="img-fluid rounded-start" alt="...">
+							</div>
+							<div class="col-md-7">
+								<div class="card-body sombre di">
+									<h5 class="card-title"><?= $el->name?></h5>
+									<p class="card-text"><?php echo "{$el->company} - {$el->city} ({$el->zipcode})"; ?></p>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-
-		<?php endforeach?>
-            <!--Pagination-->
+			<?php endforeach; ?>
+		<?php
+		// Affichage de la pagination
+		if ($total_pages > 1) {
+			echo '<div class=" row justify-content-center ms-5">';
+			$precedent= "?p=offer.index&page=" . ($current_page - 1);
+			echo "<div class='col-md-auto bg-clair ms-2 rounded-2'> <a class='nav-link' href=\"{$precedent}\"><</a></div>";
+			for ($i = 1; $i <= $total_pages; $i++) {
+				$class = ($i == $current_page) ? "active" : "";
+				$url = "?p=offer.index&page=" . $i;
+				echo "<div class='col-md-auto bg-clair ms-2 rounded-2'> <a class='nav-link' href=\"{$url}\">{$i}</a></div>";
+			}
+			$suivant= "?p=offer.index&page=" . ($current_page + 1);
+			echo "<div class='col-md-auto bg-clair ms-2 rounded-2'> <a class='nav-link' href=\"{$suivant}\">></a></div>";
+			echo '</div>';
+		}
+		?>
       </div>
     </div>
-<!--Detail offre-->
-  
     <div class="col-6 position-absolute end-0">
       <div class="position-absolute ms-2 end-0">
       <?php require '../app/Views/templates/DetailOffre.php';?>
       </div>
     </div>
-  
-
   </div>
 </div>
