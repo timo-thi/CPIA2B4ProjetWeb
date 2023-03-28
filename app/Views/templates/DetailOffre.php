@@ -12,8 +12,8 @@
                     
                         <div class="btn-group position-absolute end-0 mt-2" role="group" >
                             <?php if ($_SESSION['role'] == 3) :?>
-                                <button class="active border-0 bg-sombre clair rounded " style="width: max-content;"> Like</button>
-                                <a id="postulate-link" href="../public/index.php?p=offer.postulate&id=<?= $first->id_offer?>"><button class="active border-0 bg-sombre clair rounded ms-2 me-3" style="width: max-content;"> Postuler</button></a>*
+                                <button class="active border-0 bg-sombre clair rounded " id="wish" style="width: max-content;"><i id="wished" class="<?= $first->wished ? 'fa-solid fa-heart' : 'fa-sharp fa-regular fa-heart'?>"></i></button>
+                                <a id="postulate-link" href="../public/index.php?p=offer.postulate&id=<?= $first->id_offer?>"><button class="active border-0 bg-sombre clair rounded ms-2 me-3" style="width: max-content;"> Postuler</button></a>
                             <?php else :?>
                                 <a href="../public/index.php?p=offer.edit&id=<?= $first->id_offer?>"><button class="active border-0 bg-sombre clair rounded ms-2 me-3" style="width: max-content;">Modifier</button></a>
                             <?php endif?>
@@ -86,3 +86,5 @@
         </div>
     </div>
 </div>
+<!-- Wish json api entry -->
+<script src="../public/js/like.js"></script>

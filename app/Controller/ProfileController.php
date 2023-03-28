@@ -40,6 +40,7 @@ class ProfileController extends AppController {
 		//echo '<pre>', var_dump($annonces), '</pre>';
 		$first = $this->Offer->details($annonces[0]->id_offer)[0];
 		$first->skills = $this->Skills->find($annonces[0]->id_offer);
+		$first->wished = empty($this->Wish->wished($annonces[0]->id_offer)) ? false : true;
         //echo '<pre>', var_dump($first), '</pre>';
 		$this->render('profile.candidature', compact('annonces', 'first'));
 	}
@@ -52,6 +53,7 @@ class ProfileController extends AppController {
 		//echo '<pre>', var_dump($annonces), '</pre>';
 		$first = $this->Offer->details($annonces[0]->id_offer)[0];
 		$first->skills = $this->Skills->find($annonces[0]->id_offer);
+		$first->wished = empty($this->Wish->wished($annonces[0]->id_offer)) ? false : true;
         //echo '<pre>', var_dump($first), '</pre>';
 		$this->render('profile.wish', compact('annonces', 'first'));
 	}

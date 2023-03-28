@@ -23,6 +23,8 @@ try {
 			$id = $args[1];
 			return $apicontroller->$action($id);
 		}
+	} elseif (isset($_POST['wish_id'])) {
+		$apicontroller->wish($_POST['wish_id']);
 	}
 } catch (\Throwable $th) {
 	return $apicontroller->BadRequest();

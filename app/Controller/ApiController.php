@@ -22,6 +22,8 @@ use App\Table\PromTable;
 
 use App\Table\CandidatureTable;
 
+use App\Table\WishTable;
+
 
 class ApiController extends AppController {
 
@@ -40,7 +42,9 @@ class ApiController extends AppController {
 			return $this->NotFound();
 		}
 		$SkillsApi = new SkillsTable(\App::getInstance()->getDb());
+		$WishApi = new WishTable(\App::getInstance()->getDb());
 		$datas->skills = $SkillsApi->get($id);
+		$datas->wished = empty($WishApi->wished($id)) ? true : false;
 		$this->render('api.offer', $datas);
 	}
 
@@ -83,6 +87,12 @@ class ApiController extends AppController {
 		$promApi = new PromTable(\App::getInstance()->getDb());
 		$profile->promos = $promApi->get($id);
 		$this->render('api.pilot', $profile);
+	}
+
+
+	public function wish($id) {
+		$WishApi = new WishTable(\App::getInstance()->getDb());
+		$datas = $WishApi->post($_POST['wish_id']);
 	}
 
 
