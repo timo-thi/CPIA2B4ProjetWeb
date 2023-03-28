@@ -50,7 +50,13 @@ class UsersController extends AppController {
 		//$role = $this->User->details()[3];
 		//echo '<pre>', var_dump($role), '</pre>';
 		$form = new BootstrapForm($_POST);
-		$this->render('users.login', compact('form', 'errors'));
+		// Manuel render to bypass utilisation of default.php template
+		ob_start();
+		// extract();
+		//var_dump($offer);
+		require($this->viewPath . str_replace('.', '/', 'users.login') . '.php');
+		$content = ob_get_clean();
+		echo $content;
 	}
 
 	/** Logout

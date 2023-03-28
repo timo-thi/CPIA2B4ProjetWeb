@@ -40,23 +40,27 @@
         <li class="nav-item me-2">
           <a class="nav-link sombre" href="../public/index.php?p=company.index">Entreprise</a>
         </li>
+        <?php if ($_SESSION['role']!=3):?>
         <li class="nav-item me-2">
           <a class="nav-link sombre" href="../public/index.php?p=student.index">Etudiants</a>
         </li>
+        <?php endif ?>
+        <?php if ($_SESSION['role']==1):?>
         <li class="nav-item me-2">
           <a class="nav-link sombre" href="../public/index.php?p=pilot.index">Pilotes</a>
         </li>
+        <?php endif ?>
         </ul>
 
-
+        <?php if ($_SESSION['role']!=2):?>
         <ul class="navbar-nav mb-auto mb-lg-0">
-        <li class="nav-item me-2">
-          <a class="nav-link sombre" href="../public/index.php?p=profile.candidature">Candidatures</a>
-        </li>
+          <li class="nav-item me-2">
+            <a class="nav-link sombre" href="../public/index.php?p=profile.candidature">Candidatures</a>
+          </li>
         <li class="nav-item me-2">
           <a class="nav-link sombre" href="../public/index.php?p=profile.wish">WishList</a>
         </li>
-        
+        <?php endif?>
           <li class="nav-item dropdown clair rounded-2 bg-sombre" style="width:fit-content">
             <button class="btn active dropdown-toggle  border-0" type="button" data-bs-toggle="dropdown"
               aria-pressed="true" style="width:fit-content">
