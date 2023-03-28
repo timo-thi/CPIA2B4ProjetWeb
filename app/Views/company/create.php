@@ -1,3 +1,4 @@
+<script src="../public/js/company_create.js"></script>
 <div class="container mt-5 bg-clair rounded-3" style="width: 60vh; max-width:90%;height:max-content"><!--ou style="width: 40%; max-width=90vh;"-->
     <h1 class="sombre text-center">Ajouter une entreprise</h1>
     <?php if ($errors):?>
@@ -40,58 +41,35 @@
 
             tous les champs sont obligatoires sauf le commentaire
         -->
-        <div class="address_container">
-            <div class="future-colapse">
-                <div class="container mt-4 position-relative">
-                    <label class="col ">
-                        <strong style="font-size: 130%;">Ville</strong>
-                    </label>
-                    <input type="text" class="col rounded position-absolute end-0" style="width: 40%;" name="city[]" id="city">
-                </div>
-                <div class="container mt-4 position-relative">
-                    <label class="col ">
-                        <strong style="font-size: 130%;">Code Postal</strong>
-                    </label>
-                    <input type="text" class="col rounded position-absolute end-0" style="width: 40%;" name="zipcode[]" id="zipcode">
-                </div>
-                <div class="container mt-4 position-relative">
-                    <label class="col ">
-                        <strong style="font-size: 130%;">Adresse</strong>
-                    </label>
-                    <input type="text" class="col rounded position-absolute end-0" style="width: 40%;" name="address[]" id="address">
-                </div>
-                <div class="container mt-4 position-relative">
-                    <label class="col ">
-                        <strong style="font-size: 130%;">Numéro</strong>
-                    </label>
-                    <input type="text" class="col rounded position-absolute end-0" style="width: 40%;" name="number[]" id="number">
-                </div>
-                <div class="container mt-4 position-relative">
-                    <label class="col ">
-                        <strong style="font-size: 130%;">Comment</strong>
-                    </label>
-                    <input type="text" class="col rounded position-absolute end-0" style="width: 40%;" name="comment[]" id="comment">
-                </div>
-            </div>
-        </div>
+        
+<div class="container">
+<label for="addAddress" class="col "> <strong style="font-size: 130%;">Ajouter une adresse:</strong> </label>
+
+<button type="button" onclick="addAddress()" class="bg-sombre clair border-0 rounded px-2 mb-2 mt-3 ms-2 me-3">+</button>
+</div>
+<div id="addresses">
+</div>
+
+
         <!--pour la visibilité je pense mettre une radio mais je ne sais pas si c'est galère à recup pour le back
     je m'en remet donc entièrement à mon collèquqe et ami Tim parce qu'après tout c'est lui le plus beau-->
+        
+        <div class="container">
+        <div class="row mt-4">
         <label class="col ">
             <strong style="font-size: 130%;">Visibilité</strong>
         </label>
-        <div class="row">
             <div class="col">
-                <input type="radio" id="public" name="visibility" value="public" checked>
-                <label for="public" class="claire">Public</label>
+                <input type="radio" id="public" class="btn-check" autocomplete="off" checked name="visibility" value="public" checked>
+                <label for="public" class="btn bg-sombre">Public</label>
             </div>
             <div class="col">
-                <input type="radio" id="private" name="visibility" value="private">
-                <label for="private" class="claire">Privé</label>
+                <input type="radio" id="private" class="btn-check" autocomplete="off" name="visibility" value="private">
+                <label for="private" class="btn bg-sombre">Privé</label>
             </div>
         </div>
-        <div class="row mt-5">
+        <div class="row mt-4">
             <div class="col">
-            
             </div>
             <div class="col position-relative">
                 <div class="btn-group position-absolute end-0" role="group">
@@ -99,6 +77,7 @@
                     <button type="submit" class="bg-sombre clair border-0 rounded px-2 mb-2 mt-3 ms-2 me-3" style="width: fit-content;">Ajouter</button>
                 </div>
             </div>
+        </div>
         </div>
     </form>
 </div>
