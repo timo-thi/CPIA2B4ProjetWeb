@@ -8,9 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="EyeternShip is the best CESI stage looker and manager">
 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <link rel="stylesheet" href="<?= '../public/css/style.css'?>">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <link rel="stylesheet" href="<?= '../public/css/oeil.css'?>">
   
   <title>Recherche d'entreprise</title>
@@ -75,7 +75,116 @@
     <?php
     echo $content;
     ?>
-  <?php require ROOT . 'app/Views/HTML/Footer.php'?>
+    <!-- Footer -->
+  <div class="footer text-center text-lg-start bg-light text-muted mt-auto">
+    <!-- Section: Social media -->
+
+    <!-- Section: Social media -->
+
+    <!-- Section: Links  -->
+    <section class="bg-clair ">
+      <div class="container text-center bg-clair text-md-start ">
+        <!-- Grid row -->
+        <div class="row pt-4">
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4 ">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4 sombre">
+              A Propos
+            </h6>
+            <p>
+              <a href="#!" class="nav-link">Crédits</a>
+            </p>
+            <p>
+              <a href="#!" class="nav-link">Mentions légales</a>
+            </p>
+            <p>
+              <a href="#!" class="nav-link">Préférences cookies</a>
+            </p>
+            <p>
+              <a href="#!" class="nav-link">Données Personnelles</a>
+            </p>
+            <p>
+              <a href="#!" class="nav-link">Conditions Générales d'Utilisation</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+          <div class="col-xs border-top-0 border-bottom-0 border-end-0 border-sombre border-4 barre-footer barre mb-4" >
+
+          </div>
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4 sombre ">
+              Nous découvrir
+            </h6>
+            <p>
+              <a href="#!" class="nav-link">École</a>
+            </p>
+            <p>
+              <a href="#!" class="nav-link">Alumni</a>
+            </p>
+            <p>
+              <a href="#!" class="nav-link">Presse</a>
+            </p>
+            <p>
+              <a href="#!" class="nav-link">Actualité</a>
+            </p>
+            <p>
+              <a href="#!" class="nav-link">International</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+          <div class="col-xs border-top-0 border-bottom-0 border-end-0 border-sombre border-4 barre-footer barre mb-4" >
+            
+          </div>
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-4">
+
+            <h6 class="text-uppercase fw-bold mb-4 sombre">
+              L’actualité de CESI
+            </h6>
+            <ul class="list-group">
+              <li class="row mb-4 ms-1">
+                <a href="" class="me-3 nav-link col-1">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="" class="me-3 nav-link col-1">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="" class="me-3 nav-link col-1">
+                  <i class="fab fa-linkedin"></i>
+                </a>
+              </li>
+              <li class="row mb-4 ms-1">
+                <a href="" class="me-3 nav-link col-1">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="" class="me-3 nav-link col-1">
+                  <i class="fab fa-youtube"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+      <div class=" text-center p-4 clair bg-sombre">
+        © 2023 Copyright:
+        <a class=" text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+      </div>
+    </section>
+    <!-- Section: Links  -->
+
+    <!-- Copyright -->
+
+    <!-- Copyright -->
+  </div>
+  <!-- Footer -->
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
 </body>
 </html>
