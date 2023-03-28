@@ -10,4 +10,10 @@ class WishTable extends Table {
 
 	protected $table = 'wish';
 
+	public function create($attributes) {
+		return $this->query(
+			'call CREATION_WISH(?, ?)',
+			$attributes
+		);
+	}
 }
