@@ -51,9 +51,9 @@
         </li>
         <?php endif ?>
         </ul>
-
-        <?php if ($_SESSION['role']!=2):?>
         <ul class="navbar-nav mb-auto mb-lg-0">
+        <?php if ($_SESSION['role']!=2):?>
+        
           <li class="nav-item me-2">
             <a class="nav-link sombre" href="../public/index.php?p=profile.candidature">Candidatures</a>
           </li>
