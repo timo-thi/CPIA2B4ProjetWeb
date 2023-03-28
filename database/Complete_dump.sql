@@ -93,7 +93,7 @@ CREATE TABLE `affiliated` (
 
 LOCK TABLES `affiliated` WRITE;
 /*!40000 ALTER TABLE `affiliated` DISABLE KEYS */;
-INSERT INTO `affiliated` VALUES (1,1),(2,1),(3,1),(4,1),(4,2),(5,2),(6,2),(7,2),(8,2),(9,2),(10,2),(11,2),(12,2),(13,2);
+INSERT INTO `affiliated` VALUES (4,2),(5,2),(6,2),(7,2),(8,2),(9,2),(10,2),(11,2),(12,2),(13,2);
 /*!40000 ALTER TABLE `affiliated` ENABLE KEYS */;
 UNLOCK TABLES;
 
