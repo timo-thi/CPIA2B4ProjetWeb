@@ -1,6 +1,10 @@
-drop view if exists view_student;
+DROP VIEW IF EXISTS `view_student`;
 
-CREATE VIEW `view_student` AS
+CREATE 
+    ALGORITHM = UNDEFINED 
+    DEFINER = `root`@`localhost` 
+    SQL SECURITY DEFINER
+VIEW `view_student` AS
     SELECT 
         `profile`.`id_profile` AS `id_profile`,
         `profile`.`fname` AS `fname`,
@@ -49,4 +53,4 @@ CREATE VIEW `view_student` AS
             (`candidature`.`id_progress_state` = 6)
         GROUP BY `profile`.`id_profile`) `accepted` ON ((`accepted`.`id_profile` = `profile`.`id_profile`)))
     WHERE
-        (`profile`.`id_roles` = 3)
+        (`profile`.`id_roles` = 3);

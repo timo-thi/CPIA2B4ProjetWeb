@@ -27,14 +27,14 @@ class AcceuilController extends AppController {
 	 * @return void
 	 */
 	public function index() {
-		$offer = $this->Offer->search();
+		$offer = $this->Offer->search([0, 3]);
 		if (empty($offer)){
 			$this->notFound();
 		}
 		// echo '<pre>', var_dump($offer), '</pre>';
 		
 
-		$comp = $this->Company->search();
+		$comp = $this->Company->search([0, 3]);
 		if (empty($comp)){
 			$this->notFound();
 		}

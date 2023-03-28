@@ -9,8 +9,7 @@
 <div class="container">
 <div class="row g-4 justify-content-around">
     <div class="col-5 col-rows-1 col-rows-md-2 g-4">
-        <?php foreach ($offer as $count=>$el):?>
-            <?php if ( $count >2) break;?>
+        <?php foreach ($offer as $el):?>
             <div class="row ms-5">
 				<div class="card bg-clair mb-3 list-item " style="max-width: 100%;" id="<?= $el->id_offer?>">
 					<div class="row g-0">
@@ -31,8 +30,7 @@
     </div>
 
     <div class="col-5 col-rows-1 col-rows-md-2 g-4">
-        <?php foreach ($comp as $count=>$el) :?>
-            <?php if ($count >2) break;?>
+        <?php foreach ($comp as $el) :?>
             <div class="row ms-5">
                 <div class="card bg-clair mb-3 list-item" style="max-width: 100%;" id="<?= $el->id_company?>">
                   <div class="row g-0 dib">

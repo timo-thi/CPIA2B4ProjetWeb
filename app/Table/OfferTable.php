@@ -48,7 +48,7 @@ class OfferTable extends Table {
 
 
 	public function getActiveOfferCount() {
-		$proc_name = "SELECT COUNT(*) AS count FROM offer WHERE active = '1' GROUP BY id_offer"; // GET_ACTIVE_OFFER_COUNT
+		$proc_name = "SELECT COUNT(*) AS count FROM offer WHERE active = '1'"; // GET_ACTIVE_OFFER_COUNT
 		return $this->query($proc_name, null, true);
 	}
 }

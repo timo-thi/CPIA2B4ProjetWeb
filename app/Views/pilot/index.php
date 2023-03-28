@@ -51,7 +51,7 @@
 	<?php endforeach;?>
 	<?php
 	// Affichage de la pagination
-	if ($total_pages > 1) {
+	if ($total_pages >= 1) {
 		echo '<div class=" row justify-content-center ms-5">';
 		$precedent= "?p=pilote.index&page=" . ($current_page - 1);
 		echo "<div class='col-md-auto bg-clair ms-2 rounded-2'> <a class='nav-link' href=\"{$precedent}\"><</a></div>";

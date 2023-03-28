@@ -1,7 +1,7 @@
 DROP PROCEDURE IF EXISTS SEARCH_COMPANY;
 DELIMITER //
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SEARCH_COMPANY`()
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SEARCH_COMPANY`(p_offset INT, p_limit INT)
 BEGIN
 SELECT  company.id_company, company.name, company.link, IFNULL(cesi_accepted, 0) as cesi_accepted FROM company
     LEFT JOIN
@@ -11,7 +11,9 @@ SELECT  company.id_company, company.name, company.link, IFNULL(cesi_accepted, 0)
 	inner join localities on localities.id_localities = offer.id_localities
 	left join company on company.id_company = localities.id_company
 	WHERE postulate_progress_steps.name = "Acceptée"
-	GROUP BY localities.id_company) as CESICOUNT ON CESICOUNT.id_company = company.id_company;
-END//
+	GROUP BY localities.id_company) as CESICOUNT ON CESICOUNT.id_company = company.id_company
+    WHERE company.active = '1'
+    LIMIT p_offset, p_limit;
+END //
 
 DELIMITER;
