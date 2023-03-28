@@ -13,9 +13,9 @@
                         <div class="btn-group position-absolute end-0 mt-2" role="group" >
                             <?php if ($_SESSION['role'] == 3) :?>
                                 <button class="active border-0 bg-sombre clair rounded " id="wish" style="width: max-content;"><i id="wished" class="<?= $first->wished ? 'fa-solid fa-heart' : 'fa-sharp fa-regular fa-heart'?>"></i></button>
-                                <a id="of-postulate" href="../public/index.php?p=offer.postulate&id=<?= $first->id_offer?>"><button class="active border-0 bg-sombre clair rounded ms-2 me-3" style="width: max-content;"> Postuler</button></a>
+                                <button id="of-postulate" class="active border-0 bg-sombre clair rounded ms-2 me-3" style="width: max-content;" onclick="window.location.href='../public/index.php?p=offer.postulate&id=<?= $first->id_offer?>'"> Postuler</button>
                             <?php else :?>
-                                <a id="of-edit" href="../public/index.php?p=offer.edit&id=<?= $first->id_offer?>"><button class="active border-0 bg-sombre clair rounded ms-2 me-3" style="width: max-content;"><i class="fa-regular fa-pen-to-square"></i></button></a>
+                                <button id="of-edit" class="active border-0 bg-sombre clair rounded ms-2 me-3" style="width: max-content;" onclick="window.location.href='../public/index.php?p=offer.edit&id=<?= $first->id_offer?>'"><i class="fa-regular fa-pen-to-square"></i></button>
                             <?php endif?>
                         </div>
                     </div>

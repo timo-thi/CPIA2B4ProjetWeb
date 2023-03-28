@@ -41,7 +41,7 @@
 		if ($total_pages >= 1) {
 			echo '<div class=" row justify-content-center ms-5">';
 			$precedent= "?p=offer.index&page=" . ($current_page - 1);
-			echo "<div class='col-md-auto bg-clair ms-2 rounded-2'> <a class='nav-link' href=\"{$precedent}\"><</a></div>";
+			echo "<div class='col-md-auto bg-clair ms-2 rounded-2'> <a class='nav-link' href=\"{$precedent}\">&lt;</a></div>";
 			for ($i = 1; $i <= $total_pages; $i++) {
 				$class = ($i == $current_page) ? "active" : "";
 				$url = "?p=offer.index&page=" . $i;

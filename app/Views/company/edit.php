@@ -4,7 +4,7 @@
 
 <div class="container mt-5 bg-clair rounded-3" style="width: 60vh; max-width:90%;height:max-content"><!--ou style="width: 40%; max-width=90vh;"-->
     <h1 class="sombre text-center">Modifier une entreprise</h1>
-    <form action="" class="mx-auto" method="post" style="width:95%">
+    <form class="mx-auto" method="post" style="width:95%">
         <div class="container mt-5 position-relative">
             <label for="nom" class="col ">
                 <strong style="font-size: 130%;">Nom</strong>
@@ -37,7 +37,7 @@
             -->
 
             <div class="container">
-            <label for="addAddress" class="col "> <strong style="font-size: 130%;">Ajouter une adresse:</strong> </label>
+            <label class="col "> <strong style="font-size: 130%;">Ajouter une adresse:</strong> </label>
 
             <button type="button" onclick="addAddress()" class="bg-sombre clair border-0 rounded px-2 mb-2 mt-3 ms-2 me-3">+</button>
             </div>
@@ -148,11 +148,11 @@ function addAddress() {
                     <strong style="font-size: 130%;">Visibilité</strong>
                 </label>
                     <div class="col">
-                        <input type="radio" id="public" class="btn-check" autocomplete="off" checked name="visibility" value="public" checked>
+                        <input type="radio" id="public" class="btn-check" checked name="visibility" value="public">
                         <label for="public" class="btn">Public</label>
                     </div>
                     <div class="col">
-                        <input type="radio" id="private" class="btn-check" autocomplete="off" name="visibility" value="private">
+                        <input type="radio" id="private" class="btn-check" name="visibility" value="private">
                         <label for="private" class="btn">Privé</label>
                     </div>
             </div>

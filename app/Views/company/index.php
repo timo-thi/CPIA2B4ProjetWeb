@@ -40,7 +40,7 @@
                 if ($total_pages >= 1): ?>
                     <div class=" row justify-content-center ms-5">
                         <?php $precedent= "?p=company.index&page=" . ($current_page - 1);?>
-                        <div class='col-md-auto bg-clair ms-2 rounded-2'> <a class='nav-link' href="<?= $precedent?>"><</a></div>
+                        <div class='col-md-auto bg-clair ms-2 rounded-2'> <a class='nav-link' href="<?= $precedent?>">&lt;</a></div>
                         <?php for ($i = 1; $i <= $total_pages; $i++):?>
                             <?php $class = ($i == $current_page) ? "active" : "";
                             $url = "?p=company.index&page=" . $i;?>

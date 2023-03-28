@@ -6,7 +6,7 @@
             Champ(s) manquant(s)!  
         </div>
     <?php endif; ?>
-    <form action="" class="mx-auto" method="post" style="width:95%">
+    <form class="mx-auto" method="post" style="width:95%">
         <div class="container mt-5 position-relative">
             <label for="nom" class="col ">
                 <strong style="font-size: 130%;">Nom</strong>
@@ -43,7 +43,7 @@
         -->
         
 <div class="container">
-<label for="addAddress" class="col "> <strong style="font-size: 130%;">Ajouter une adresse:</strong> </label>
+<label class="col "> <strong style="font-size: 130%;">Ajouter une adresse:</strong> </label>
 
 <button type="button" onclick="addAddress()" class="bg-sombre clair border-0 rounded px-2 mb-2 mt-3 ms-2 me-3">+</button>
 </div>
@@ -60,11 +60,11 @@
             <strong style="font-size: 130%;">Visibilité</strong>
         </label>
             <div class="col">
-                <input type="radio" id="public" class="btn-check" autocomplete="off" checked name="visibility" value="1" checked>
+                <input type="radio" id="public" class="btn-check" checked name="visibility" value="1">
                 <label for="public" class="btn">Public</label>
             </div>
             <div class="col">
-                <input type="radio" id="private" class="btn-check" autocomplete="off" name="visibility" value="0">
+                <input type="radio" id="private" class="btn-check" name="visibility" value="0">
                 <label for="private" class="btn">Privé</label>
             </div>
         </div>

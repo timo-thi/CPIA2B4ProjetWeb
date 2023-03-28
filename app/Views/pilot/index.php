@@ -1,6 +1,6 @@
 <script src="../public/js/pilot_details.js"></script>
 <div class="container mt-3 " style="max-width:80%">
-	<a href="../public/index.php?p=student.create"><button type="button" class="bg-clair border-0 rounded-3 ms-4"> Ajouter </button></a>
+	<button type="button" class="bg-clair border-0 rounded-3 ms-4" onclick="window.location.href='../public/index.php?p=student.create'"> Ajouter </button>
 	<?php foreach ($profiles as $profile):?>
 		<div class="col mt-3">
 			<div class="card bg-clair mb-3" style="max-width: 100%;">
@@ -19,8 +19,8 @@
 							<div class="col text-center mb-auto mt-auto">
 							 	<p class="card-text"><?=$profile->email?></p>
 							</div>
-							<div class="col text-end list-item" id="<?= $profile->id_profile ?>">
-								<a href="../public/index.php?p=pilot.edit&id=<?= $profile->id_profile ?>"><button type="button" class="rounded-4 but clair px-2 py-2"> <i class="fa-regular fa-pen-to-square"></i> </button></a>
+							<div class="col text-end list-item">
+								<button type="button" class="rounded-4 but clair px-2 py-2" onclick="window.location.href='../public/index.php?p=pilot.edit&id=<?= $profile->id_profile ?>'"> <i class="fa-regular fa-pen-to-square"></i> </button>
 							</div>
 							<div class="col text-end list-item" id="<?= $profile->id_profile ?>">
 								<button class="rounded-4 dropdown-toggle but clair px-2 py-2" type="button" data-bs-toggle="collapse" data-bs-target="#pil<?= $profile->id_profile ?>" aria-expanded="false" aria-controls="pil<?= $profile->id_profile ?>" style="width:max-content;">
@@ -45,7 +45,7 @@
 	if ($total_pages >= 1) {
 		echo '<div class=" row justify-content-center ms-5">';
 		$precedent= "?p=pilote.index&page=" . ($current_page - 1);
-		echo "<div class='col-md-auto bg-clair ms-2 rounded-2'> <a class='nav-link' href=\"{$precedent}\"><</a></div>";
+		echo "<div class='col-md-auto bg-clair ms-2 rounded-2'> <a class='nav-link' href=\"{$precedent}\">&lt;</a></div>";
 		for ($i = 1; $i <= $total_pages; $i++) {
 			$class = ($i == $current_page) ? "active" : "";
 			$url = "?p=pilote.index&page=" . $i;

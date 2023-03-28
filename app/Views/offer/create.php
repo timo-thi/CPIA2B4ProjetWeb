@@ -1,4 +1,4 @@
-<div class="container mt-5 bg-clair rounded-3" style="width: 75vh; max-width=90%;height:max-content">
+<div class="container mt-5 bg-clair rounded-3" style="width: 75vh; max-width:90%;height:max-content">
 <h1 class="sombre text-center">Ajouter une offre</h1>
 	<h5>
 		Entreprise : <?= $company->name?>
