@@ -34,11 +34,11 @@ class UsersController extends AppController {
 			$auth = new DBAuth(\App::getInstance()->getDb());
 			if ($auth->login($_POST['username'], $_POST['password'])) {
 				if ($_SESSION['role'] == 1){
-					header('Location: index.php?p=offer.index'); // changer les pages
+					header('Location: index.php?p=acceuil.index'); // changer les pages
 				} elseif ($_SESSION['role'] == 2){
-					header('Location: index.php?p=pilot.index'); // changer les pages
+					header('Location: index.php?p=acceuil.index'); // changer les pages
 				} elseif ($_SESSION['role'] == 3){
-					header('Location: index.php?p=student.index'); // changer les pages
+					header('Location: index.php?p=acceuil.index'); // changer les pages
 				} else {
 					echo 'Profil non trouvé, veuillez contacter un administrateur';
 				}

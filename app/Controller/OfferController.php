@@ -8,6 +8,7 @@ use App\Table\SkillsTable;
 use App\Table\LocalitiesTable;
 use App\Table\RequireTable;
 use App\Table\ActivityTable;
+use App\Table\CandidatureTable;
 
 
 class OfferController extends AppController {
@@ -19,6 +20,7 @@ class OfferController extends AppController {
 	public LocalitiesTable $Localities;
 	public RequireTable $Require;
 	public ActivityTable $Activity;
+	public CandidatureTable $Candidature;
 
 
 	/** Contructor
@@ -32,6 +34,7 @@ class OfferController extends AppController {
 		$this->loadModel('Localities');
 		$this->loadModel('Require');
 		$this->loadModel('Activity');
+		$this->loadModel('Candidature');
 	}
 
 
@@ -172,5 +175,25 @@ class OfferController extends AppController {
 			$result = $this->Offer->delete($_POST['id_offer']);
 			return $this->index();
 		}
+	}
+
+	public function postulate() {
+		$errors = false;
+		if (!empty($_POST)) {
+			if (isset($_GET['id'])){
+				if ((!empty($_POST['CV'])) && (!empty($_POST['LM']))){
+					$result = $this->Candidature->create([
+						date("Y-m-d"),
+						1,
+						$_SESSION['auth'],
+						$_GET['id']
+					]);
+				} else {
+					$errors = true;
+				}
+			}
+		}
+		//var_dump(date("Y-m-d"));
+		$this->render('offer.postulate', compact('errors'));
 	}
 }

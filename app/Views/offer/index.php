@@ -20,7 +20,7 @@
 	  <?php foreach ($annonces as $el):?>
 
 			<div class="row ms-5">
-				<div class="card bg-clair mb-3 list-item " style="max-width: 100%;" id="<?= $el->id_offer?>">
+				<div class="card bg-clair mb-3 list-item" style="max-width: 100%;" id="<?= $el->id_offer?>">
 					<div class="row g-0">
 						<div class="col-md-4 my-auto" >
 							<img src="<?= $el->link?>" class="img-fluid rounded-start" alt="..." >

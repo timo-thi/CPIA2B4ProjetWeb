@@ -9,9 +9,7 @@
 <div class="container">
 <div class="row g-4 justify-content-around">
     <div class="col-5 col-rows-1 col-rows-md-2 g-4">
-        <?php 
-        
-        foreach ($offer as $count=>$el):?>
+        <?php foreach ($offer as $count=>$el):?>
             <?php if ( $count >2) break;?>
             <div class="row ms-5">
 				<div class="card bg-clair mb-3 list-item " style="max-width: 100%;" id="<?= $el->id_offer?>">
