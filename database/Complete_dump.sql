@@ -410,7 +410,6 @@ CREATE TABLE `rate` (
   `id_company` int NOT NULL,
   `rating` int DEFAULT NULL,
   `comment` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  PRIMARY KEY (`id_profile`,`id_company`),
   KEY `id_company` (`id_company`),
   CONSTRAINT `rate_ibfk_1` FOREIGN KEY (`id_profile`) REFERENCES `profile` (`id_profile`) ON DELETE CASCADE,
   CONSTRAINT `rate_ibfk_2` FOREIGN KEY (`id_company`) REFERENCES `company` (`id_company`) ON DELETE CASCADE

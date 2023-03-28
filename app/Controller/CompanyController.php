@@ -138,4 +138,24 @@ class CompanyController extends AppController {
 		$activity = $this->Activity->all();
 		$this->render('company.edit', compact('company','activity', 'errors'));
 	}
+
+	public function rate(){
+		$errors = false;
+		if ((!empty($_POST['rate'])) && (!empty($_POST['comment']))){
+			if (isset($_POST['rate'],$_POST['comment'])){
+				$result = $this->Rate->create([
+					$_SESSION['auth'],
+					$_GET['id'],
+					$_POST['rate'],
+					$_POST['comment']
+				]);
+				if ($result){
+					return $this->index();
+				}
+			}
+		} else {
+			$errors = true;
+		}
+		$this->render('company.rate', compact('errors'));
+	}
 }
