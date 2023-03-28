@@ -9,7 +9,7 @@
 		
 		<div class=" mt-4">
 		<label for="locality" ><strong style="font-size: 130%;">Adresse</strong></label>
-		<select name="locality" class="col rounded position-absolute end-0" id="locality">
+		<select name="locality" class="col rounded position-absolute end-0"  style="width: 50%;" id="locality">
 			<option value="0">-- Choisissez une option --</option>
 			<?php foreach ($localities as $company):?>
 				<option value='<?= $company->id_localities?>'><?= "{$company->number} {$company->street} - {$company->city} ({$company->zipcode})"?></option>";
@@ -61,20 +61,17 @@
 				</div>
 			</div>
 		</div> 
+		
+		<div class="postion-relative">
+			<div class="btn-group position-absolute end-0" role="group">
+				<input type="reset" class="bg-sombre clair border-0 rounded px-2 my-2 " style="width: fit-content;" value="Annuler">
+				<input type="submit" class="bg-sombre clair border-0 rounded px-2 my-2 ms-3" style="width: fit-content;" value="Ajouter">
+			</div>
 		</div>
+		<div class="row mt-5 mb-5">     
+    	</div>
+        </div>
 
-		<div class="row mt-5 mb-5">
-                    <div class="col">
-                    </div>
-                    <div class="col position-relative">
-                    <div class="btn-group position-absolute end-0" role="group">
-                    <button type="reset" class="bg-sombre clair border-0 rounded px-2 mb-2 mt-3" style="width: fit-content;">Annuler</button>
-                    <button type="submit" class="bg-sombre clair border-0 rounded px-2 mb-2 mt-3 ms-2 me-3" style="width: fit-content;">Ajouter</button>
-                    </div>
-                    
-                    </div>
-                    
-                </div>
 	</form>
 </div>
 
