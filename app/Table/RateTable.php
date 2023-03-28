@@ -19,4 +19,11 @@ class RateTable extends Table {
 	public function get($id = null): array {
 		return $this->query($this->api_query, [$id]);
 	}
+
+	public function create($attributes) {
+		return $this->query(
+			'call CREATION_RATE(?, ?, ?, ?)',
+			$attributes
+		);
+	}
 }
