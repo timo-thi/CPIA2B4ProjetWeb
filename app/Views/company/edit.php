@@ -49,6 +49,7 @@
                  Adresse <?=$num_addresse;?>
                 </button>
                 <div class="collapse border-sombre border-top-0 border-start-0 border-end-0" id="adresse<?=$num_addresse;?>" data-address-id="<?=$num_addresse;?>"> <!-- À modifier :+1: -->
+                    <input type="hidden" name="id_locality[]" value="<?= isset($locality->id_localities) ? $locality->id_localities : '' ?>">
                     <div class="container mt-4 position-relative">
                         <label class="col ">
                             <strong style="font-size: 130%;">Ville</strong>
