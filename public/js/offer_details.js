@@ -14,7 +14,8 @@ $(document).ready(function(){
             $('#of-address').html(jdata.address);
             $('#of-city_zipcode').html(jdata.city + ' (' + jdata.zipcode + ')');
             $('#of-link').attr('href', jdata.link);
-            $('#postulate-link').attr('href', '../public/index.php?p=offer.postulate&id='+jdata.id_offer);
+            $('#of-postulate').attr('href', '../public/index.php?p=offer.postulate&id='+jdata.id_offer);
+            $('#of-edit').attr('href', '../public/index.php?p=offer.edit&id='+jdata.id_offer);
             $('#of-email').html(jdata.contact_email);
             $('#of-telephone').html(jdata.telephone);
             $('#of-wage').html('Gratification : ' + jdata.wage);

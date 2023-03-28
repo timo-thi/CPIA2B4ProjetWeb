@@ -11,8 +11,10 @@
                     <div class="col-md-auto ">
                     
                         <div class="btn-group position-absolute end-0 mt-2" role="group" >
-                              <a href="<?= ($_SESSION['role'] != 3) ? '?p=company.edit&id=' . $first->id_company : '?p=profile.wish'?>"><button class="active border-0 bg-sombre clair rounded " style="width: max-content;"><?= ($_SESSION['role'] != 3) ? 'Modifier' : 'Wish-List'?></button></a>
-                              <a href="<?= ($_SESSION['role'] != 3) ? '?p=company.create' : '?p=offer.index'?>"><button class="active border-0 bg-sombre clair rounded ms-2 me-3" style="width: max-content;"><?= ($_SESSION['role'] != 3) ? 'Ajouter' : 'Voir les offres'?></button></a>
+                            <?php if ($_SESSION['role'] != 3):?>
+                                <a id="com-edit" href="<?= '?p=company.edit&id=' . $first->id_company?>"><button class="active border-0 bg-sombre clair rounded " style="width: max-content;"><i class="fa-regular fa-pen-to-square"></i></button></a>
+                            <?php endif?>
+                            <a href="<?= ($_SESSION['role'] != 3) ? '?p=company.create' : '?p=offer.index'?>"><button class="active border-0 bg-sombre clair rounded ms-2 me-3" style="width: max-content;"><?= ($_SESSION['role'] != 3) ? 'Ajouter' : 'Voir les offres'?></button></a>
                         </div>
                     </div>
                     
