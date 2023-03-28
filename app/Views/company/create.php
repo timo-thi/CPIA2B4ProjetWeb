@@ -60,11 +60,11 @@
             <strong style="font-size: 130%;">Visibilité</strong>
         </label>
             <div class="col">
-                <input type="radio" id="public" class="btn-check" autocomplete="off" checked name="visibility" value="public" checked>
+                <input type="radio" id="public" class="btn-check" autocomplete="off" checked name="visibility" value="1" checked>
                 <label for="public" class="btn bg-sombre">Public</label>
             </div>
             <div class="col">
-                <input type="radio" id="private" class="btn-check" autocomplete="off" name="visibility" value="private">
+                <input type="radio" id="private" class="btn-check" autocomplete="off" name="visibility" value="0">
                 <label for="private" class="btn bg-sombre">Privé</label>
             </div>
         </div>
