@@ -1,4 +1,4 @@
-<div class="bg-clair">
+<div class="container mt-5 bg-clair rounded-3" style="width: 75vh; max-width=90%;height:max-content">
 	<h1>Ajouter un utilisateur</h1>
 	<form action="" method="post">
 		<label for="lname">Nom<input type="text" name="lname" id="lname" placeholder="Ex : Dupond'" value="<?= isset($profile->lname) ? $profile->lname : ''?>"></label>
