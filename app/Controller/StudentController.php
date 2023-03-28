@@ -27,12 +27,34 @@ class StudentController extends AppController {
 	 * @return void
 	 */
 	public function index() {
-		$profiles = $this->Student->search();
+		// Configuration
+		$items_per_page = 6; // Nombre de pilotes par page
+
+		// Récupération du nombre total d'offres
+		$total_items = $this->Student->getStudentCount()->count;
+
+		// Calcul du nombre de pages
+		$total_pages = ceil($total_items / $items_per_page);
+
+		// Récupération du numéro de la page courante
+		$current_page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+
+		// Vérification de la validité du numéro de page
+		if ($current_page < 1 || $current_page > $total_pages) {
+			$current_page = 1;
+		}
+
+		// Calcul des bornes LIMIT pour la requête SQL
+		$profiles = $this->Student->search([
+			($current_page - 1) * $items_per_page,
+			$items_per_page
+
+		]);
 		if (empty($profiles)){
 			$this->notFound();
 		}
 		// echo '<pre>', var_dump($profiles), '</pre>';
-		$this->render('student.index', compact('profiles'));
+		$this->render('student.index', compact('profiles', 'total_pages', 'current_page'));
 	}
 
 

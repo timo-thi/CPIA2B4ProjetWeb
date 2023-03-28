@@ -1,6 +1,6 @@
 DROP VIEW IF EXISTS view_company;
 
-CREATE VIEW VIEW_COMPANY AS 
+CREATE VIEW view_company AS 
 	SELECT
 	    company.id_company,
 	    company.name,
@@ -20,5 +20,4 @@ CREATE VIEW VIEW_COMPANY AS
 	            postulate_progress_steps.name = "CV reçu"
 	        GROUP BY
 	            localities.id_company
-	    ) as CESICOUNT ON CESICOUNT.id_company = company.i
-ID_COMPANY; 
+	    ) as CESICOUNT ON CESICOUNT.id_company = company.id_company; 

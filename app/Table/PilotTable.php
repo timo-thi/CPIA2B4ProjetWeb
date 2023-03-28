@@ -18,5 +18,17 @@ class PilotTable extends Table {
 		}
 		return $res[0];
 	}
+
+
+	public function search($attributes) {
+		$proc_name = "call SEARCH_" . strtoupper($this->table) . "(?, ?)"; // SEARCH one record in table
+		return $this->query($proc_name, $attributes);
+	}
+
+
+	public function getPilotCount() {
+		$proc_name = "SELECT COUNT(*) AS count FROM profile WHERE id_roles = '2'"; // GET_ACTIVE_OFFER_COUNT
+		return $this->query($proc_name, null, true);
+	}
 }
 ?>

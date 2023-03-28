@@ -81,9 +81,9 @@ class Table {
 	/** Get one record from a table where id is $id
 	 * @return Entity or child of Entity
 	 */
-	public function search() {
+	public function search($attributes) {
 		$proc_name = "call SEARCH_" . strtoupper($this->table) . "()"; // SEARCH one record in table
-		return $this->query($proc_name, null);
+		return $this->query($proc_name, $attributes);
 	}
 
 

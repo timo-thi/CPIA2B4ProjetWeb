@@ -23,4 +23,16 @@ class OfferTable extends Table {
 		}
 		return $res[0];
 	}
+
+
+	public function search($attributes) {
+		$proc_name = "call SEARCH_" . strtoupper($this->table) . "(?, ?)"; // SEARCH one record in table
+		return $this->query($proc_name, $attributes);
+	}
+
+
+	public function getActiveOfferCount() {
+		$proc_name = "SELECT COUNT(*) AS count FROM offer WHERE active = '1' GROUP BY id_offer"; // GET_ACTIVE_OFFER_COUNT
+		return $this->query($proc_name, null, true);
+	}
 }
