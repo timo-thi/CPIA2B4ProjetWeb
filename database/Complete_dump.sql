@@ -300,7 +300,20 @@ CREATE TABLE `person` (
 
 LOCK TABLES `person` WRITE;
 /*!40000 ALTER TABLE `person` DISABLE KEYS */;
-INSERT INTO `person` VALUES (1,'timothee.thienpont@viacesi.fr','alice123',1),(2,'bob.martin@example.com','bob123',2),(3,'camille.lefebvre@example.com','camille123',3),(4,'david.garcia@example.com','david123',4),(5,'david.garcia@example.com','david123',5),(6,'david.garcia@example.com','david123',6),(7,'david.garcia@example.com','david123',7),(8,'david.garcia@example.com','david123',8),(9,'david.garcia@example.com','david123',9),(10,'david.garcia@example.com','david123',10),(11,'david.garcia@example.com','david123',11),(12,'david.garcia@example.com','david123',12),(13,'emilie.dujardin@example.com','emilie123',13);
+INSERT INTO `person` VALUES 
+	(1,'timothee.thienpont@viacesi.fr','f0bd251b08338c230d420f33106faf13a12cace5',1),
+	(2,'bob.martin@example.com','0a42b6b9dcd569f990dcde40f4ff73c5a24eb904',2),
+	(3,'camille.lefebvre@example.com','6c39579e8fe28516ba57713ef01cf1c6c43a04b4',3),
+    (4,'leandro@example.com','750709dc9939563ca9c5d91ea88d448af198fc28',4),
+    (5,'aniss@example.com','dd3439b3979cd35250eef1878ca41b9df5a5018c',5),
+    (6,'clyde@example.com','c1b0918fd85d84fe2043d27cc0f7824ae339ced1',6),
+    (7,'quentin@example.com','c0318313324747fb967965351496a3daa213cd85',7),
+    (8,'florian@example.com','cc259ac57edb10fc39c91cc1359aa3733832d82d',8),
+    (9,'clement@example.com','506c2b97169c4c6c793439ec349d4534b8f1093a',9),
+    (10,'paul@example.com','bc083dc3fcb8eabe9466c975957b9111dae30582',10),
+    (11,'luc@example.com','4ac98a3191ea1e6fed2eece07ad206b0dfddea2c',11),
+    (12,'lilia@example.com','b35a207ec8ea6437ada85d7b4f17869d95b833ca',12),
+    (13,'emilie.dujardin@example.com','7c6e86d1374c018f5ea2b6882138238c47349f46',13);
 /*!40000 ALTER TABLE `person` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -907,18 +920,13 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
+/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
 DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `CREATION_WISH`(`p_id_profile` INT, `p_id_offer` INT)
 BEGIN
-	if exists(select id_profile, id_offer FROM wish WHERE id_profile = p_id_profile AND id_offer = p_id_offer )
-    then
-		select true; delete from wish where id_profile = p_id_profile AND id_offer = p_id_offer;
-	else
-		select false; insert into wish (id_profile,id_offer) values (p_id_profile,p_id_offer);
-	end if;
+insert into wish (id_profile,id_offer) values (p_id_profile,p_id_offer);
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -2311,4 +2319,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-28 21:30:56
+-- Dump completed on 2023-03-28 14:29:48

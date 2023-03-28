@@ -35,7 +35,7 @@ class DBAuth {
 	public function login($username, $password) {	 
 		$user = $this->db->prepare('call AUTH(?)', [$username], null, true);
 		if ($user) {
-			if ($password === $user->password) { //ajouter sha1() pour crypter le password
+			if (sha1($password) === $user->password) { //ajouter sha1() pour crypter le password
 				$profile = \App::getInstance()->getTable('User');
 				$role = $profile->details($user->id_profile)[0];
 				//var_dump($role);
