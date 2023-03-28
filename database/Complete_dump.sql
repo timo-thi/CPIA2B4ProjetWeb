@@ -529,6 +529,7 @@ SET @saved_cs_client     = @@character_set_client;
  1 AS `id_offer`,
  1 AS `name`,
  1 AS `link`,
+ 1 AS `active`,
  1 AS `company`,
  1 AS `city`,
  1 AS `zipcode`*/;
@@ -744,11 +745,11 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `CREATION_CANDIDATURE`(`p_send_date` DATE, `p_id_progress_state` INT, `p_id_profile` INT, `p_id_offer` INT)
+CREATE DEFINER=`root`@`localhost` PROCEDURE `CREATION_CANDIDATURE`(p_send_date DATE, p_id_progress_state INT, p_id_profile INT, p_id_offer INT)
 BEGIN
 if exists (select * from candidature where id_profile = p_id_profile and id_offer = p_id_offer) then
 	update candidature
@@ -1486,11 +1487,11 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SEARCH_COMPANY`()
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SEARCH_COMPANY`(p_offset INT, p_limit INT)
 BEGIN
 SELECT  company.id_company, company.name, company.link, IFNULL(cesi_accepted, 0) as cesi_accepted FROM company
     LEFT JOIN
@@ -1500,7 +1501,9 @@ SELECT  company.id_company, company.name, company.link, IFNULL(cesi_accepted, 0)
 	inner join localities on localities.id_localities = offer.id_localities
 	left join company on company.id_company = localities.id_company
 	WHERE postulate_progress_steps.name = "Acceptée"
-	GROUP BY localities.id_company) as CESICOUNT ON CESICOUNT.id_company = company.id_company;
+	GROUP BY localities.id_company) as CESICOUNT ON CESICOUNT.id_company = company.id_company
+    WHERE company.active = '1'
+    LIMIT p_offset, p_limit;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1562,13 +1565,16 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SEARCH_OFFER`()
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SEARCH_OFFER`(p_offset INT, p_limit INT)
 BEGIN
-	select * from view_offer;
+	select * from view_offer
+    where active = '1'
+    group by id_offer
+    LIMIT p_offset, p_limit;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1581,14 +1587,15 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SEARCH_PILOTS`()
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SEARCH_PILOTS`(p_offset INT, p_limit INT)
 BEGIN
 	select distinct id_profile, fname, lname, email, id_roles, photo
-	from view_pilots;
+	from view_pilots
+    LIMIT p_offset, p_limit;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -1719,15 +1726,15 @@ DELIMITER ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
 /*!50003 SET character_set_client  = utf8mb4 */ ;
 /*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb3_general_ci */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
 /*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'NO_AUTO_VALUE_ON_ZERO' */ ;
+/*!50003 SET sql_mode              = 'ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION' */ ;
 DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` PROCEDURE `SEARCH_STUDENT`()
+CREATE DEFINER=`root`@`localhost` PROCEDURE `SEARCH_STUDENT`(p_offset INT, p_limit INT)
 BEGIN
-	SELECT id_profile, fname, lname, id_person, prom, email, accepted, id_roles, photo
+	SELECT distinct id_profile, fname, lname, id_person, prom, email, accepted, id_roles, photo
 	FROM view_student
-    group by id_profile;
+    LIMIT p_offset, p_limit;
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -2246,10 +2253,10 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb3_general_ci */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
-/*!50001 VIEW `view_offer` AS select `offer`.`id_offer` AS `id_offer`,`offer`.`name` AS `name`,`offer`.`link` AS `link`,`company`.`name` AS `company`,`city`.`name` AS `city`,`city`.`zipcode` AS `zipcode` from ((((`offer` join `localities` on((`offer`.`id_localities` = `localities`.`id_localities`))) join `company` on((`localities`.`id_company` = `company`.`id_company`))) join `address` on((`localities`.`id_address` = `address`.`id_address`))) join `city` on((`address`.`id_city` = `city`.`id_city`))) */;
+/*!50001 VIEW `view_offer` AS select `offer`.`id_offer` AS `id_offer`,`offer`.`name` AS `name`,`offer`.`link` AS `link`,`offer`.`active` AS `active`,`company`.`name` AS `company`,`city`.`name` AS `city`,`city`.`zipcode` AS `zipcode` from ((((`offer` join `localities` on((`offer`.`id_localities` = `localities`.`id_localities`))) join `company` on((`localities`.`id_company` = `company`.`id_company`))) join `address` on((`localities`.`id_address` = `address`.`id_address`))) join `city` on((`address`.`id_city` = `city`.`id_city`))) */;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
@@ -2282,7 +2289,7 @@ DELIMITER ;
 /*!50001 SET @saved_col_connection     = @@collation_connection */;
 /*!50001 SET character_set_client      = utf8mb4 */;
 /*!50001 SET character_set_results     = utf8mb4 */;
-/*!50001 SET collation_connection      = utf8mb3_general_ci */;
+/*!50001 SET collation_connection      = utf8_general_ci */;
 /*!50001 CREATE ALGORITHM=UNDEFINED */
 /*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
 /*!50001 VIEW `view_student` AS select `profile`.`id_profile` AS `id_profile`,`profile`.`fname` AS `fname`,`profile`.`lname` AS `lname`,`profile`.`photo` AS `photo`,`person`.`id_person` AS `id_person`,`prom`.`name` AS `prom`,`prom`.`id_prom` AS `id_prom`,`person`.`email` AS `email`,if((`accepted`.`cnt` is null),'n','y') AS `accepted`,`profile`.`id_roles` AS `id_roles`,`step`.`id_offer` AS `id_offer`,`step`.`offer` AS `offer`,`step`.`id_progress_state` AS `id_progress_state`,`step`.`state` AS `state`,`step`.`startdate` AS `startdate`,`step`.`company` AS `company` from (((((`profile` left join `affiliated` on((`profile`.`id_profile` = `affiliated`.`id_profile`))) left join `prom` on((`affiliated`.`id_prom` = `prom`.`id_prom`))) left join `person` on((`profile`.`id_profile` = `person`.`id_profile`))) left join (select `profile`.`id_profile` AS `id_profile`,`candidature`.`id_offer` AS `id_offer`,`offer`.`name` AS `offer`,`offer`.`startdate` AS `startdate`,`company`.`name` AS `company`,`candidature`.`id_progress_state` AS `id_progress_state`,`postulate_progress_steps`.`name` AS `state` from (((((`profile` join `candidature` on((`candidature`.`id_profile` = `profile`.`id_profile`))) join `offer` on((`candidature`.`id_offer` = `offer`.`id_offer`))) join `localities` on((`offer`.`id_localities` = `localities`.`id_localities`))) join `company` on((`localities`.`id_company` = `company`.`id_company`))) join `postulate_progress_steps` on((`candidature`.`id_progress_state` = `postulate_progress_steps`.`id_progress_state`))) order by `profile`.`id_profile`) `step` on((`step`.`id_profile` = `profile`.`id_profile`))) left join (select `profile`.`id_profile` AS `id_profile`,count(`candidature`.`id_progress_state`) AS `cnt` from (`profile` join `candidature` on((`candidature`.`id_profile` = `profile`.`id_profile`))) where (`candidature`.`id_progress_state` = 6) group by `profile`.`id_profile`) `accepted` on((`accepted`.`id_profile` = `profile`.`id_profile`))) where (`profile`.`id_roles` = 3) */;
@@ -2299,4 +2306,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-28  9:20:37
+-- Dump completed on 2023-03-28 14:29:48
