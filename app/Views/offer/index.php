@@ -33,6 +33,7 @@
 						</div>
 					</div>
 				</div>
+	  		</div>
 			<?php endforeach; ?>
 		<?php
 		// Affichage de la pagination
