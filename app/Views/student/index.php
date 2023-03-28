@@ -1,18 +1,6 @@
 <script src="../public/js/student_details.js"></script>
 <div class="container mt-3 " style="max-width:80%">
-	<?php
-	$filtre1 = 'Nom';
-    $filtre2 = 'Prénom';
-    $filtre3 = 'Promo';
-    $filtre4 = 'Progression';
-
-    $HideFilter1 = '';
-    $HideFilter2 = '';
-    $HideFilter3 = '';
-    $HideFilter4 = '';
-
-	require '../app/Views/templates/Filter.php';
-	?>
+	<a href="../public/index.php?p=student.create"><button type="button" class="bg-clair border-0 rounded-3 ms-4"> Ajouter </button></a>
 	<?php foreach ($profiles as $profile):?>
 		<div class="col mt-3">
 			<div class="card bg-clair mb-3" style="max-width: 100%;">
@@ -36,6 +24,9 @@
 							</div>
 							<div class="col text-center mb-auto mt-auto">
 							 	<p class="card-text"><?=$profile->accepted?></p>
+							</div>
+							<div class="col text-end list-item" id="<?= $profile->id_profile ?>">
+								<a href="../public/index.php?p=student.edit&id=<?= $profile->id_profile ?>"><button type="button" class="rounded-4 but clair px-2 py-2"> <i class="fa-regular fa-pen-to-square"></i> </button></a>
 							</div>
 							<div class="col text-end list-item" id="<?= $profile->id_profile ?>">
 								<button class="rounded-4 dropdown-toggle but clair px-2 py-2" type="button" data-bs-toggle="collapse" data-bs-target="#stu<?= $profile->id_profile ?>" aria-expanded="false" aria-controls="stu<?= $profile->id_profile ?>" style="width:max-content;">
