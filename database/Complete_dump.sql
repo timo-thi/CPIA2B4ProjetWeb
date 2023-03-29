@@ -57,7 +57,7 @@ CREATE TABLE `address` (
   PRIMARY KEY (`id_address`),
   KEY `id_city` (`id_city`),
   CONSTRAINT `address_ibfk_1` FOREIGN KEY (`id_city`) REFERENCES `city` (`id_city`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,7 +66,7 @@ CREATE TABLE `address` (
 
 LOCK TABLES `address` WRITE;
 /*!40000 ALTER TABLE `address` DISABLE KEYS */;
-INSERT INTO `address` VALUES (1,'Avenue de l\'opéra','38',NULL,1),(2,'rue de Londres','8',NULL,1),(3,'quai du Président Roosevelt','37',NULL,2),(4,'place d\'Iéna','7',NULL,1),(5,'rue Ménars','6',NULL,1),(6,'rue de la Paix','10',NULL,1),(7,'Avenue Edmund Halley Rouen Madrillet Innovation','80',NULL,3),(8,'Boulevard Louis XIV','8',NULL,4),(9,'Boulevard Louis XIV','8',NULL,4),(10,'Boulevard Louis XIV','8',NULL,4),(11,'Boulevard Louis XIV','8',NULL,4),(12,'Boulevard Louis XIV','8',NULL,4),(13,'Boulevard Louis XIV','8',NULL,4),(14,'Boulevard de la Seine','93',NULL,5),(15,'Rue machin','5','Yesss stv mec',5),(16,'Rue de la renardière','15','',13),(17,'Rue de la renardière','15','',13),(18,'Array','Array','Array',14),(19,'Test','56','Ouais c\'est sympa mais une autre porte',13),(20,'Test','56','Ouais c\'est sympa mais une autre porte',13),(21,'Rue de la rép','57','',13),(22,'Test','56','Ouais c\'est sympa mais une autre porte',13),(23,'Rue de la rép','57','',13),(24,'Rue de la rép','57','',13),(25,'Non','56','Noice',15);
+INSERT INTO `address` VALUES (1,'Avenue de l\'opéra','38',NULL,1),(2,'rue de Londres','8',NULL,1),(3,'quai du Président Roosevelt','37',NULL,2),(4,'place d\'Iéna','7',NULL,1),(5,'rue Ménars','6',NULL,1),(6,'rue de la Paix','10',NULL,1),(7,'Avenue Edmund Halley Rouen Madrillet Innovation','80',NULL,3),(8,'Boulevard Louis XIV','8',NULL,4),(9,'Boulevard Louis XIV','8',NULL,4),(10,'Boulevard Louis XIV','8',NULL,4),(11,'Boulevard Louis XIV','8',NULL,4),(12,'Boulevard Louis XIV','8',NULL,4),(13,'Boulevard Louis XIV','8',NULL,4),(14,'Boulevard de la Seine','93',NULL,5),(15,'Rue machin','5','Yesss stv mec',5),(16,'Rue de la renardière','15','',13),(17,'Rue de la renardière','15','',13),(18,'Array','Array','Array',14),(19,'Test','56','Ouais c\'est sympa mais une autre porte',13),(20,'Test','56','Ouais c\'est sympa mais une autre porte',13),(21,'Rue de la rép','57','',13),(22,'Test','56','Ouais c\'est sympa mais une autre porte',13),(23,'Rue de la rép','57','',13),(24,'Rue de la rép','57','',13),(25,'Non','56','Noice',15),(26,'Avenue de l\'opéra','38','',1),(27,'Avenue de l\'opéra','38','',1),(28,'Rue de la rép','6','',4);
 /*!40000 ALTER TABLE `address` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -93,7 +93,7 @@ CREATE TABLE `affiliated` (
 
 LOCK TABLES `affiliated` WRITE;
 /*!40000 ALTER TABLE `affiliated` DISABLE KEYS */;
-INSERT INTO `affiliated` VALUES (4,2),(5,2),(6,2),(7,2),(8,2),(9,2),(10,2),(11,2),(12,2),(13,2);
+INSERT INTO `affiliated` VALUES (1,1),(2,1),(3,1),(4,1),(4,2),(5,2),(6,2),(7,2),(8,2),(9,2),(10,2),(11,2),(12,2),(13,2);
 /*!40000 ALTER TABLE `affiliated` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -224,7 +224,7 @@ CREATE TABLE `localities` (
   KEY `id_company` (`id_company`),
   CONSTRAINT `localities_ibfk_1` FOREIGN KEY (`id_address`) REFERENCES `address` (`id_address`) ON DELETE CASCADE,
   CONSTRAINT `localities_ibfk_2` FOREIGN KEY (`id_company`) REFERENCES `company` (`id_company`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -233,7 +233,7 @@ CREATE TABLE `localities` (
 
 LOCK TABLES `localities` WRITE;
 /*!40000 ALTER TABLE `localities` DISABLE KEYS */;
-INSERT INTO `localities` VALUES (1,1,1),(2,2,2),(3,3,3),(4,4,4),(5,5,5),(6,6,6),(7,5,7),(8,6,6),(9,6,6),(10,6,6),(11,6,6),(12,6,6),(13,6,6),(14,6,6),(15,15,15),(16,16,16),(17,17,17),(18,18,18),(19,20,23),(20,21,24),(21,22,25),(22,23,26),(23,24,27),(24,25,27);
+INSERT INTO `localities` VALUES (1,1,1),(2,2,2),(3,3,3),(4,4,4),(5,5,5),(6,6,6),(7,5,7),(8,6,6),(9,6,6),(10,6,6),(11,6,6),(12,6,6),(13,6,6),(14,6,6),(15,15,15),(16,16,16),(17,17,17),(18,18,18),(19,20,23),(20,21,24),(21,22,25),(22,23,26),(23,24,27),(24,25,27),(25,26,1),(26,27,1);
 /*!40000 ALTER TABLE `localities` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2298,4 +2298,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-29  1:20:31
+-- Dump completed on 2023-03-29  9:40:26
