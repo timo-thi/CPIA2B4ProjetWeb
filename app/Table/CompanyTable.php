@@ -23,7 +23,7 @@ class CompanyTable extends Table {
 
 	public function create($attributes) {
 		return $this->query(
-			"call CREATE_COMPANY(?, ?, ?, ?, ?, ?, ?, ?)",
+			"call CREATE_COMPANY(?, ?, ?)",
 			$attributes,
 			true
 		);
@@ -40,7 +40,7 @@ class CompanyTable extends Table {
 
 	public function add($attributes) {
 		return $this->query(
-			"call ADD_LOCALITY(?, ?, ?, ?, ?, ?, ?)",
+			"call ADD_LOCALITY(?, ?, ?, ?, ?, ?)",
 			$attributes,
 			true
 		);

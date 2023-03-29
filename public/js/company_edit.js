@@ -14,6 +14,7 @@ function addAddress() {
         Adresse `+ num_address +`
       </button>
       <div class="collapse border-sombre border-top-0 border-start-0 border-end-0" id="adresse`+ num_address +`" data-address-id="`+ num_address +`">
+        <input type="hidden" name="id_locality[]" value="">
         <div class="container mt-4 position-relative">
           <label class="col ">
             <strong style="font-size: 130%;">Ville</strong>

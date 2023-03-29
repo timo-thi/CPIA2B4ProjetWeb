@@ -11,7 +11,7 @@
                     <div class="col-md-auto ">
                     
                         <div class="btn-group position-absolute end-0 mt-2" role="group" >
-                        <a href="<?= '?p=company.rate&id=' . $first->id_company?>"><button class="active border-0 bg-sombre clair rounded " style="width: max-content;">Evaluer</button></a>
+                        <a href="<?= '?p=company.rate&id=' . $first->id_company?>"><button class="active border-0 bg-sombre clair rounded " style="width: max-content;"><i class="fa-regular fa-star-half-stroke" style="color: #fffaf0;"></i></button></a>
                             <?php if ($_SESSION['role'] != 3):?>
                                 <button class="active border-0 bg-sombre clair rounded " style="width: max-content;" onclick="window.location.href='<?= '?p=company.edit&id=' . $first->id_company?>'" id="com-edit"><i class="fa-regular fa-pen-to-square"></i></button>
                             <?php endif?>

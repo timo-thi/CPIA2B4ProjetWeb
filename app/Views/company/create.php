@@ -72,7 +72,7 @@
             <div class="col">
             </div>
             <div class="col position-relative">
-                <div class="btn-group position-absolute end-0" role="group">
+                <div class="btn-group position-absolute end-0 mb-5" role="group">
                     <button type="reset" class="bg-sombre clair border-0 rounded px-2 mb-2 mt-3" style="width: fit-content;">Annuler</button>
                     <button type="submit" class="bg-sombre clair border-0 rounded px-2 mb-2 mt-3 ms-2 me-3" style="width: fit-content;">Ajouter</button>
                 </div>

@@ -44,11 +44,15 @@
             <?php $num_addresse=0;?>
             <?php foreach ($company->localities as $locality):?>
                  <?php $num_addresse++;?>
-                 <div class="container">
+                 <div class="container" id="container<?= $num_addresse?>">
                  <button class="bg-sombre clair border-0 rounded px-2 mb- mt-3 ms- me- dropdown-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#adresse<?=$num_addresse;?>" aria-expanded="false" aria-controls="adresse<?=$num_addresse;?>">
-                 Adresse <?=$num_addresse;?>
+                    Adresse <?=$num_addresse;?>
+                </button>
+                 <button class="bg-sombre clair border-0 rounded px-2 mb- mt-3 ms- me-" type="button" onclick="removeAddress(<?= $num_addresse?>)">
+                    <i class="fa-solid fa-trash" style="color: #fffaf0;"></i>
                 </button>
                 <div class="collapse border-sombre border-top-0 border-start-0 border-end-0" id="adresse<?=$num_addresse;?>" data-address-id="<?=$num_addresse;?>"> <!-- À modifier :+1: -->
+                    <input type="hidden" name="id_locality[]" value="<?= isset($locality->id_localities) ? $locality->id_localities : '' ?>">
                     <div class="container mt-4 position-relative">
                         <label class="col ">
                             <strong style="font-size: 130%;">Ville</strong>
@@ -97,11 +101,15 @@ function addAddress() {
  num_address++;
   // Créer un nouveau bloc d'adresse avec un identifiant unique
   var newAddress = `
-    <div class="container">
+    <div class="container"  id="container` + num_address + `">
       <button class="bg-sombre clair border-0 rounded px-2 mb- mt-3 ms- me- dropdown-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#adresse`+ num_address +`" aria-expanded="false" aria-controls="adresse`+ num_address +`">
         Adresse `+ num_address +`
       </button>
+      <button class="bg-sombre clair border-0 rounded px-2 mb- mt-3 ms- me-" type="button" onclick="removeAddress(` + num_address + `)">
+            <i class="fa-solid fa-trash" style="color: #fffaf0;"></i>
+        </button>
       <div class="collapse border-sombre border-top-0 border-start-0 border-end-0" id="adresse`+ num_address +`" data-address-id="`+ num_address +`">
+        <input type="hidden" name="id_locality[]" value="">
         <div class="container mt-4 position-relative">
           <label class="col ">
             <strong style="font-size: 130%;">Ville</strong>
@@ -139,6 +147,15 @@ function addAddress() {
   // Ajouter le bloc d'adresse au HTML
   document.getElementById("addresses").innerHTML += newAddress;
 }
+
+function removeAddress(num) {
+    // Supprimer le dernier bloc d'adresse
+    let el_name = '#container' + num;
+    console.log(el_name);
+    $(el_name).remove();
+    // Décrémenter le nombre d'adresses
+    num_address--;
+}
 </script>
 
             
@@ -148,11 +165,11 @@ function addAddress() {
                     <strong style="font-size: 130%;">Visibilité</strong>
                 </label>
                     <div class="col">
-                        <input type="radio" id="public" class="btn-check" checked name="visibility" value="public">
+                        <input type="radio" id="public" class="btn-check" checked name="visibility" value="1">
                         <label for="public" class="btn">Public</label>
                     </div>
                     <div class="col">
-                        <input type="radio" id="private" class="btn-check" name="visibility" value="private">
+                        <input type="radio" id="private" class="btn-check" name="visibility" value="0">
                         <label for="private" class="btn">Privé</label>
                     </div>
             </div>

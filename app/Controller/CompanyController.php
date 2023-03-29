@@ -74,9 +74,39 @@ class CompanyController extends AppController {
 		$annonces = $this->Activity->all();
 		$errors = false;
 		if (!empty($_POST)) {
-			if ((!empty($_POST['name'])) && (!empty($_POST['link'])) && (!empty($_POST['city'])) && (!empty($_POST['zipcode'])) && (!empty($_POST['address'])) && (!empty($_POST['number']))){
-				if (isset($_POST['name'],$_POST['link'],$_POST['city'],$_POST['zipcode'],$_POST['address'],$_POST['number'],$_POST['comment'])) {
-					$first = $this->Company->create([$_POST['name'],true,$_POST['link'],$_POST['city'],$_POST['zipcode'],$_POST['address'],$_POST['number'],$_POST['comment']]);
+			if ((
+				!empty($_POST['name'])) &&
+				(!empty($_POST['link'])) &&
+				(!empty($_POST['city'])) &&
+				(!empty($_POST['zipcode'])) &&
+				(!empty($_POST['address'])) &&
+				(!empty($_POST['number']))
+				){
+				if (isset(
+					$_POST['name'],
+					$_POST['link'],
+					$_POST['city'],
+					$_POST['zipcode'],
+					$_POST['address'],
+					$_POST['number'],
+					$_POST['comment'],
+					$_POST['visibility']
+					)) {
+					$first = $this->Company->create([
+						$_POST['name'],
+						$_POST['visibility'],
+						$_POST['link']
+					]);
+					for ($i=0;$i<count($_POST['city']);$i++){
+						$second = $this->Company->add([
+							$_POST['address'][$i],
+							$_POST['number'][$i],
+							$_POST['comment'][$i],
+							$first->id_company,
+							$_POST['city'][$i],
+							$_POST['zipcode'][$i]
+						]);
+					}
 					// echo '<pre>', var_dump($first), '</pre>';
 					if (!empty($_POST['sector'])) {
 						foreach ($_POST['sector'] as $sector) {
@@ -94,27 +124,56 @@ class CompanyController extends AppController {
 
 	public function edit() {
 		$errors = false;
-		if ((!empty($_POST['name'])) && (!empty($_POST['link'])) && (!empty($_POST['city'])) && (!empty($_POST['zipcode'])) && (!empty($_POST['address'])) && (!empty($_POST['number']))){
-			if (isset($_POST['name'],$_POST['link'],$_POST['city'],$_POST['zipcode'],$_POST['address'],$_POST['number'],$_POST['comment'])) {
-				$first = $this->Company->search($_GET['id']);
+		
+		if ((
+			!empty($_POST['name'])) &&
+			(!empty($_POST['link'])) &&
+			(!empty($_POST['city'])) &&
+			(!empty($_POST['zipcode'])) &&
+			(!empty($_POST['address'])) &&
+			(!empty($_POST['number']))
+			){
+			if (isset(
+				$_POST['name'],
+				$_POST['link'],
+				$_POST['city'],
+				$_POST['zipcode'],
+				$_POST['address'],
+				$_POST['number'],
+				$_POST['comment'],
+				$_POST['visibility']
+				)) {
 				$result = $this->Company->edit([
 					$_GET['id'],
 					$_POST['name'],
-					true,
+					$_POST['visibility'],
 					$_POST['link']					
 				]);
-				$results = $this->Company->add([
-					$_POST['address'],
-					$_POST['number'],
-					$_POST['comment'],
-					$result[0]->id_city,
-					$_GET['id'],
-					$_POST['city'],
-					$_POST['zipcode']
-				]);
-				if ($result) {
-					return $this->index();
+				$old = $this->Localities->find($_GET['id']);
+				for ($i=0;$i<count($old); $i++){
+					$old[$i] = $old[$i]->id_localities;
 				}
+				$new = $_POST['id_locality'];
+				foreach ($old as $value) {
+					if (!in_array($value, $new)) {
+						$this->Localities->delete($value);
+					}
+				}
+				$i = 0;
+				foreach ($new as $value) {
+					if (!in_array($value, $old) || $value == '') {
+						$this->Company->add([
+							$_POST['address'][$i],
+							$_POST['number'][$i],
+							$_POST['comment'][$i],
+							$_GET['id'],
+							$_POST['city'][$i],
+							$_POST['zipcode'][$i]
+						]);
+					}
+					$i++;
+				}
+				return $this->index();
 			}
 		} else {
 			$errors = true;
