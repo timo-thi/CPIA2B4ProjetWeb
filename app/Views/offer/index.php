@@ -13,7 +13,7 @@
 							<img src="https://cdn.discordapp.com/attachments/1072440528026738688/1090227429697650698/offre.png" class="img-fluid rounded-start" alt="..." >
 						</div>
 						<div class="col-md-7">
-							<div class="card-body sombre di" >
+							<div class="card-body sombre" >
 							<h5 class="card-title"> <?= $el->name ?> </h5>
 							<p class="card-text"><?php echo "{$el->company} - {$el->city} ({$el->zipcode})"; ?> </p>
 							</div>
