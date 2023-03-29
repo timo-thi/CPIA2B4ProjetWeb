@@ -1,5 +1,5 @@
 <script src="../public/js/company_create.js"></script>
-<div class="container mt-5 bg-clair rounded-3" style="width: 60vh; max-width:90%;height:max-content"><!--ou style="width: 40%; max-width=90vh;"-->
+<div class="container mt-5 bg-clair rounded-3" style="width: 60vh; max-width:90%;height:66vh"><!--ou style="width: 40%; max-width=90vh;"-->
     <h1 class="sombre text-center">Ajouter une entreprise</h1>
     <?php if ($errors):?>
         <div class="alert alert-danger">

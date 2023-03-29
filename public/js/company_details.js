@@ -12,6 +12,7 @@ $(document).ready(function(){
             $('#com-name').html(jdata.name);
             $('#com-link').attr('href', jdata.link);
             $('#com-edit').attr('onclick', 'window.location.href="?p=company.edit&id=' + jdata.id_company + '"');
+            $('#com-rate').attr('onclick', 'window.location.href="?p=company.rate&id=' + jdata.id_company + '"');
             $('#com-cesi_accepted').attr('href', "Nombres d'élèves CESI déjà acceptés en stage : " + jdata.cesi_accepted);
             if (jdata.activities.length <= 0) {
                 $('#com-activities').html('<li><p class="sombre"> Aucune activité</p></li>');

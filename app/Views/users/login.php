@@ -20,7 +20,7 @@
 		</div>
 	<?php endif; ?>
 	
-	<form action="" method="post">
+	<form method="post">	
 		<?= $form->input('username', 'Pseudo'); ?>
 		<?= $form->input('password', 'Mot de passe', ['type' => 'password']); ?>
 		<?= $form->submit(); ?>
