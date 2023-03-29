@@ -1,0 +1,16 @@
+{
+    "name": "EyeTernShip",
+    "short_name": "EyeTernShip",
+    "start_url": "public/index.php",
+    "display": "fullscreen",
+    "background-color": "#FFFAF0",
+    "theme_color": "#2C2C2C",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "app/Views/assets/imgs/oeil_fond_fffaf0.png",
+            "type": "image/png",
+            "sizes": "462x462"
+        }
+    ]
+}

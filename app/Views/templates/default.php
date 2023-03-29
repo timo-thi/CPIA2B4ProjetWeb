@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="<?= '../public/css/style.css'?>">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="<?= '../public/css/oeil.css'?>">
+  <link rel="manifest" href="../manifest.json">
 
   <link rel="shortcut icon" href="../app/Views/assets/imgs/oeil_fond_2c2c2c.png" type="image/x-icon">
   
@@ -192,5 +193,18 @@
   <!-- Footer -->
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('../public/js/serviceWorker.js')
+            .then((registration) => {
+              console.log('ServiceWorker registered with scope:', registration.scope);
+            })
+            .catch((error) => {
+              console.error('ServiceWorker registration failed:', error);
+            });
+        });
+      }
+</script>
 </body>
 </html>
