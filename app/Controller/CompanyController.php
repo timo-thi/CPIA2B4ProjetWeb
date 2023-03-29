@@ -150,10 +150,13 @@ class CompanyController extends AppController {
 					$_POST['link']					
 				]);
 				$old = $this->Localities->find($_GET['id']);
-				$new = $_POST['id_localities'];
+				for ($i=0;$i<count($old); $i++){
+					$old[$i] = $old[$i]->id_localities;
+				}
+				$new = $_POST['id_locality'];
 				foreach ($old as $value) {
-					if (!in_array($value->id_localities, $new)) {
-						$this->Localities->delete($value->id_localities);
+					if (!in_array($value, $new)) {
+						$this->Localities->delete($value);
 					}
 				}
 				$i = 0;
@@ -163,7 +166,7 @@ class CompanyController extends AppController {
 							$_POST['address'][$i],
 							$_POST['number'][$i],
 							$_POST['comment'][$i],
-							$_GET['id'][$i],
+							$_GET['id'],
 							$_POST['city'][$i],
 							$_POST['zipcode'][$i]
 						]);

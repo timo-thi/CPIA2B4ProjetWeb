@@ -30,7 +30,6 @@
                                     </div>
                                 </div>
                             </div>
-					    <button class="dropdown-toggle"></button>
                         </div>
                     </div>
                 <?php endforeach; ?>
