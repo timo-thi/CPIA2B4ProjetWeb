@@ -66,7 +66,7 @@ CREATE TABLE `address` (
 
 LOCK TABLES `address` WRITE;
 /*!40000 ALTER TABLE `address` DISABLE KEYS */;
-INSERT INTO `address` VALUES (1,'Avenue de l\'opéra','38',NULL,1),(2,'rue de Londres','8',NULL,1),(3,'quai du Président Roosevelt','37',NULL,2),(4,'place d\'Iéna','7',NULL,1),(5,'rue Ménars','6',NULL,1),(6,'rue de la Paix','10',NULL,1),(7,'Avenue Edmund Halley Rouen Madrillet Innovation','80',NULL,3),(8,'Boulevard Louis XIV','8',NULL,4),(9,'Boulevard Louis XIV','8',NULL,4),(10,'Boulevard Louis XIV','8',NULL,4),(11,'Boulevard Louis XIV','8',NULL,4),(12,'Boulevard Louis XIV','8',NULL,4),(13,'Boulevard Louis XIV','8',NULL,4),(14,'Boulevard de la Seine','93',NULL,5),(15,'Rue machin','5','Yesss stv mec',5),(16,'Rue de la renardière','15','',13),(17,'Rue de la renardière','15','',13),(18,'Array','Array','Array',14),(19,'Test','56','Ouais c\'est sympa mais une autre porte',13),(20,'Test','56','Ouais c\'est sympa mais une autre porte',13),(21,'Rue de la rép','57','',13),(22,'Test','56','Ouais c\'est sympa mais une autre porte',13),(23,'Rue de la rép','57','',13),(24,'Rue de la rép','57','',13),(25,'Non','56','Noice',15),(26,'Avenue de l\'opéra','38','',1),(27,'Avenue de l\'opéra','38','',1),(28,'Rue de la rép','6','',4);
+INSERT INTO `address` VALUES (1,'Avenue de l\'opéra','38',NULL,1),(2,'rue de Londres','8',NULL,1),(3,'quai du Président Roosevelt','37',NULL,2),(4,'place d\'Iéna','7',NULL,1),(5,'rue Ménars','6',NULL,1),(6,'rue de la Paix','10',NULL,1),(7,'Avenue Edmund Halley Rouen Madrillet Innovation','80',NULL,3),(8,'Boulevard Louis XIV','8',NULL,4),(14,'Boulevard de la Seine','93',NULL,5),(15,'Rue machin','5','Yesss stv mec',5),(16,'Rue de la renardière','15','',13),(19,'Test','56','Ouais c\'est sympa mais une autre porte',13),(21,'Rue de la rép','57','',13),(25,'Non','56','Noice',15);
 /*!40000 ALTER TABLE `address` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -93,7 +93,7 @@ CREATE TABLE `affiliated` (
 
 LOCK TABLES `affiliated` WRITE;
 /*!40000 ALTER TABLE `affiliated` DISABLE KEYS */;
-INSERT INTO `affiliated` VALUES (1,1),(2,1),(3,1),(4,1),(4,2),(5,2),(6,2),(7,2),(8,2),(9,2),(10,2),(11,2),(12,2),(13,2);
+INSERT INTO `affiliated` VALUES (4,2),(5,2),(6,2),(7,2),(8,2),(9,2),(10,2),(11,2),(12,2),(13,2);
 /*!40000 ALTER TABLE `affiliated` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -120,7 +120,7 @@ CREATE TABLE `campus` (
 
 LOCK TABLES `campus` WRITE;
 /*!40000 ALTER TABLE `campus` DISABLE KEYS */;
-INSERT INTO `campus` VALUES (1,'Rouen',3),(2,'Lille',4),(3,'Nanterre',5),(4,'Lille',4),(5,'Lille',4),(6,'Lille',4),(7,'Lille',4),(8,'Lille',4),(9,'Lille',4),(10,'Lille',4),(11,'Lille',4),(12,'Lille',4);
+INSERT INTO `campus` VALUES (1,'Rouen',3),(2,'Lille',4),(3,'Nanterre',5);
 /*!40000 ALTER TABLE `campus` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -178,7 +178,7 @@ CREATE TABLE `city` (
 
 LOCK TABLES `city` WRITE;
 /*!40000 ALTER TABLE `city` DISABLE KEYS */;
-INSERT INTO `city` VALUES (1,'Paris','75001'),(2,'Issy-les-Moulineaux','92130'),(3,'Saint-Étienne-du-Rouvray','76800'),(4,'Lille','59000'),(5,'Nanterre','92000'),(6,'Lille','59000'),(7,'Lille','59000'),(8,'Lille','59000'),(9,'Lille','59000'),(10,'Lille','59000'),(11,'Lille','59000'),(12,'Lille','59000'),(13,'Rouen','76000'),(14,'Array','Array'),(15,'BGuillaum','76230');
+INSERT INTO `city` VALUES (1,'Paris','75001'),(2,'Issy-les-Moulineaux','92130'),(3,'Saint-Étienne-du-Rouvray','76800'),(4,'Lille','59000'),(5,'Nanterre','92000'),(13,'Rouen','76000'),(15,'Bois-Guillaume','76230');
 /*!40000 ALTER TABLE `city` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -233,7 +233,7 @@ CREATE TABLE `localities` (
 
 LOCK TABLES `localities` WRITE;
 /*!40000 ALTER TABLE `localities` DISABLE KEYS */;
-INSERT INTO `localities` VALUES (1,1,1),(2,2,2),(3,3,3),(4,4,4),(5,5,5),(6,6,6),(7,5,7),(8,6,6),(9,6,6),(10,6,6),(11,6,6),(12,6,6),(13,6,6),(14,6,6),(15,15,15),(16,16,16),(17,17,17),(18,18,18),(19,20,23),(20,21,24),(21,22,25),(22,23,26),(23,24,27),(24,25,27),(25,26,1),(26,27,1);
+INSERT INTO `localities` VALUES (1,1,1),(2,2,2),(3,3,3),(4,4,4),(5,5,5),(6,6,6),(7,5,7),(8,6,6),(9,6,6),(10,6,6),(11,6,6),(12,6,6),(13,6,6),(14,6,6),(15,15,15),(16,16,16),(17,19,17),(18,19,18),(19,21,23),(20,21,24),(21,25,25),(22,25,26),(23,25,27),(24,25,27),(25,25,1),(26,25,1);
 /*!40000 ALTER TABLE `localities` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -381,7 +381,7 @@ CREATE TABLE `prom` (
 
 LOCK TABLES `prom` WRITE;
 /*!40000 ALTER TABLE `prom` DISABLE KEYS */;
-INSERT INTO `prom` VALUES (1,'Promo 2022',1),(2,'Promo 2023',2),(3,'Promo 2024',3),(4,'Promo 2023',4),(5,'Promo 2023',5),(6,'Promo 2023',6),(7,'Promo 2023',7),(8,'Promo 2023',8),(9,'Promo 2023',9),(10,'Promo 2023',10);
+INSERT INTO `prom` VALUES (1,'Promo 2022',1),(2,'Promo 2023',2),(3,'Promo 2024',3);
 /*!40000 ALTER TABLE `prom` ENABLE KEYS */;
 UNLOCK TABLES;
 
