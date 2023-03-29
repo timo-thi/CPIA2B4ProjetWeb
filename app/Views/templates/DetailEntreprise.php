@@ -1,5 +1,4 @@
 <div class="card bg-clair" style="max-width:100%; min-height:80vh">
-
     <div class="row">
         <div class="card-title ">
             <div class="container">
@@ -8,17 +7,26 @@
                         <h1 class="sombre " style="width: max-content;" id="com-name"><?= $first->name?></h1>
                     </div>
                     
+                    <?php if ($_SESSION['role'] != 3):?>
+                        <br>
+                        <div class="col-md-auto ">
+                            <div class="btn-group position-absolute end-0 mt-2" role="group" >
+                                <button class="active border-0 bg-sombre clair rounded " style="width: max-content;" onclick="window.location.href='<?= '?p=company.create&id=' . $first->id_company?>'" id="com-new_offer">Ajouter une offre</button>
+                            </div>
+                        </div>
+                    <?php endif?>
+                </div>
+                <div class="row">
                     <div class="col-md-auto ">
                     
                         <div class="btn-group position-absolute end-0 mt-2" role="group" >
-                        <button id="com-rate" class="active border-0 bg-sombre clair rounded " style="width: max-content;" onclick="window.location.href='<?= '?p=company.rate&id=' . $first->id_company?>'"><i class="fa-regular fa-star-half-stroke" style="color: #fffaf0;"></i></button>
+                        <button id="com-rate" class="active border-0 bg-sombre clair rounded " style="width: max-content;" onclick="window.location.href='<?= '?p=company.rate&id=' . $first->id_company?>'"><i class="fa-regular fa-star-half-stroke" style="color: #fffaf0;"> </i></button>
                             <?php if ($_SESSION['role'] != 3):?>
-                                <button class="active border-0 bg-sombre clair rounded " style="width: max-content;" onclick="window.location.href='<?= '?p=company.edit&id=' . $first->id_company?>'" id="com-edit"><i class="fa-regular fa-pen-to-square"></i></button>
+                                <button class="active border-0 bg-sombre clair rounded " style="width: max-content;" onclick="window.location.href='<?= '?p=company.edit&id=' . $first->id_company?>'" id="com-edit"><i class="fa-regular fa-pen-to-square"> </i></button>
                             <?php endif?>
-                            <button class="active border-0 bg-sombre clair rounded ms-2 me-3" style="width: max-content;" onclick="window.location.href='<?= ($_SESSION['role'] != 3) ? '?p=company.create' : '?p=offer.index'?>'"><?= ($_SESSION['role'] != 3) ? 'Ajouter' : 'Voir les offres'?></button>
+                            <button class="active border-0 bg-sombre clair rounded ms-2 me-3" style="width: max-content;" onclick="window.location.href='?p=offer.index'">Voir les offres</button>
                         </div>
                     </div>
-                    
                 </div>
             </div>
         </div> 

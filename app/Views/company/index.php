@@ -1,18 +1,8 @@
 <script src="../public/js/company_details.js"></script>
 <div class="container mt-3 " style="max-width:90%">
-  <?php
-  $filtre1 = 'Nom';
-  $filtre2 = 'Secteur';
-  $filtre3 = 'Localisation';
-  $filtre4 = 'Étudiants CESI acceptés';
-
-  $HideFilter1 = '';
-  $HideFilter2 = '';
-  $HideFilter3 = '';
-  $HideFilter4 = '';
-
-  require '../app/Views/templates/Filter.php';
-  ?>
+    <?php if ($_SESSION['role'] != 3):?>
+        <button class="active border-0 bg-clair sombre rounded ms-2 me-3" style="width: max-content;" onclick="window.location.href='?p=company.create'">Ajouter</button>
+    <?php endif?>
     <div class="row mt-3 position-relative dropend">
         <div class="col-6  ">
             <div class="partieScrollable">

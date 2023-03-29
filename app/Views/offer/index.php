@@ -1,18 +1,5 @@
 <script src="../public/js/offer_details.js"></script>
 <div class="container mt-3  " style="max-width:90%">
-	<?php
-	$filtre1 = 'Rémunération';
-	$filtre2 = 'Secteur';
-	$filtre3 = 'Entreprise';
-	$filtre4 = '';
-
-	$HideFilter1 = '';
-	$HideFilter2 = '';
-	$HideFilter3 = '';
-	$HideFilter4 = 'd-none';
-
-	require '../app/Views/templates/Filter.php';
-	?>
   <div class="row mt-3 position-relative">
 
     <div class=" col-6 ">

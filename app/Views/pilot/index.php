@@ -1,6 +1,6 @@
 <script src="../public/js/pilot_details.js"></script>
 <div class="container mt-3 " style="max-width:80%">
-	<button type="button" class="bg-clair border-0 rounded-3 ms-4" onclick="window.location.href='../public/index.php?p=student.create'"> Ajouter </button>
+	<button type="button" class="bg-clair border-0 rounded-3 ms-4" onclick="window.location.href='../public/index.php?p=student.create'"> Nouveau pilote </button>
 	<?php foreach ($profiles as $profile):?>
 		<div class="col mt-3">
 			<div class="card bg-clair mb-3" style="max-width: 100%;">
