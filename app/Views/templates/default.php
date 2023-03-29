@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="<?= '../public/css/style.css'?>">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="<?= '../public/css/oeil.css'?>">
+
+  <link rel="shortcut icon" href="../app/Views/assets/imgs/oeil_fond_2c2c2c.png" type="image/x-icon">
   
   <title>Recherche d'entreprise</title>
   <!-- <script src="../BootStrap/assets/vendors/jquery/jquery.min.js"></script> Jquery have to be included here to be recognized -->
@@ -102,7 +104,7 @@
               <a href="#!" class="nav-link">Crédits</a>
             </p>
             <p>
-              <a href="#!" class="nav-link">Mentions légales</a>
+              <a href="../app/Views/mentions_legales.html" target="_blank" class="nav-link">Mentions légales</a>
             </p>
             <p>
               <a href="#!" class="nav-link">Préférences cookies</a>
@@ -178,7 +180,7 @@
       <!-- Grid row -->
       <div class=" text-center p-4 clair bg-sombre">
         © 2023 Copyright:
-        <a class=" text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+        <a class=" text-reset fw-bold" href="../public/index.php?p=acceuil.index">EyeTernShip.com</a>
       </div>
     </section>
     <!-- Section: Links  -->
